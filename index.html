@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>QCAI 2027 · Chennai</title>
+  <meta name="description" content="International Conference on Quantum Computing and Artificial Intelligence (QCAI 2027), Chennai, India.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<a class="skip" href="#main">Skip to content</a>
+
+<!-- ============ HEADER / NAVIGATION ============ -->
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="#home" aria-label="QCAI home">
+      <svg class="brand-mark" viewBox="0 0 40 40" aria-hidden="true">
+        <circle cx="20" cy="20" r="17" fill="none" stroke="currentColor" stroke-width="2"/>
+        <ellipse cx="20" cy="20" rx="17" ry="6" fill="none" stroke="currentColor" stroke-width="1.2" opacity=".55"/>
+        <line x1="20" y1="20" x2="29" y2="8" stroke="var(--marigold)" stroke-width="2.4" stroke-linecap="round"/>
+        <circle cx="29" cy="8" r="3" fill="var(--marigold)"/>
+      </svg>
+      <span class="brand-text">
+        <strong data-cfg="shortName">QCAI 2027</strong>
+        <small data-cfg="city">Chennai, India</small>
+      </span>
+    </a>
+
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="siteNav">
+      <span class="sr">Menu</span><span class="bars" aria-hidden="true"></span>
+    </button>
+
+    <nav class="site-nav" id="siteNav" aria-label="Main">
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#committee">Committee</a></li>
+        <li><a href="#speakers">Speakers</a></li>
+        <li><a href="#cfp">Call for Papers</a></li>
+        <li class="has-sub">
+          <button class="sub-toggle" aria-expanded="false">Submission</button>
+          <ul class="sub">
+            <li><a href="#submission">Submission &amp; Publication</a></li>
+            <li><a href="#editorial-policy">Editorial Policy</a></li>
+            <li><a href="#ai-guidelines">Guidelines for AI Tools</a></li>
+          </ul>
+        </li>
+        <li class="has-sub">
+          <button class="sub-toggle" aria-expanded="false">Registration</button>
+          <ul class="sub">
+            <li><a href="#registration">Registration &amp; Fees</a></li>
+            <li><a href="#visa">Visa Application</a></li>
+          </ul>
+        </li>
+        <li><a href="#program">Program</a></li>
+        <li class="has-sub">
+          <button class="sub-toggle" aria-expanded="false">More</button>
+          <ul class="sub">
+            <li><a href="#venue">Venue</a></li>
+            <li><a href="#download">Downloads</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </li>
+      </ul>
+      <a class="btn btn-solid nav-cta" data-form="submission" href="#" target="_blank" rel="noopener">Submit paper</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- ============ HOME ============ -->
+<section class="page" id="page-home" data-page="home">
+
+  <div class="hero">
+    <canvas id="bloch" aria-hidden="true"></canvas>
+    <div class="wrap hero-inner">
+      <p class="eyebrow mono">|ψ⟩ = α|0⟩ + β|1⟩ &nbsp;·&nbsp; <span data-cfg="datesLabel">26–28 August 2027</span> &nbsp;·&nbsp; <span data-cfg="city">Chennai, India</span></p>
+      <h1 class="hero-title">
+        <span class="kicker" data-cfg="edition">International Conference on</span>
+        Quantum Computing <em>&amp;</em> Artificial Intelligence
+      </h1>
+      <p class="hero-lede">Three days of keynotes, paper sessions and posters on where quantum hardware, quantum algorithms and machine learning meet.</p>
+      <div class="hero-actions">
+        <a class="btn btn-solid" data-form="submission" href="#" target="_blank" rel="noopener">Submit a paper</a>
+        <a class="btn btn-line" data-form="registration" href="#" target="_blank" rel="noopener">Register now</a>
+        <a class="btn btn-text" href="#cfp">Read the call for papers →</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="notice wrap" id="noticeBar" hidden>
+    <strong>Notice</strong> <span id="noticeText"></span>
+  </div>
+
+  <div class="wrap block about">
+    <div class="about-text">
+      <p class="eyebrow">About the conference</p>
+      <h2>A meeting point for two fields that need each other</h2>
+      <p>Quantum computers promise speed-ups for optimisation, simulation and model training that classical hardware cannot reach. Machine learning, in turn, is becoming one of the best tools we have for calibrating qubits, decoding errors and controlling noisy devices.</p>
+      <p><span data-cfg="shortName">QCAI 2027</span> brings researchers, engineers and students together in <span data-cfg="city">Chennai</span> to present results on quantum machine learning, quantum algorithms, quantum communication and measurement, and the engineering problems that sit between them. The program includes invited keynotes, oral paper sessions, a poster session and an industry panel.</p>
+      <p>All accepted and presented papers will be published in the conference proceedings.</p>
+    </div>
+    <aside class="facts" aria-label="Conference at a glance">
+      <dl>
+        <div><dt>Dates</dt><dd data-cfg="datesLabel">26–28 August 2027</dd></div>
+        <div><dt>City</dt><dd data-cfg="city">Chennai, India</dd></div>
+        <div><dt>Format</dt><dd data-cfg="format">In person, with online presentation option</dd></div>
+        <div><dt>Language</dt><dd>English</dd></div>
+        <div><dt>Contact</dt><dd><span class="mono" data-cfg="email">contact@qcai2027.org</span></dd></div>
+      </dl>
+    </aside>
+  </div>
+
+  <div class="band">
+    <div class="wrap block">
+      <div class="block-head">
+        <p class="eyebrow">Important dates</p>
+        <h2>Deadlines</h2>
+        <p class="muted">All deadlines are 23:59 Indian Standard Time (UTC+05:30).</p>
+      </div>
+      <ol class="timeline" id="datesList"></ol>
+    </div>
+  </div>
+
+  <div class="wrap block countdown-block">
+    <div>
+      <p class="eyebrow">Countdown</p>
+      <h2>Until the opening session</h2>
+    </div>
+    <div class="countdown mono" id="countdown" aria-live="polite">
+      <div><span id="cd-days">000</span><small>Days</small></div>
+      <div><span id="cd-hours">00</span><small>Hours</small></div>
+      <div><span id="cd-mins">00</span><small>Minutes</small></div>
+      <div><span id="cd-secs">00</span><small>Seconds</small></div>
+    </div>
+  </div>
+
+  <div class="wrap block">
+    <div class="block-head">
+      <p class="eyebrow">Conference topics</p>
+      <h2>Tracks</h2>
+      <p class="muted">Topics include, but are not limited to, the following. Full scope on the <a href="#cfp">Call for Papers</a> page.</p>
+    </div>
+    <div class="tracks" id="tracksHome"></div>
+  </div>
+
+  <div class="band">
+    <div class="wrap block">
+      <div class="block-head">
+        <p class="eyebrow">Partners</p>
+        <h2>Organised &amp; supported by</h2>
+      </div>
+      <div class="sponsors" id="sponsors"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ COMMITTEE ============ -->
+<section class="page" id="page-committee" data-page="committee" hidden>
+  <div class="page-head wrap">
+    <p class="eyebrow mono">⟨committee|</p>
+    <h1>Committee</h1>
+    <p class="muted">The people responsible for the program, peer review and organisation of <span data-cfg="shortName">QCAI 2027</span>.</p>
+  </div>
+  <div class="wrap block" id="committeeList"></div>
+</section>
+
+<!-- ============ SPEAKERS ============ -->
+<section class="page" id="page-speakers" data-page="speakers" hidden>
+  <div class="page-head wrap">
+    <p class="eyebrow mono">⟨speakers|</p>
+    <h1>Keynote speakers</h1>
+    <p class="muted">More speakers will be announced as they confirm.</p>
+  </div>
+  <div class="wrap block speakers" id="speakersList"></div>
+</section>
+
+<!-- ============ CALL FOR PAPERS ============ -->
+<section class="page" id="page-cfp" data-page="cfp" hidden>
+  <div class="page-head wrap">
+    <p class="eyebrow mono">⟨call for papers|</p>
+    <h1>Call for Papers</h1>
+    <p class="muted">We invite original, unpublished research papers, review papers and short communications in the areas below.</p>
+  </div>
+  <div class="wrap block">
+    <div class="tracks tracks-full" id="tracksFull"></div>
+  </div>
+  <div class="wrap block two-col">
+    <div class="prose">
+      <h2>Paper types</h2>
+      <ul class="clean">
+        <li><strong>Full paper</strong> — 6 to 10 pages, original research with results.</li>
+        <li><strong>Short paper</strong> — 4 to 5 pages, work in progress or a focused result.</li>
+        <li><strong>Poster abstract</strong> — 1 to 2 pages, presented in the poster session.</li>
+      </ul>
+      <p>Papers must be written in English and follow the conference template from the <a href="#download">Downloads</a> page.</p>
+    </div>
+    <div class="cta-card">
+      <h3>Ready to submit?</h3>
+      <p>Submissions are collected through our online form. Have your PDF, author list and abstract ready.</p>
+      <a class="btn btn-solid" data-form="submission" href="#" target="_blank" rel="noopener">Open submission form</a>
+      <a class="btn btn-text" href="#submission">Submission guidelines →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SUBMISSION & PUBLICATION ============ -->
+<section class="page" id="page-submission" data-page="submission" hidden>
+  <div class="page-head wrap">
+    <p class="eyebrow mono">⟨submission|</p>
+    <h1>Submission &amp; Publication</h1>
+  </div>
+  <div class="wrap block two-col">
+    <div class="prose">
+      <h2>How to submit</h2>
+      <ol class="steps">
+        <li>Download the paper template (Word or LaTeX) from the <a href="#download">Downloads</a> page.</li>
+        <li>Prepare your manuscript as a PDF. Remove author names and affiliations for double-blind review.</li>
+        <li>Open the <a data-form="submission" href="#" target="_blank" rel="noopener">submission form</a> and enter the title, abstract, keywords, track and all author details.</li>
+        <li>Upload your PDF in the form. File uploads in Google Forms require signing in with a Google account.</li>
+        <li>You will receive a confirmation email. Contact <span class="mono" data-cfg="email">contact@qcai2027.org</span> if it does not arrive within 48 hours.</li>
+      </ol>
+
+      <h2>Review process</h2>
+      <p>Every submission is checked for scope and similarity, then reviewed double-blind by at least two members of the Technical Program Committee. Decisions are sent by email on the notification date.</p>
+
+      <h2>Publication</h2>
+      <p>Accepted and registered papers presented at the conference will be published in the conference proceedings and submitted for indexing. At least one author of each accepted paper must register and present the paper.</p>
+      <p class="muted small">Replace this paragraph with your confirmed publisher and indexing details once agreed.</p>
+    </div>
+    <aside class="cta-card sticky">
+      <h3>Submission checklist</h3>
+      <ul class="checks">
+        <li>Uses the conference template</li>
+        <li>Within the page limit</li>
+        <li>Author details removed from the PDF</li>
+        <li>Similarity index under 20%</li>
+        <li>References formatted consistently</li>
+      </ul>
+      <a class="btn btn-solid" data-form="submission" href="#" target="_blank" rel="noopener">Submit paper</a>
+    </aside>
+  </div>
+</section>
+
+<!-- ============ EDITORIAL POLICY ============ -->
+<section class="page" id="page-editorial-policy" data-page="editorial-policy" hidden>
+  <div class="page-head wrap">
+    <p class="eyebrow mono">⟨editorial policy|</p>
+    <h1>Editorial Policy</h1>
+  </div>
+  <div class="wrap block prose narrow">
+    <h2>Originality</h2>
+    <p>Submissions must be original work that has not been published and is not under review elsewhere. Every manuscript is screened with plagiarism-detection software. Papers with a similarity index above 20%, or with copied text, figures or data, are rejected without review.</p>
+    <h2>Peer review</h2>
+    <p>We use double-blind review. Reviewers do not know the authors' identities and authors do not know the reviewers'. Reviewers are asked to declare any conflict of interest and to decline papers they cannot assess fairly.</p>
+    <h2>Authorship</h2>
+    <p>Everyone listed as an author must have made a substantial contribution to the work and must approve the final version. Changes to the author list after acceptance need written approval from all authors.</p>
+    <h2>Conflicts of interest</h2>
+    <p>Authors must disclose funding sources and any financial or personal relationship that could be seen as influencing the work.</p>
+    <h2>Research ethics</h2>
+    <p>Data must be reported accurately. Fabrication, falsification and selective reporting are grounds for rejection or, after publication, retraction.</p>
+    <h2>Corrections and retractions</h2>
+    <p>If an author finds a significant error in a published paper, they should contact the organisers promptly so a correction or retraction can be issued.</p>
+  </div>
+</section>
+
+<!-- ============ AI TOOLS GUIDELINES ============ -->
+<section class="page" id="page-ai-guidelines" data-page="ai-guidelines" hidden>
+  <div class="page-head wrap">
+    <p class="eyebrow mono">⟨AI tools|</p>
+    <h1>Guidelines for AI Tools</h1>
+    <p class="muted">How authors and reviewers may use generative AI tools such as large language models.</p>
+  </div>
+  <div class="wrap block two-col">
+    <div class="prose">
+      <h2>For authors</h2>
+      <ul class="clean">
+        <li>AI tools cannot be listed as authors. Authors are fully responsible for the content of their paper.</li>
+        <li>Using AI for language editing or formatting is allowed and does not need to be declared.</li>
+        <li>Any other use, such as drafting text, generating code, analysing data or creating figures, must be described in the Methods or Acknowledgements section, with the tool name and version.</li>
+        <li>AI-generated images or figures that present experimental results are not allowed.</li>
+        <li>Authors must check every reference and fact produced with the help of an AI tool.</li>
+      </ul>
+    </div>
+    <div class="prose">
+      <h2>For reviewers</h2>
+      <ul class="clean">
+        <li>Manuscripts under review are confidential. Do not upload them, in full or in part, to any AI tool.</li>
+        <li>Reviewers may use AI to improve the language of their own review, but the assessment must be their own.</li>
+        <li>Report any suspected undisclosed AI use to the Program Chairs.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ REGISTRATION ============ -->
+<section class="page" id="page-registration" data-page="registration" hidden>
+  <div class="page-head wrap">
+    <p class="eyebrow mono">⟨registration|</p>
+    <h1>Registration &amp; Fees</h1>
+    <p class="muted">Early-bird rates apply until <span data-cfg="earlyBirdLabel">15 June 2027</span>.</p>
+  </div>
+  <div class="wrap block">
+    <div class="fee-switch" role="group" aria-label="Currency">
+      <button class="chip is-on" data-cur="inr" aria-pressed="true">Indian participants (INR)</button>
+      <button class="chip" data-cur="usd" aria-pressed="false">International participants (USD)</button>
+    </div>
+    <div class="table-wrap">
+      <table class="fees">
+        <thead><tr><th scope="col">Category</th><th scope="col">Early bird</th><th scope="col">Regular</th></tr></thead>
+        <tbody id="feeBody"></tbody>
+      </table>
+    </div>
+    <p class="muted small">Fees include conference kit, access to all sessions, lunch and tea breaks, and a certificate. Author registration covers one paper of up to 8 pages; each extra page is charged separately.</p>
+  </div>
+  <div class="wrap block two-col">
+    <div class="prose">
+      <h2>How to register</h2>
+      <ol class="steps">
+        <li>Pay the fee for your category to the account below, or with the payment link sent in your acceptance email.</li>
+        <li>Keep the transaction reference number.</li>
+        <li>Fill in the <a data-form="registration" href="#" target="_blank" rel="noopener">registration form</a> with your details, paper ID (for authors) and payment reference, and upload the payment receipt.</li>
+        <li>You will receive a confirmation email within three working days.</li>
+      </ol>
+      <h2>Payment details</h2>
+      <dl class="kv" id="bankDetails"></dl>
+      <h2>Cancellation</h2>
+      <p>Cancellations received before the early-bird deadline are refunded minus a 20% processing fee. Later cancellations are not refunded, but registration can be transferred to a colleague.</p>
+    </div>
+    <aside class="cta-card sticky">
+      <h3>Register online</h3>
+      <p>One form for authors and listeners. Have your payment reference ready.</p>
+      <a class="btn btn-solid" data-form="registration" href="#" target="_blank" rel="noopener">Open registration form</a>
+      <a class="btn btn-text" href="#visa">Need a visa letter? →</a>
+    </aside>
+  </div>
+</section>
+
+<!-- ============ VISA ============ -->
+<section class="page" id="page-visa" data-page="visa" hidden>
+  <div class="page-head wrap">
+    <p class="eyebrow mono">⟨visa|</p>
+    <h1>Visa Application</h1>
+  </div>
+  <div class="wrap block two-col">
+    <div class="prose">
+      <p>Most international participants need a visa to enter India. Many nationalities can apply for an <strong>e-Conference Visa</strong> online through the official Government of India portal. Check the requirements for your country well in advance.</p>
+      <h2>Invitation letter</h2>
+      <p>We issue invitation letters to registered participants only. To request one:</p>
+      <ol class="steps">
+        <li>Complete your registration and payment.</li>
+        <li>Fill in the <a data-form="visa" href="#" target="_blank" rel="noopener">invitation letter request form</a> with your name exactly as in your passport, passport number, nationality and dates of travel.</li>
+        <li>We will email the signed letter within five working days.</li>
+      </ol>
+      <p class="muted small">The invitation letter supports your application but does not guarantee a visa. The organisers cannot contact embassies on your behalf or refund fees if a visa is refused.</p>
+    </div>
+    <aside class="cta-card">
+      <h3>Useful links</h3>
+      <ul class="links">
+        <li><a href="https://indianvisaonline.gov.in/" target="_blank" rel="noopener">Indian Visa Online (official portal)</a></li>
+      </ul>
+      <a class="btn btn-solid" data-form="visa" href="#" target="_blank" rel="noopener">Request invitation letter</a>
+    </aside>
+  </div>
+</section>
+
+<!-- ============ PROGRAM ============ -->
+<section class="page" id="page-program" data-page="program" hidden>
+  <div class="page-head wrap">
+    <p class="eyebrow mono">⟨program|</p>
+    <h1>Program</h1>
+    <p class="muted">Tentative schedule. All times are IST (UTC+05:30). The detailed session list will be published after paper notification.</p>
+  </div>
+  <div class="wrap block">
+    <div class="tabs" role="tablist" id="dayTabs"></div>
+    <div id="dayPanel" role="tabpanel"></div>
+  </div>
+</section>
+
+<!-- ============ VENUE ============ -->
+<section class="page" id="page-venue" data-page="venue" hidden>
+  <div class="page-head wrap">
+    <p class="eyebrow mono">⟨venue|</p>
+    <h1>Venue</h1>
+  </div>
+  <div class="wrap block two-col">
+    <div class="prose">
+      <h2 data-cfg="venueName">Conference Hall, Institute Campus</h2>
+      <p class="mono" data-cfg="venueAddress">Address line, Chennai, Tamil Nadu 600 000, India</p>
+      <p><a class="btn btn-line" data-cfg-href="mapUrl" href="#" target="_blank" rel="noopener">Open in Google Maps</a></p>
+      <h2>Getting there</h2>
+      <ul class="clean">
+        <li><strong>By air</strong> — Chennai International Airport (MAA) has direct flights from most Indian cities and many international hubs.</li>
+        <li><strong>By rail</strong> — Chennai Central (MAS) and Chennai Egmore (MS) connect to all major cities.</li>
+        <li><strong>In the city</strong> — Chennai Metro Rail runs from the airport to the city centre. App-based taxis and auto-rickshaws are widely available.</li>
+      </ul>
+      <h2>Weather</h2>
+      <p>Late August in Chennai is warm and humid, typically 27–35 °C, with occasional evening showers. Light cotton clothing and an umbrella are recommended.</p>
+    </div>
+    <aside class="cta-card">
+      <h3>Accommodation</h3>
+      <p>A list of nearby hotels with conference rates will be shared with registered participants. Book early; August is a busy travel month.</p>
+    </aside>
+  </div>
+</section>
+
+<!-- ============ DOWNLOADS ============ -->
+<section class="page" id="page-download" data-page="download" hidden>
+  <div class="page-head wrap">
+    <p class="eyebrow mono">⟨downloads|</p>
+    <h1>Downloads</h1>
+    <p class="muted">Templates and forms for authors and participants.</p>
+  </div>
+  <div class="wrap block">
+    <ul class="downloads" id="downloadList"></ul>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section class="page" id="page-contact" data-page="contact" hidden>
+  <div class="page-head wrap">
+    <p class="eyebrow mono">⟨contact|</p>
+    <h1>Contact</h1>
+  </div>
+  <div class="wrap block contact-grid" id="contactList"></div>
+</section>
+
+<!-- Privacy / terms (simple pages) -->
+<section class="page" id="page-privacy" data-page="privacy" hidden>
+  <div class="page-head wrap"><h1>Privacy Policy</h1></div>
+  <div class="wrap block prose narrow">
+    <p>This website does not use tracking or advertising cookies. It stores one small value in your browser to remember that you dismissed the notice banner.</p>
+    <p>Information you enter in our submission, registration and visa forms is collected through Google Forms and used only to run the conference: reviewing papers, issuing confirmations, certificates and invitation letters, and contacting you about the event. It is not sold or shared with third parties except the proceedings publisher (for accepted papers).</p>
+    <p>To have your data corrected or deleted, email <span class="mono" data-cfg="email">contact@qcai2027.org</span>.</p>
+  </div>
+</section>
+<section class="page" id="page-terms" data-page="terms" hidden>
+  <div class="page-head wrap"><h1>Terms</h1></div>
+  <div class="wrap block prose narrow">
+    <p>The organisers may change the program, speakers or venue if necessary. Registered participants will be informed by email of any significant change.</p>
+    <p>By submitting a paper, authors confirm the work is their own and agree to transfer publication rights to the proceedings publisher if the paper is accepted.</p>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site-footer">
+  <div class="wrap footer-grid">
+    <div>
+      <p class="footer-name"><strong data-cfg="shortName">QCAI 2027</strong></p>
+      <p class="muted small" data-cfg="fullName">International Conference on Quantum Computing and Artificial Intelligence</p>
+      <p class="muted small"><span data-cfg="datesLabel">26–28 August 2027</span> · <span data-cfg="city">Chennai, India</span></p>
+    </div>
+    <div>
+      <p class="footer-head">Authors</p>
+      <ul class="footer-links">
+        <li><a href="#cfp">Call for Papers</a></li>
+        <li><a href="#submission">Submission &amp; Publication</a></li>
+        <li><a href="#editorial-policy">Editorial Policy</a></li>
+        <li><a href="#download">Downloads</a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="footer-head">Attend</p>
+      <ul class="footer-links">
+        <li><a href="#registration">Registration</a></li>
+        <li><a href="#visa">Visa Application</a></li>
+        <li><a href="#program">Program</a></li>
+        <li><a href="#venue">Venue</a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="footer-head">Contact</p>
+      <p class="mono small"><span data-cfg="email">contact@qcai2027.org</span></p>
+      <button class="btn btn-small" id="copyEmail" type="button">Copy email</button>
+    </div>
+  </div>
+  <div class="wrap footer-base small muted">
+    <span>© <span id="year">2027</span> <span data-cfg="shortName">QCAI 2027</span>. All rights reserved.</span>
+    <span><a href="#privacy">Privacy Policy</a> · <a href="#terms">Terms</a></span>
+  </div>
+</footer>
+
+<!-- Cookie / storage notice -->
+<div class="consent" id="consent" hidden>
+  <p>This site uses only essential browser storage to remember your choices. No tracking.</p>
+  <div><button class="btn btn-small btn-solid" id="consentOk" type="button">OK</button></div>
+</div>
+
+<button class="to-top" id="toTop" type="button" aria-label="Back to top" hidden>↑</button>
+
+<script src="script.js"></script>
+</body>
+</html>

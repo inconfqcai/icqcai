@@ -1,0 +1,477 @@
+/* ==========================================================================
+   QCAI 2027 — site script
+   --------------------------------------------------------------------------
+   EDIT THIS CONFIG BLOCK to update the site. Everything below it (dates,
+   fees, committee, speakers, program, downloads, Google Form links) is
+   rendered from this data, so you rarely need to touch the HTML.
+   ========================================================================== */
+
+const CONFIG = {
+  shortName: "QCAI 2027",
+  fullName: "International Conference on Quantum Computing and Artificial Intelligence",
+  edition: "1st International Conference on",
+  city: "Chennai, India",
+  datesLabel: "26–28 August 2027",
+  format: "In person, with online presentation option",
+  email: "contact@qcai2027.org",
+
+  // Opening session — used by the countdown (IST = +05:30)
+  conferenceStart: "2027-08-26T09:00:00+05:30",
+
+  // Optional banner under the hero. Leave "" to hide.
+  notice: "",
+
+  // ---- GOOGLE FORM LINKS (paste your form URLs here) ----
+  forms: {
+    submission:   "https://forms.gle/REPLACE-WITH-SUBMISSION-FORM",
+    registration: "https://forms.gle/REPLACE-WITH-REGISTRATION-FORM",
+    visa:         "https://forms.gle/REPLACE-WITH-VISA-LETTER-FORM"
+  },
+
+  // ---- IMPORTANT DATES (YYYY-MM-DD) ----
+  importantDates: [
+    { label: "Full paper submission",  date: "2027-04-15" },
+    { label: "Notification of acceptance", date: "2027-05-30" },
+    { label: "Camera-ready paper & early-bird registration", date: "2027-06-15" },
+    { label: "Conference",             date: "2027-08-26", end: "2027-08-28", event: true }
+  ],
+  earlyBirdLabel: "15 June 2027",
+
+  // ---- TOPICS / TRACKS ----
+  tracks: [
+    {
+      ket: "|0⟩", title: "Quantum Computing & Algorithms",
+      topics: [
+        "Quantum algorithms and complexity",
+        "Variational quantum algorithms (VQE, QAOA)",
+        "Quantum error correction and fault tolerance",
+        "Quantum control and calibration",
+        "Quantum compilers and program synthesis",
+        "Quantum hardware: superconducting, trapped-ion, photonic, neutral-atom",
+        "Quantum simulation of physical and chemical systems"
+      ]
+    },
+    {
+      ket: "|1⟩", title: "Quantum Machine Learning & AI",
+      topics: [
+        "Quantum machine learning",
+        "Quantum neural networks and their construction",
+        "Quantum reinforcement learning",
+        "Quantum data clustering and quantum PCA",
+        "Quantum natural language processing",
+        "Quantum–classical hybrid computing",
+        "Machine learning for quantum error decoding and control"
+      ]
+    },
+    {
+      ket: "|+⟩", title: "Quantum Communication, Measurement & Security",
+      topics: [
+        "Quantum key distribution and quantum networks",
+        "Quantum sensing and metrology",
+        "Quantum measurement and quantum interference",
+        "Quantum nonlinear optics",
+        "Post-quantum cryptography",
+        "Quantum AI security",
+        "Quantum intelligent signal processing"
+      ]
+    }
+  ],
+
+  // ---- SPONSORS / ORGANISERS (logo: path to an image, or leave "") ----
+  sponsors: [
+    { role: "Organised by",  name: "Your Institution / Department", logo: "" },
+    { role: "Technical co-sponsor", name: "Professional society (to be confirmed)", logo: "" },
+    { role: "Supported by",  name: "Industry partner (to be confirmed)", logo: "" },
+    { role: "Publication partner", name: "Proceedings publisher (to be confirmed)", logo: "" }
+  ],
+
+  // ---- COMMITTEE (replace placeholders with real names) ----
+  committee: [
+    { group: "Patron", people: [
+      { name: "Prof. Full Name", aff: "Director, Your Institution, Chennai" } ] },
+    { group: "General Chairs", people: [
+      { name: "Prof. Full Name", aff: "Department, Institution, Country" },
+      { name: "Prof. Full Name", aff: "Department, Institution, Country" } ] },
+    { group: "Program Chairs", people: [
+      { name: "Dr. Full Name", aff: "Department, Institution, Country" },
+      { name: "Dr. Full Name", aff: "Department, Institution, Country" } ] },
+    { group: "Publication Chair", people: [
+      { name: "Dr. Full Name", aff: "Department, Institution, Country" } ] },
+    { group: "Organising Committee", people: [
+      { name: "Dr. Full Name", aff: "Department, Your Institution" },
+      { name: "Dr. Full Name", aff: "Department, Your Institution" },
+      { name: "Dr. Full Name", aff: "Department, Your Institution" } ] },
+    { group: "Technical Program Committee", people: [
+      { name: "Dr. Full Name", aff: "Institution, Country" },
+      { name: "Dr. Full Name", aff: "Institution, Country" },
+      { name: "Dr. Full Name", aff: "Institution, Country" },
+      { name: "Dr. Full Name", aff: "Institution, Country" },
+      { name: "Dr. Full Name", aff: "Institution, Country" },
+      { name: "Dr. Full Name", aff: "Institution, Country" } ] }
+  ],
+
+  // ---- SPEAKERS (photo: path to an image, or leave "" for initials) ----
+  speakers: [
+    { role: "Keynote", name: "Prof. Full Name", aff: "Institution, Country", talk: "Talk title to be announced", photo: "" },
+    { role: "Keynote", name: "Prof. Full Name", aff: "Institution, Country", talk: "Talk title to be announced", photo: "" },
+    { role: "Keynote", name: "Dr. Full Name",   aff: "Institution, Country", talk: "Talk title to be announced", photo: "" },
+    { role: "Invited", name: "Dr. Full Name",   aff: "Company, Country",     talk: "Talk title to be announced", photo: "" }
+  ],
+
+  // ---- REGISTRATION FEES (sample values — set your own) ----
+  fees: [
+    { cat: "Student author",            note: "Proof of enrolment required", inr: [6000, 7500],  usd: [150, 200] },
+    { cat: "Academic author",           note: "Faculty and researchers",     inr: [9000, 11000], usd: [250, 300] },
+    { cat: "Industry author",           note: "",                            inr: [12000, 14000], usd: [350, 400] },
+    { cat: "Listener / attendee",       note: "No paper presentation",       inr: [3000, 4000],  usd: [80, 120] },
+    { cat: "Online presentation",       note: "Virtual session, any author", inr: [5000, 6500],  usd: [120, 160] },
+    { cat: "Extra page (beyond 8)",     note: "Per page",                    inr: [800, 800],    usd: [20, 20] }
+  ],
+
+  // ---- PAYMENT DETAILS (shown on the registration page) ----
+  bank: [
+    ["Account name", "Your Institution — QCAI 2027"],
+    ["Bank", "Bank name, branch"],
+    ["Account no.", "XXXXXXXXXXXX"],
+    ["IFSC", "XXXX0000000"],
+    ["SWIFT (international)", "XXXXINBBXXX"]
+  ],
+
+  // ---- PROGRAM ----
+  program: [
+    { day: "Day 1", date: "Thu, 26 Aug", items: [
+      ["08:30 – 09:30", "Registration and welcome kit", "Main lobby", ""],
+      ["09:30 – 10:15", "Inauguration", "Main auditorium", ""],
+      ["10:15 – 11:00", "Keynote 1", "Main auditorium", "keynote"],
+      ["11:00 – 11:20", "Tea break", "", "break"],
+      ["11:20 – 13:00", "Paper session 1A: Quantum algorithms · 1B: Quantum ML", "Halls A & B", "session"],
+      ["13:00 – 14:00", "Lunch", "", "break"],
+      ["14:00 – 14:45", "Keynote 2", "Main auditorium", "keynote"],
+      ["14:45 – 16:30", "Paper session 2A · 2B", "Halls A & B", "session"],
+      ["16:30 – 17:30", "Poster session with tea", "Exhibition area", ""]
+    ]},
+    { day: "Day 2", date: "Fri, 27 Aug", items: [
+      ["09:30 – 10:15", "Keynote 3", "Main auditorium", "keynote"],
+      ["10:15 – 11:00", "Invited talk", "Main auditorium", "keynote"],
+      ["11:00 – 11:20", "Tea break", "", "break"],
+      ["11:20 – 13:00", "Paper session 3A: Quantum communication · 3B: Hybrid computing", "Halls A & B", "session"],
+      ["13:00 – 14:00", "Lunch", "", "break"],
+      ["14:00 – 15:30", "Industry panel: Building useful quantum–AI systems", "Main auditorium", ""],
+      ["15:30 – 17:00", "Online paper sessions", "Virtual rooms", "session"],
+      ["19:00 – 21:00", "Conference dinner", "To be announced", ""]
+    ]},
+    { day: "Day 3", date: "Sat, 28 Aug", items: [
+      ["09:30 – 11:00", "Paper session 4A · 4B", "Halls A & B", "session"],
+      ["11:00 – 11:20", "Tea break", "", "break"],
+      ["11:20 – 12:30", "Tutorial: Programming a quantum computer", "Lab block", ""],
+      ["12:30 – 13:15", "Best paper awards and valedictory", "Main auditorium", ""],
+      ["13:15 – 14:15", "Lunch", "", "break"]
+    ]}
+  ],
+
+  // ---- VENUE ----
+  venueName: "Conference Hall, Institute Campus",
+  venueAddress: "Address line, Chennai, Tamil Nadu 600 000, India",
+  mapUrl: "https://maps.google.com/?q=Chennai",
+
+  // ---- DOWNLOADS (put files in a /downloads folder next to index.html) ----
+  downloads: [
+    { ext: "docx", name: "Paper template (Word)",  desc: "Two-column conference format", href: "downloads/QCAI2027-template.docx" },
+    { ext: "zip",  name: "Paper template (LaTeX)", desc: "Class file and example .tex",  href: "downloads/QCAI2027-latex.zip" },
+    { ext: "pdf",  name: "Copyright transfer form", desc: "Sign and upload with camera-ready paper", href: "downloads/QCAI2027-copyright.pdf" },
+    { ext: "pptx", name: "Presentation template",  desc: "16:9 slides for oral sessions", href: "downloads/QCAI2027-slides.pptx" },
+    { ext: "pdf",  name: "Poster guidelines",      desc: "A0 portrait, layout tips",     href: "downloads/QCAI2027-poster.pdf" },
+    { ext: "pdf",  name: "Conference brochure",    desc: "Overview to share",            href: "downloads/QCAI2027-brochure.pdf" }
+  ],
+
+  // ---- CONTACTS ----
+  contacts: [
+    { role: "General enquiries", name: "Conference secretariat", value: "contact@qcai2027.org" },
+    { role: "Paper submission", name: "Program Chairs", value: "papers@qcai2027.org" },
+    { role: "Registration & visa", name: "Organising Committee", value: "registration@qcai2027.org" },
+    { role: "Phone", name: "Conference office (Mon–Fri, 10:00–17:00 IST)", value: "+91 00000 00000" }
+  ]
+};
+
+/* ==========================================================================
+   Below this line: site logic. No edits needed for content changes.
+   ========================================================================== */
+
+const $ = (s, r = document) => r.querySelector(s);
+const $$ = (s, r = document) => Array.from(r.querySelectorAll(s));
+const esc = (v) => String(v ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+const store = {
+  get(k) { try { return localStorage.getItem(k); } catch (e) { return null; } },
+  set(k, v) { try { localStorage.setItem(k, v); } catch (e) { /* storage unavailable */ } }
+};
+const MONTHS = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+const parseDay = (s) => { const [y, m, d] = s.split("-").map(Number); return new Date(y, m - 1, d); };
+const fmtDay = (s) => { const d = parseDay(s); return `${d.getDate()} ${MONTHS[d.getMonth()]} ${d.getFullYear()}`; };
+
+/* ---------- fill config text ---------- */
+function fillConfig() {
+  $$("[data-cfg]").forEach((el) => {
+    const v = CONFIG[el.dataset.cfg];
+    if (v != null) el.textContent = v;
+  });
+  $$("[data-cfg-href]").forEach((el) => { const v = CONFIG[el.dataset.cfgHref]; if (v) el.href = v; });
+  $$("[data-form]").forEach((el) => {
+    const url = CONFIG.forms[el.dataset.form];
+    if (url) el.href = url;
+    if (!url || url.includes("REPLACE-WITH")) el.title = "Form link not set yet — add it in script.js (CONFIG.forms)";
+  });
+  $("#year").textContent = new Date().getFullYear();
+  document.title = `${CONFIG.shortName} · ${CONFIG.city.split(",")[0]}`;
+  if (CONFIG.notice) { $("#noticeText").textContent = CONFIG.notice; $("#noticeBar").hidden = false; }
+}
+
+/* ---------- important dates ---------- */
+function renderDates() {
+  const today = new Date(); today.setHours(0, 0, 0, 0);
+  let nextFound = false;
+  $("#datesList").innerHTML = CONFIG.importantDates.map((d) => {
+    const endDay = parseDay(d.end || d.date);
+    const past = endDay < today;
+    let cls, state;
+    if (past) { cls = "is-past"; state = d.event ? "Held" : "Closed"; }
+    else if (!nextFound) { cls = "is-next"; state = d.event ? "Coming up" : "Next deadline"; nextFound = true; }
+    else { cls = ""; state = d.event ? "Event" : "Upcoming"; }
+    if (d.event) cls += " is-event";
+    const dateText = d.end
+      ? (() => { const a = parseDay(d.date), b = parseDay(d.end); return a.getMonth() === b.getMonth()
+          ? `${a.getDate()}–${b.getDate()} ${MONTHS[a.getMonth()]} ${a.getFullYear()}` : `${fmtDay(d.date)} – ${fmtDay(d.end)}`; })()
+      : fmtDay(d.date);
+    return `<li class="${cls.trim()}"><div class="t-label">${esc(d.label)}</div><div class="t-date">${esc(dateText)}</div><span class="t-state">${state}</span></li>`;
+  }).join("");
+}
+
+/* ---------- countdown ---------- */
+function startCountdown() {
+  const target = new Date(CONFIG.conferenceStart).getTime();
+  const pad = (n, l = 2) => String(n).padStart(l, "0");
+  const tick = () => {
+    let diff = Math.max(0, target - Date.now());
+    const d = Math.floor(diff / 864e5); diff -= d * 864e5;
+    const h = Math.floor(diff / 36e5);  diff -= h * 36e5;
+    const m = Math.floor(diff / 6e4);   diff -= m * 6e4;
+    const s = Math.floor(diff / 1e3);
+    $("#cd-days").textContent = pad(d, 3);
+    $("#cd-hours").textContent = pad(h);
+    $("#cd-mins").textContent = pad(m);
+    $("#cd-secs").textContent = pad(s);
+  };
+  tick(); setInterval(tick, 1000);
+}
+
+/* ---------- tracks ---------- */
+function renderTracks() {
+  const card = (t, limit) => `<article class="track"><div class="track-ket">${esc(t.ket)}</div><h3>${esc(t.title)}</h3>
+    <ul>${t.topics.slice(0, limit).map((x) => `<li>${esc(x)}</li>`).join("")}</ul></article>`;
+  $("#tracksHome").innerHTML = CONFIG.tracks.map((t) => card(t, 5)).join("");
+  $("#tracksFull").innerHTML = CONFIG.tracks.map((t) => card(t)).join("");
+}
+
+/* ---------- sponsors ---------- */
+function renderSponsors() {
+  $("#sponsors").innerHTML = CONFIG.sponsors.map((s) => `<div class="sponsor"><span class="role">${esc(s.role)}</span>
+    <div class="logo">${s.logo ? `<img src="${esc(s.logo)}" alt="${esc(s.name)} logo">` : `<span class="logo-ph">Logo</span>`}</div>
+    <span class="name">${esc(s.name)}</span></div>`).join("");
+}
+
+/* ---------- committee ---------- */
+function renderCommittee() {
+  $("#committeeList").innerHTML = CONFIG.committee.map((g) => `<div class="committee-group"><h2>${esc(g.group)}</h2>
+    <ul class="people">${g.people.map((p) => `<li><div class="p-name">${esc(p.name)}</div><div class="p-aff">${esc(p.aff)}</div></li>`).join("")}</ul></div>`).join("");
+}
+
+/* ---------- speakers ---------- */
+function renderSpeakers() {
+  const kets = ["|0⟩", "|1⟩", "|+⟩", "|−⟩", "|i⟩", "|ψ⟩"];
+  const initials = (n) => n.replace(/^(Prof\.|Dr\.|Mr\.|Ms\.|Mrs\.)\s*/i, "").split(/\s+/).map((w) => w[0]).slice(0, 2).join("").toUpperCase();
+  $("#speakersList").innerHTML = CONFIG.speakers.map((s, i) => `<article class="speaker">
+    <div class="photo" data-ket="${kets[i % kets.length]}">${s.photo ? `<img src="${esc(s.photo)}" alt="${esc(s.name)}">` : esc(initials(s.name))}</div>
+    <div class="body"><span class="s-role">${esc(s.role)} speaker</span><h3 class="s-name">${esc(s.name)}</h3>
+    <span class="s-aff">${esc(s.aff)}</span><p class="s-talk"><strong>Talk:</strong> ${esc(s.talk)}</p></div></article>`).join("");
+}
+
+/* ---------- fees ---------- */
+function renderFees(cur = "inr") {
+  const fmt = (n) => cur === "inr" ? "₹" + n.toLocaleString("en-IN") : "US$" + n.toLocaleString("en-US");
+  $("#feeBody").innerHTML = CONFIG.fees.map((f) => `<tr><td><strong>${esc(f.cat)}</strong>${f.note ? `<span class="note">${esc(f.note)}</span>` : ""}</td>
+    <td class="amt">${fmt(f[cur][0])}</td><td class="amt">${fmt(f[cur][1])}</td></tr>`).join("");
+  $$(".fee-switch .chip").forEach((b) => { const on = b.dataset.cur === cur; b.classList.toggle("is-on", on); b.setAttribute("aria-pressed", on); });
+  $("#bankDetails").innerHTML = CONFIG.bank.map(([k, v]) => `<dt>${esc(k)}</dt><dd>${esc(v)}</dd>`).join("");
+}
+
+/* ---------- program ---------- */
+function renderProgram(idx = 0) {
+  $("#dayTabs").innerHTML = CONFIG.program.map((d, i) => `<button class="tab" role="tab" id="tab-${i}" aria-selected="${i === idx}" data-day="${i}">${esc(d.day)}<small>${esc(d.date)}</small></button>`).join("");
+  const day = CONFIG.program[idx];
+  const label = { keynote: "Keynote", session: "Papers" };
+  $("#dayPanel").setAttribute("aria-labelledby", `tab-${idx}`);
+  $("#dayPanel").innerHTML = `<ol class="schedule">${day.items.map(([t, w, where, kind]) => `<li class="${kind === "break" ? "break" : ""}">
+    <span class="time">${esc(t)}</span><span class="what">${esc(w)}${where ? `<span class="where">${esc(where)}</span>` : ""}</span>
+    ${label[kind] ? `<span class="tag ${kind}">${label[kind]}</span>` : "<span></span>"}</li>`).join("")}</ol>`;
+}
+
+/* ---------- downloads & contacts ---------- */
+function renderDownloads() {
+  $("#downloadList").innerHTML = CONFIG.downloads.map((d) => `<li><a href="${esc(d.href)}" download>
+    <span class="ext">${esc(d.ext)}</span><span><span class="d-name">${esc(d.name)}</span><br><span class="d-desc">${esc(d.desc)}</span></span>
+    <span class="arrow" aria-hidden="true">↓</span></a></li>`).join("");
+}
+function renderContacts() {
+  $("#contactList").innerHTML = CONFIG.contacts.map((c, i) => `<div class="contact-card"><span class="c-role">${esc(c.role)}</span>
+    <strong>${esc(c.name)}</strong><span class="c-val" id="contact-${i}">${esc(c.value)}</span>
+    <button class="btn btn-small" type="button" data-copy="${esc(c.value)}">Copy</button></div>`).join("");
+}
+
+/* ---------- copy helper ---------- */
+function copyText(text, btn) {
+  const done = () => { const o = btn.textContent; btn.textContent = "Copied"; setTimeout(() => (btn.textContent = o), 1500); };
+  const fallback = () => {
+    const r = document.createRange(); const span = btn.previousElementSibling || btn;
+    r.selectNodeContents(span); const sel = getSelection(); sel.removeAllRanges(); sel.addRange(r);
+    btn.textContent = "Press Ctrl+C"; setTimeout(() => (btn.textContent = "Copy"), 2000);
+  };
+  if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(text).then(done, fallback);
+  else fallback();
+}
+
+/* ---------- router (hash-based pages) ---------- */
+const PAGES = $$(".page").map((p) => p.dataset.page);
+function route() {
+  let name = (location.hash || "#home").slice(1);
+  if (!PAGES.includes(name)) name = "home";
+  $$(".page").forEach((p) => { p.hidden = p.dataset.page !== name; });
+  $$(".site-nav a[href^='#']").forEach((a) => a.classList.toggle("is-active", a.getAttribute("href") === "#" + name));
+  $$(".has-sub").forEach((li) => li.classList.toggle("is-active", !!li.querySelector(`a[href="#${name}"]`)));
+  closeMenu();
+  window.scrollTo({ top: 0, behavior: "auto" });
+  const page = $(`[data-page="${name}"]`);
+  const h = page && page.querySelector("h1, h2");
+  if (h && name !== "home") { h.setAttribute("tabindex", "-1"); h.focus({ preventScroll: true }); }
+}
+
+/* ---------- navigation menu ---------- */
+function closeMenu() {
+  $("#siteNav").classList.remove("is-open");
+  $("#navToggle").setAttribute("aria-expanded", "false");
+  $$(".has-sub").forEach((li) => { li.classList.remove("is-open"); li.querySelector(".sub-toggle").setAttribute("aria-expanded", "false"); });
+}
+function initNav() {
+  $("#navToggle").addEventListener("click", () => {
+    const open = !$("#siteNav").classList.contains("is-open");
+    $("#siteNav").classList.toggle("is-open", open);
+    $("#navToggle").setAttribute("aria-expanded", String(open));
+  });
+  $$(".sub-toggle").forEach((btn) => btn.addEventListener("click", (e) => {
+    e.stopPropagation();
+    const li = btn.parentElement; const open = !li.classList.contains("is-open");
+    $$(".has-sub").forEach((o) => { if (o !== li) { o.classList.remove("is-open"); o.querySelector(".sub-toggle").setAttribute("aria-expanded", "false"); } });
+    li.classList.toggle("is-open", open); btn.setAttribute("aria-expanded", String(open));
+  }));
+  document.addEventListener("click", (e) => { if (!e.target.closest(".site-header")) closeMenu(); });
+  document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeMenu(); });
+}
+
+/* ---------- misc UI ---------- */
+function initUI() {
+  $(".fee-switch").addEventListener("click", (e) => { const b = e.target.closest(".chip"); if (b) renderFees(b.dataset.cur); });
+  $("#dayTabs").addEventListener("click", (e) => { const b = e.target.closest(".tab"); if (b) { renderProgram(+b.dataset.day); $(`#tab-${b.dataset.day}`).focus(); } });
+  $("#dayTabs").addEventListener("keydown", (e) => {
+    if (!["ArrowLeft", "ArrowRight"].includes(e.key)) return;
+    const cur = $$(".tab").findIndex((t) => t.getAttribute("aria-selected") === "true");
+    const n = (cur + (e.key === "ArrowRight" ? 1 : -1) + CONFIG.program.length) % CONFIG.program.length;
+    renderProgram(n); $(`#tab-${n}`).focus();
+  });
+  document.addEventListener("click", (e) => { const b = e.target.closest("[data-copy]"); if (b) copyText(b.dataset.copy, b); });
+  $("#copyEmail").addEventListener("click", (e) => copyText(CONFIG.email, e.currentTarget));
+
+  if (!store.get("qcai-consent")) $("#consent").hidden = false;
+  $("#consentOk").addEventListener("click", () => { store.set("qcai-consent", "1"); $("#consent").hidden = true; });
+
+  const toTop = $("#toTop");
+  addEventListener("scroll", () => { toTop.hidden = scrollY < 600 || !$("#consent").hidden; }, { passive: true });
+  toTop.addEventListener("click", () => scrollTo({ top: 0, behavior: "smooth" }));
+}
+
+/* ---------- hero: animated Bloch sphere ---------- */
+function initBloch() {
+  const cv = $("#bloch"); if (!cv) return;
+  const ctx = cv.getContext("2d");
+  const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  let w, h, dpr, t = 0.6;
+  const css = (n) => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+  function size() {
+    dpr = Math.min(devicePixelRatio || 1, 2);
+    w = cv.clientWidth; h = cv.clientHeight;
+    cv.width = w * dpr; cv.height = h * dpr; ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  }
+  const tilt = 0.38;
+  const proj = (x, y, z, cx, cy, R, rot) => {
+    const xr = x * Math.cos(rot) - y * Math.sin(rot), yr = x * Math.sin(rot) + y * Math.cos(rot);
+    const y2 = yr * Math.cos(tilt) - z * Math.sin(tilt), z2 = yr * Math.sin(tilt) + z * Math.cos(tilt);
+    return [cx + xr * R, cy - z2 * R, y2];
+  };
+  function draw() {
+    const fg = css("--hero-fg") || "#eef2ec", gold = css("--marigold") || "#f0b33f";
+    ctx.clearRect(0, 0, w, h);
+    const narrow = w < 760;
+    const R = narrow ? Math.min(w, h) * 0.42 : Math.min(h * 0.38, w * 0.22);
+    const cx = narrow ? w * 0.78 : w * 0.76, cy = h * 0.5;
+    ctx.globalAlpha = narrow ? 0.35 : 1;
+    const rot = t * 0.15;
+    // lattice dots
+    ctx.fillStyle = fg;
+    for (let gx = 0; gx < w; gx += 28) for (let gy = 0; gy < h; gy += 28) {
+      ctx.globalAlpha = (narrow ? 0.35 : 1) * 0.07; ctx.fillRect(gx, gy, 1.2, 1.2);
+    }
+    ctx.globalAlpha = narrow ? 0.35 : 1;
+    // circles of latitude & longitude
+    ctx.lineWidth = 1;
+    const ring = (fn, alpha) => {
+      ctx.beginPath();
+      for (let i = 0; i <= 96; i++) { const a = (i / 96) * Math.PI * 2; const [px, py] = fn(a); i ? ctx.lineTo(px, py) : ctx.moveTo(px, py); }
+      ctx.strokeStyle = fg; ctx.globalAlpha = (narrow ? 0.35 : 1) * alpha; ctx.stroke();
+    };
+    for (let k = -2; k <= 2; k++) { const z = k / 3, r = Math.sqrt(1 - z * z);
+      ring((a) => proj(r * Math.cos(a), r * Math.sin(a), z, cx, cy, R, rot), k === 0 ? 0.35 : 0.12); }
+    for (let k = 0; k < 6; k++) { const ph = (k / 6) * Math.PI;
+      ring((a) => proj(Math.cos(a) * Math.cos(ph), Math.cos(a) * Math.sin(ph), Math.sin(a), cx, cy, R, rot), 0.12); }
+    // axes
+    ctx.globalAlpha = (narrow ? 0.35 : 1) * 0.4; ctx.strokeStyle = fg;
+    [[0,0,1.18],[0,0,-1.18]].forEach(([x,y,z]) => { const [a,b] = proj(0,0,0,cx,cy,R,rot), [c,d] = proj(x,y,z,cx,cy,R,rot); ctx.beginPath(); ctx.moveTo(a,b); ctx.lineTo(c,d); ctx.stroke(); });
+    ctx.font = "13px 'IBM Plex Mono', monospace"; ctx.fillStyle = fg; ctx.globalAlpha = (narrow ? 0.35 : 1) * 0.7;
+    const [nx, ny] = proj(0, 0, 1.3, cx, cy, R, rot), [sx, sy] = proj(0, 0, -1.34, cx, cy, R, rot);
+    ctx.fillText("|0⟩", nx - 12, ny); ctx.fillText("|1⟩", sx - 12, sy + 8);
+    // state vector precessing
+    const theta = 1.0 + 0.35 * Math.sin(t * 0.5), phi = t * 0.9;
+    const vx = Math.sin(theta) * Math.cos(phi), vy = Math.sin(theta) * Math.sin(phi), vz = Math.cos(theta);
+    const [ox, oy] = proj(0, 0, 0, cx, cy, R, 0), [px, py] = proj(vx, vy, vz, cx, cy, R, 0);
+    // trail
+    ctx.strokeStyle = gold;
+    for (let i = 40; i > 0; i--) {
+      const tt = t - i * 0.05, th = 1.0 + 0.35 * Math.sin(tt * 0.5), ph2 = tt * 0.9;
+      const [ax, ay] = proj(Math.sin(th) * Math.cos(ph2), Math.sin(th) * Math.sin(ph2), Math.cos(th), cx, cy, R, 0);
+      ctx.globalAlpha = (narrow ? 0.35 : 1) * (1 - i / 40) * 0.6;
+      ctx.beginPath(); ctx.arc(ax, ay, 1.4, 0, Math.PI * 2); ctx.fillStyle = gold; ctx.fill();
+    }
+    ctx.globalAlpha = narrow ? 0.4 : 1; ctx.lineWidth = 2.2;
+    ctx.beginPath(); ctx.moveTo(ox, oy); ctx.lineTo(px, py); ctx.stroke();
+    ctx.beginPath(); ctx.arc(px, py, 5, 0, Math.PI * 2); ctx.fillStyle = gold; ctx.fill();
+    ctx.globalAlpha = (narrow ? 0.35 : 1) * 0.9; ctx.fillStyle = gold; ctx.fillText("|ψ⟩", px + 10, py - 8);
+    ctx.globalAlpha = 1;
+  }
+  function loop() { t += 0.012; draw(); if (!reduce) requestAnimationFrame(loop); }
+  size(); addEventListener("resize", () => { size(); draw(); });
+  reduce ? draw() : loop();
+}
+
+/* ---------- boot ---------- */
+document.addEventListener("DOMContentLoaded", () => {
+  fillConfig(); renderDates(); startCountdown(); renderTracks(); renderSponsors();
+  renderCommittee(); renderSpeakers(); renderFees("inr"); renderProgram(0);
+  renderDownloads(); renderContacts(); initNav(); initUI(); initBloch();
+  addEventListener("hashchange", route); route();
+});
