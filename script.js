@@ -9,17 +9,17 @@
 const CONFIG = {
   shortName: "QCAI 2027",
   fullName: "International Conference on Quantum Computing and Artificial Intelligence",
-  edition: "1st International Conference on",
-  city: "Chennai, India",
-  datesLabel: "26–28 August 2027",
+  edition: "International Conference on",
+  city: "New Delhi, India",
+  datesLabel: "21–22 March 2027",
   format: "In person, with online presentation option",
   email: "contact@qcai2027.org",
 
   // Opening session — used by the countdown (IST = +05:30)
-  conferenceStart: "2027-08-26T09:00:00+05:30",
+  conferenceStart: "2027-03-21T09:00:00+05:30",
 
   // Optional banner under the hero. Leave "" to hide.
-  notice: "",
+  notice: "Jointly organized by IIT (ISM) Dhanbad and JNU New Delhi",
 
   // ---- GOOGLE FORM LINKS (paste your form URLs here) ----
   forms: {
@@ -30,12 +30,14 @@ const CONFIG = {
 
   // ---- IMPORTANT DATES (YYYY-MM-DD) ----
   importantDates: [
-    { label: "Full paper submission",  date: "2027-04-15" },
-    { label: "Notification of acceptance", date: "2027-05-30" },
-    { label: "Camera-ready paper & early-bird registration", date: "2027-06-15" },
-    { label: "Conference",             date: "2027-08-26", end: "2027-08-28", event: true }
+    { label: "Call for papers", date: "2026-11-15" },
+    { label: "Last date for paper submission", date: "2027-01-20" },
+    { label: "Notification of acceptance", date: "2027-02-10" },
+    { label: "Early-bird registration deadline", date: "2027-03-01" },
+    { label: "Final registration deadline", date: "2027-03-15" },
+    { label: "Conference", date: "2027-03-21", end: "2027-03-22", event: true }
   ],
-  earlyBirdLabel: "15 June 2027",
+  earlyBirdLabel: "15 February 2027",
 
   // ---- TOPICS / TRACKS ----
   tracks: [
@@ -46,7 +48,6 @@ const CONFIG = {
         "Variational quantum algorithms (VQE, QAOA)",
         "Quantum error correction and fault tolerance",
         "Quantum control and calibration",
-        "Quantum compilers and program synthesis",
         "Quantum hardware: superconducting, trapped-ion, photonic, neutral-atom",
         "Quantum simulation of physical and chemical systems"
       ]
@@ -79,59 +80,59 @@ const CONFIG = {
 
   // ---- SPONSORS / ORGANISERS (logo: path to an image, or leave "") ----
   sponsors: [
-    { role: "Organised by",  name: "Your Institution / Department", logo: "" },
-    { role: "Technical co-sponsor", name: "Professional society (to be confirmed)", logo: "" },
-    { role: "Supported by",  name: "Industry partner (to be confirmed)", logo: "" },
-    { role: "Publication partner", name: "Proceedings publisher (to be confirmed)", logo: "" }
+    { role: "Organised by", name: "IIT (ISM) Dhanbad", logo: "" },
+    { role: "Co-organised by", name: "Jawaharlal Nehru University (JNU), New Delhi", logo: "" },
+    { role: "Venue partner", name: "SC&SS, JNU", logo: "" },
+    { role: "Academic collaboration", name: "Quantum Computing & AI research community", logo: "" }
   ],
 
-  // ---- COMMITTEE (replace placeholders with real names) ----
+  // ---- COMMITTEE ----
   committee: [
-    { group: "Patron", people: [
-      { name: "Prof. Full Name", aff: "Director, Your Institution, Chennai" } ] },
-    { group: "General Chairs", people: [
-      { name: "Prof. Full Name", aff: "Department, Institution, Country" },
-      { name: "Prof. Full Name", aff: "Department, Institution, Country" } ] },
-    { group: "Program Chairs", people: [
-      { name: "Dr. Full Name", aff: "Department, Institution, Country" },
-      { name: "Dr. Full Name", aff: "Department, Institution, Country" } ] },
-    { group: "Publication Chair", people: [
-      { name: "Dr. Full Name", aff: "Department, Institution, Country" } ] },
-    { group: "Organising Committee", people: [
-      { name: "Dr. Full Name", aff: "Department, Your Institution" },
-      { name: "Dr. Full Name", aff: "Department, Your Institution" },
-      { name: "Dr. Full Name", aff: "Department, Your Institution" } ] },
-    { group: "Technical Program Committee", people: [
-      { name: "Dr. Full Name", aff: "Institution, Country" },
-      { name: "Dr. Full Name", aff: "Institution, Country" },
-      { name: "Dr. Full Name", aff: "Institution, Country" },
-      { name: "Dr. Full Name", aff: "Institution, Country" },
-      { name: "Dr. Full Name", aff: "Institution, Country" },
-      { name: "Dr. Full Name", aff: "Institution, Country" } ] }
+    { group: "Conference Convener", people: [
+      { name: "Prof. Abhaya Singh", aff: "IIT (ISM) Dhanbad" },
+      { name: "Dr. Buddha Singh", aff: "JNU New Delhi" } ] },
+    { group: "Conference Chairperson", people: [
+      { name: "Prof. Satish Chand", aff: "Jawaharlal Nehru University, New Delhi" } ] },
+    { group: "Committee Members", people: [
+      { name: "Dr. Pushpendra Singh", aff: "IIT (ISM) Dhanbad" },
+      { name: "Dr. Anuj Sachan", aff: "JNU New Delhi" } ] },
+    { group: "Invited Speakers", people: [
+      { name: "Biswa Nath Datta", aff: "Research Professor, Northern Illinois University" },
+      { name: "Bhupendra Singh", aff: "Scientist, DRDO Bengaluru" },
+      { name: "Vaanathi Sundaresan", aff: "Assistant Professor, IISc Bangalore" },
+      { name: "M. Tanveer", aff: "Professor, IIT Indore" },
+      { name: "Apoorva D Patel", aff: "Emeritus Professor, IISc Bangalore" },
+      { name: "Alok Mishra", aff: "Scientist, DRDO Bengaluru" },
+      { name: "Shayan Srinivasa Garani", aff: "Professor, IISc Bangalore" },
+      { name: "Navin Kashyap", aff: "Professor, IISc Bangalore" } ] }
   ],
 
   // ---- SPEAKERS (photo: path to an image, or leave "" for initials) ----
   speakers: [
-    { role: "Keynote", name: "Prof. Full Name", aff: "Institution, Country", talk: "Talk title to be announced", photo: "" },
-    { role: "Keynote", name: "Prof. Full Name", aff: "Institution, Country", talk: "Talk title to be announced", photo: "" },
-    { role: "Keynote", name: "Dr. Full Name",   aff: "Institution, Country", talk: "Talk title to be announced", photo: "" },
-    { role: "Invited", name: "Dr. Full Name",   aff: "Company, Country",     talk: "Talk title to be announced", photo: "" }
+    { role: "Keynote", name: "Biswa Nath Datta", aff: "Research Professor, Northern Illinois University", talk: "Talk title to be announced", photo: "" },
+    { role: "Keynote", name: "Bhupendra Singh", aff: "Scientist, DRDO Bengaluru", talk: "Talk title to be announced", photo: "" },
+    { role: "Keynote", name: "Vaanathi Sundaresan", aff: "Assistant Professor, IISc Bangalore", talk: "Talk title to be announced", photo: "" },
+    { role: "Invited", name: "M. Tanveer", aff: "Professor, IIT Indore", talk: "Talk title to be announced", photo: "" },
+    { role: "Invited", name: "Apoorva D Patel", aff: "Emeritus Professor, IISc Bangalore", talk: "Talk title to be announced", photo: "" },
+    { role: "Invited", name: "Shayan Srinivasa Garani", aff: "Professor, IISc Bangalore", talk: "Talk title to be announced", photo: "" },
+    { role: "Invited", name: "Navin Kashyap", aff: "Professor, IISc Bangalore", talk: "Talk title to be announced", photo: "" },
+    { role: "Invited", name: "Alok Mishra", aff: "Scientist, DRDO Bengaluru", talk: "Talk title to be announced", photo: "" }
   ],
 
   // ---- REGISTRATION FEES (sample values — set your own) ----
   fees: [
-    { cat: "Student author",            note: "Proof of enrolment required", inr: [6000, 7500],  usd: [150, 200] },
-    { cat: "Academic author",           note: "Faculty and researchers",     inr: [9000, 11000], usd: [250, 300] },
-    { cat: "Industry author",           note: "",                            inr: [12000, 14000], usd: [350, 400] },
-    { cat: "Listener / attendee",       note: "No paper presentation",       inr: [3000, 4000],  usd: [80, 120] },
-    { cat: "Online presentation",       note: "Virtual session, any author", inr: [5000, 6500],  usd: [120, 160] },
-    { cat: "Extra page (beyond 8)",     note: "Per page",                    inr: [800, 800],    usd: [20, 20] }
+    { cat: "BTech / MTech / MS / MSc / PhD", note: "INR XYZ + GST", inr: ["XYZ", "XYZ"], usd: ["XYZ", "XYZ"] },
+    { cat: "Post Doc", note: "INR XYZ + GST", inr: ["XYZ", "XYZ"], usd: ["XYZ", "XYZ"] },
+    { cat: "Faculty", note: "INR XYZ + GST", inr: ["XYZ", "XYZ"], usd: ["XYZ", "XYZ"] },
+    { cat: "Industry", note: "INR XYZ + GST", inr: ["XYZ", "XYZ"], usd: ["XYZ", "XYZ"] },
+    { cat: "Listener / attendee", note: "No paper presentation", inr: [3000, 4000], usd: [80, 120] },
+    { cat: "Accommodation", note: "Not included", inr: ["—", "—"], usd: ["—", "—"] }
   ],
 
   // ---- PAYMENT DETAILS (shown on the registration page) ----
   bank: [
-    ["Account name", "Your Institution — QCAI 2027"],
-    ["Bank", "Bank name, branch"],
+    ["Account name", "IIT (ISM) Dhanbad — QCAI 2027"],
+    ["Bank", "State Bank of India, Dhanbad"],
     ["Account no.", "XXXXXXXXXXXX"],
     ["IFSC", "XXXX0000000"],
     ["SWIFT (international)", "XXXXINBBXXX"]
@@ -139,49 +140,49 @@ const CONFIG = {
 
   // ---- PROGRAM ----
   program: [
-    { day: "Day 1", date: "Thu, 26 Aug", items: [
-      ["08:30 – 09:30", "Registration and welcome kit", "Main lobby", ""],
-      ["09:30 – 10:15", "Inauguration", "Main auditorium", ""],
+    { day: "Day 1", date: "Fri, 12 Mar", items: [
+      ["08:30 – 09:30", "Registration and welcome kit", "SC&SS lobby", ""],
+      ["09:30 – 10:15", "Inauguration and opening remarks", "Main auditorium", ""],
       ["10:15 – 11:00", "Keynote 1", "Main auditorium", "keynote"],
       ["11:00 – 11:20", "Tea break", "", "break"],
-      ["11:20 – 13:00", "Paper session 1A: Quantum algorithms · 1B: Quantum ML", "Halls A & B", "session"],
+      ["11:20 – 13:00", "Technical paper session 1A · 1B", "Halls A & B", "session"],
       ["13:00 – 14:00", "Lunch", "", "break"],
       ["14:00 – 14:45", "Keynote 2", "Main auditorium", "keynote"],
-      ["14:45 – 16:30", "Paper session 2A · 2B", "Halls A & B", "session"],
-      ["16:30 – 17:30", "Poster session with tea", "Exhibition area", ""]
+      ["14:45 – 16:30", "Technical paper session 2A · 2B", "Halls A & B", "session"],
+      ["16:30 – 17:30", "Poster session and networking tea", "Exhibition area", ""]
     ]},
-    { day: "Day 2", date: "Fri, 27 Aug", items: [
+    { day: "Day 2", date: "Sat, 13 Mar", items: [
       ["09:30 – 10:15", "Keynote 3", "Main auditorium", "keynote"],
-      ["10:15 – 11:00", "Invited talk", "Main auditorium", "keynote"],
+      ["10:15 – 11:00", "Invited technical talk", "Main auditorium", "keynote"],
       ["11:00 – 11:20", "Tea break", "", "break"],
-      ["11:20 – 13:00", "Paper session 3A: Quantum communication · 3B: Hybrid computing", "Halls A & B", "session"],
+      ["11:20 – 13:00", "Quantum communication & security session", "Halls A & B", "session"],
       ["13:00 – 14:00", "Lunch", "", "break"],
-      ["14:00 – 15:30", "Industry panel: Building useful quantum–AI systems", "Main auditorium", ""],
+      ["14:00 – 15:30", "Industry panel: Building useful quantum-AI systems", "Main auditorium", ""],
       ["15:30 – 17:00", "Online paper sessions", "Virtual rooms", "session"],
       ["19:00 – 21:00", "Conference dinner", "To be announced", ""]
     ]},
-    { day: "Day 3", date: "Sat, 28 Aug", items: [
-      ["09:30 – 11:00", "Paper session 4A · 4B", "Halls A & B", "session"],
+    { day: "Day 3", date: "Sun, 14 Mar", items: [
+      ["09:30 – 11:00", "Paper session 3A · 3B", "Halls A & B", "session"],
       ["11:00 – 11:20", "Tea break", "", "break"],
-      ["11:20 – 12:30", "Tutorial: Programming a quantum computer", "Lab block", ""],
+      ["11:20 – 12:30", "Tutorial: Quantum computing fundamentals and applications", "Lab block", ""],
       ["12:30 – 13:15", "Best paper awards and valedictory", "Main auditorium", ""],
       ["13:15 – 14:15", "Lunch", "", "break"]
     ]}
   ],
 
   // ---- VENUE ----
-  venueName: "Conference Hall, Institute Campus",
-  venueAddress: "Address line, Chennai, Tamil Nadu 600 000, India",
-  mapUrl: "https://maps.google.com/?q=Chennai",
+  venueName: "SC&SS, Jawaharlal Nehru University (JNU)",
+  venueAddress: "School of Computer and Systems Sciences, JNU, New Delhi, India",
+  mapUrl: "https://maps.google.com/?q=Jawaharlal+Nehru+University+New+Delhi",
 
   // ---- DOWNLOADS (put files in a /downloads folder next to index.html) ----
   downloads: [
-    { ext: "docx", name: "Paper template (Word)",  desc: "Two-column conference format", href: "downloads/QCAI2027-template.docx" },
-    { ext: "zip",  name: "Paper template (LaTeX)", desc: "Class file and example .tex",  href: "downloads/QCAI2027-latex.zip" },
-    { ext: "pdf",  name: "Copyright transfer form", desc: "Sign and upload with camera-ready paper", href: "downloads/QCAI2027-copyright.pdf" },
-    { ext: "pptx", name: "Presentation template",  desc: "16:9 slides for oral sessions", href: "downloads/QCAI2027-slides.pptx" },
-    { ext: "pdf",  name: "Poster guidelines",      desc: "A0 portrait, layout tips",     href: "downloads/QCAI2027-poster.pdf" },
-    { ext: "pdf",  name: "Conference brochure",    desc: "Overview to share",            href: "downloads/QCAI2027-brochure.pdf" }
+    { ext: "docx", name: "Paper template (Word)", desc: "Two-column conference format", href: "downloads/QCAI2027-template.docx" },
+    { ext: "zip", name: "Paper template (LaTeX)", desc: "Class file and example .tex", href: "downloads/QCAI2027-latex.zip" },
+    { ext: "pdf", name: "Copyright transfer form", desc: "Sign and upload with camera-ready paper", href: "downloads/QCAI2027-copyright.pdf" },
+    { ext: "pptx", name: "Presentation template", desc: "16:9 slides for oral sessions", href: "downloads/QCAI2027-slides.pptx" },
+    { ext: "pdf", name: "Poster guidelines", desc: "A0 portrait, layout tips", href: "downloads/QCAI2027-poster.pdf" },
+    { ext: "pdf", name: "Conference brochure", desc: "Overview to share", href: "downloads/QCAI2027-brochure.pdf" }
   ],
 
   // ---- CONTACTS ----
@@ -189,7 +190,7 @@ const CONFIG = {
     { role: "General enquiries", name: "Conference secretariat", value: "contact@qcai2027.org" },
     { role: "Paper submission", name: "Program Chairs", value: "papers@qcai2027.org" },
     { role: "Registration & visa", name: "Organising Committee", value: "registration@qcai2027.org" },
-    { role: "Phone", name: "Conference office (Mon–Fri, 10:00–17:00 IST)", value: "+91 00000 00000" }
+    { role: "Phone", name: "Conference office (Mon–Fri, 10:00–17:00 IST)", value: "+91 XXXXXXXXX" }
   ]
 };
 
@@ -296,7 +297,12 @@ function renderSpeakers() {
 
 /* ---------- fees ---------- */
 function renderFees(cur = "inr") {
-  const fmt = (n) => cur === "inr" ? "₹" + n.toLocaleString("en-IN") : "US$" + n.toLocaleString("en-US");
+  const fmt = (n) => {
+    if (typeof n === "string") return n;
+    if (n == null || Number.isNaN(Number(n))) return "—";
+    const val = Number(n);
+    return cur === "inr" ? "₹" + val.toLocaleString("en-IN") : "US$" + val.toLocaleString("en-US");
+  };
   $("#feeBody").innerHTML = CONFIG.fees.map((f) => `<tr><td><strong>${esc(f.cat)}</strong>${f.note ? `<span class="note">${esc(f.note)}</span>` : ""}</td>
     <td class="amt">${fmt(f[cur][0])}</td><td class="amt">${fmt(f[cur][1])}</td></tr>`).join("");
   $$(".fee-switch .chip").forEach((b) => { const on = b.dataset.cur === cur; b.classList.toggle("is-on", on); b.setAttribute("aria-pressed", on); });
