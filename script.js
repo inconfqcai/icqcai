@@ -16,7 +16,7 @@ const CONFIG = {
   email: "inconfqcai@gmail.com",
 
   // Opening session — used by the countdown (IST = +05:30)
-  conferenceStart: "2027-03-21T09:00:00+05:30",
+  conferenceStart: "2027-03-12T09:30:00+05:30",
 
   // Optional banner under the hero. Leave "" to hide.
   notice: "Jointly organized by IIT (ISM) Dhanbad and JNU New Delhi",
@@ -202,9 +202,7 @@ const CONFIG = {
 
   // ---- CONTACTS ----
   contacts: [
-    { role: "General enquiries", name: "Conference secretariat", value: "contact@qcai2027.org" },
-    { role: "Paper submission", name: "Program Chairs", value: "papers@qcai2027.org" },
-    { role: "Registration & visa", name: "Organising Committee", value: "registration@qcai2027.org" },
+    { role: "Email", name: "All enquiries: papers, registration, visa and general", value: "inconfqcai@gmail.com" },
     { role: "Phone", name: "Conference office (Mon–Fri, 10:00–17:00 IST)", value: "+91 XXXXXXXXX" }
   ]
 };
@@ -231,6 +229,7 @@ function fillConfig() {
     if (v != null) el.textContent = v;
   });
   $$("[data-cfg-href]").forEach((el) => { const v = CONFIG[el.dataset.cfgHref]; if (v) el.href = v; });
+  $$("[data-cfg-mailto]").forEach((el) => { el.href = `mailto:${CONFIG.email}`; });
   $$("[data-form]").forEach((el) => {
     const url = CONFIG.forms[el.dataset.form];
     if (url) el.href = url;
@@ -250,14 +249,14 @@ function renderDates() {
     const past = endDay < today;
     let cls, state;
     if (past) { cls = "is-past"; state = d.event ? "Held" : "Closed"; }
-    else if (!nextFound) { cls = "is-next"; state = d.event ? "" : ""; nextFound = true; }
-    else { cls = ""; state = d.event ? "" : ""; }
+    else if (!nextFound) { cls = "is-next"; state = d.event ? "Upcoming" : "Next deadline"; nextFound = true; }
+    else { cls = ""; state = ""; }
     if (d.event) cls += " is-event";
     const dateText = d.end
       ? (() => { const a = parseDay(d.date), b = parseDay(d.end); return a.getMonth() === b.getMonth()
           ? `${a.getDate()}–${b.getDate()} ${MONTHS[a.getMonth()]} ${a.getFullYear()}` : `${fmtDay(d.date)} – ${fmtDay(d.end)}`; })()
       : fmtDay(d.date);
-    return `<li class="${cls.trim()}"><div class="t-label">${esc(d.label)}</div><div class="t-date">${esc(dateText)}</div><span class="t-state">${state}</span></li>`;
+    return `<li class="${cls.trim()}"><div class="t-label">${esc(d.label)}</div><div class="t-date">${esc(dateText)}</div>${state ? `<span class="t-state">${state}</span>` : ""}</li>`;
   }).join("");
 }
 
@@ -291,13 +290,14 @@ function renderTracks() {
       </button></h3>
       <ul class="topics-list" id="${topicsId}" hidden>${topics.map((x) => `<li>${esc(x)}</li>`).join("")}</ul></article>`;
   };
-  $("#tracksHome").innerHTML = CONFIG.tracks.map((t, i) => card(t, i, "home", 5)).join("");
   $("#tracksFull").innerHTML = CONFIG.tracks.map((t, i) => card(t, i, "full")).join("");
 }
 
 /* ---------- sponsors ---------- */
 function renderSponsors() {
-  $("#sponsors").innerHTML = CONFIG.sponsors.map((s) => `${s.logo ? `<img src="${esc(s.logo)}" alt="${esc(s.name)} logo">` : `<span class="logo-ph">Logo</span>`}`).join("");
+  $("#sponsors").innerHTML = CONFIG.sponsors.map((s) => `<div class="sponsor"><span class="role">${esc(s.role)}</span>
+    <div class="logo">${s.logo ? `<img src="${esc(s.logo)}" alt="${esc(s.name)} logo">` : `<span class="logo-ph">Logo</span>`}</div>
+    <span class="name">${esc(s.name)}</span></div>`).join("");
 }
 
 /* ---------- committee ---------- */
@@ -308,10 +308,9 @@ function renderCommittee() {
 
 /* ---------- speakers ---------- */
 function renderSpeakers() {
-  const kets = ["|0⟩", "|1⟩", "|+⟩", "|−⟩", "|i⟩", "|ψ⟩"];
   const initials = (n) => n.replace(/^(Prof\.|Dr\.|Mr\.|Ms\.|Mrs\.)\s*/i, "").split(/\s+/).map((w) => w[0]).slice(0, 2).join("").toUpperCase();
-  $("#speakersList").innerHTML = CONFIG.speakers.map((s, i) => `<article class="speaker">
-    <div class="photo" data-ket="${kets[i % kets.length]}">${s.photo ? `<img src="${esc(s.photo)}" alt="${esc(s.name)}">` : esc(initials(s.name))}</div>
+  $("#speakersList").innerHTML = CONFIG.speakers.map((s) => `<article class="speaker">
+    <div class="photo">${s.photo ? `<img src="${esc(s.photo)}" alt="${esc(s.name)}">` : esc(initials(s.name))}</div>
     <div class="body"><span class="s-role">${esc(s.role)} speaker</span><h3 class="s-name">${esc(s.name)}</h3>
     <span class="s-aff">${esc(s.aff)}</span><p class="s-talk"><strong>Talk:</strong> ${esc(s.talk)}</p></div></article>`).join("");
 }
@@ -351,26 +350,32 @@ function copyText(text, btn) {
   else fallback();
 }
 
-/* ---------- router (hash-based pages) ---------- */
-const PAGES = $$(".page").map((p) => p.dataset.page);
-function route() {
-  let name = (location.hash || "#home").slice(1);
-  if (!PAGES.includes(name)) name = "home";
-  $$(".page").forEach((p) => { p.hidden = p.dataset.page !== name; });
+/* ---------- single-page scrolling ---------- */
+// Content sections are always visible; anchors scroll to them natively.
+// Legal pages (privacy, terms) stay hidden until their link is followed.
+function setActive(name) {
   $$(".site-nav a[href^='#']").forEach((a) => a.classList.toggle("is-active", a.getAttribute("href") === "#" + name));
-  $$(".has-sub").forEach((li) => li.classList.toggle("is-active", !!li.querySelector(`a[href="#${name}"]`)));
+}
+function route() {
+  const name = location.hash.slice(1);
+  let showedLegal = false;
+  $$(".page.legal").forEach((p) => { const on = p.id === name; p.hidden = !on; showedLegal ||= on; });
+  if (showedLegal) $("#" + name).scrollIntoView();
   closeMenu();
-  window.scrollTo({ top: 0, behavior: "auto" });
-  const page = $(`[data-page="${name}"]`);
-  const h = page && page.querySelector("h1, h2");
-  if (h && name !== "home") { h.setAttribute("tabindex", "-1"); h.focus({ preventScroll: true }); }
+}
+function initScrollSpy() {
+  const sections = $$(".page:not(.legal)");
+  const io = new IntersectionObserver((entries) => {
+    // sub-sections (e.g. Visa) highlight their parent link via data-nav
+    entries.forEach((e) => { if (e.isIntersecting) setActive(e.target.dataset.nav || e.target.id); });
+  }, { rootMargin: "-45% 0px -50% 0px" });
+  sections.forEach((s) => io.observe(s));
 }
 
 /* ---------- navigation menu ---------- */
 function closeMenu() {
   $("#siteNav").classList.remove("is-open");
   $("#navToggle").setAttribute("aria-expanded", "false");
-  $$(".has-sub").forEach((li) => { li.classList.remove("is-open"); li.querySelector(".sub-toggle").setAttribute("aria-expanded", "false"); });
 }
 function initNav() {
   $("#navToggle").addEventListener("click", () => {
@@ -378,27 +383,21 @@ function initNav() {
     $("#siteNav").classList.toggle("is-open", open);
     $("#navToggle").setAttribute("aria-expanded", String(open));
   });
-  $$(".sub-toggle").forEach((btn) => btn.addEventListener("click", (e) => {
-    e.stopPropagation();
-    const li = btn.parentElement; const open = !li.classList.contains("is-open");
-    $$(".has-sub").forEach((o) => { if (o !== li) { o.classList.remove("is-open"); o.querySelector(".sub-toggle").setAttribute("aria-expanded", "false"); } });
-    li.classList.toggle("is-open", open); btn.setAttribute("aria-expanded", String(open));
-  }));
+  // close the mobile menu after picking a section, even if the hash didn't change
+  $$(".site-nav a[href^='#']").forEach((a) => a.addEventListener("click", closeMenu));
   document.addEventListener("click", (e) => { if (!e.target.closest(".site-header")) closeMenu(); });
   document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeMenu(); });
 }
 
 /* ---------- misc UI ---------- */
 function initUI() {
-  ["#tracksHome", "#tracksFull"].forEach((selector) => {
-    $(selector).addEventListener("click", (e) => {
-      const button = e.target.closest(".track-header");
-      if (!button) return;
-      const open = button.getAttribute("aria-expanded") !== "true";
-      button.setAttribute("aria-expanded", String(open));
-      button.closest(".track").querySelector(".topics-list").hidden = !open;
-      button.closest(".track").classList.toggle("open", open);
-    });
+  $("#tracksFull").addEventListener("click", (e) => {
+    const button = e.target.closest(".track-header");
+    if (!button) return;
+    const open = button.getAttribute("aria-expanded") !== "true";
+    button.setAttribute("aria-expanded", String(open));
+    button.closest(".track").querySelector(".topics-list").hidden = !open;
+    button.closest(".track").classList.toggle("open", open);
   });
   const registrationFeeSwitch = $("#registrationFeeSwitch");
   registrationFeeSwitch.addEventListener("click", (e) => {
@@ -437,6 +436,9 @@ function initUI() {
 document.addEventListener("DOMContentLoaded", () => {
   fillConfig(); renderDates(); startCountdown(); renderTracks(); renderSponsors();
   renderCommittee(); renderSpeakers(); renderProgram(0);
-  renderDownloads(); renderContacts(); initNav(); initUI();
+  renderDownloads(); renderContacts(); initNav(); initUI(); initScrollSpy();
   addEventListener("hashchange", route); route();
+  // content is rendered by JS, so re-apply the initial anchor once it exists
+  const target = document.getElementById(location.hash.slice(1));
+  if (target && !target.classList.contains("legal")) target.scrollIntoView();
 });

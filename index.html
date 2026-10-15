@@ -17,9 +17,8 @@
 <!-- ============ HEADER / NAVIGATION ============ -->
 <header class="site-header">
   <div class="wrap header-inner">
-    <a class="brand" href="#" aria-label="QCAI home">
-        <img src="./assets/qcai.png" class="logo">
-     
+    <a class="brand" href="#home" aria-label="QCAI home">
+      <img src="./assets/qcai.svg" class="brand-logo" alt="" width="44" height="44">
       <span class="brand-text">
         <strong data-cfg="shortName">QCAI 2027</strong>
         <small data-cfg="city">New Delhi, India</small>
@@ -34,77 +33,62 @@
       <ul>
         <li><a href="#home">Home</a></li>
         <li><a href="#committee">Committee</a></li>
-        <li><a href="#speakers">Speakers</a></li>
         <li><a href="#cfp">Call for Papers</a></li>
-        <li class="has-sub">
-          <button class="sub-toggle" aria-expanded="false">Submission</button>
-          <ul class="sub">
-            <li><a href="#submission">Submission &amp; Publication</a></li>
-            <li><a href="#editorial-policy">Editorial Policy</a></li>
-            <li><a href="#ai-guidelines">Guidelines for AI Tools</a></li>
-          </ul>
-        </li>
+        <li><a href="#speakers">Speakers</a></li>
         <li><a href="#registration">Registration</a></li>
-        <li><a href="#visa">Visa Application</a></li>
-        <li><a href="#program">Program</a></li>
-        <li class="has-sub">
-          <button class="sub-toggle" aria-expanded="false">More</button>
-          <ul class="sub">
-            <li><a href="#venue">Venue</a></li>
-            <li><a href="#download">Downloads</a></li>
-            <li><a href="#contact">Contact</a></li>
-          </ul>
-        </li>
+        <li><a href="#program">Conference Schedule</a></li>
+        <li><a href="#contact">Contacts</a></li>
+        <li class="nav-submit"><a class="btn btn-solid" data-form="submission" href="https://cmt3.research.microsoft.com/User/Login?ReturnUrl=%2F" target="_blank" rel="noopener">Submit paper</a></li>
       </ul>
-      <a class="btn btn-solid nav-cta" data-form="submission" href="https://cmt3.research.microsoft.com/User/Login?ReturnUrl=%2F" target="_blank" rel="noopener">Submit paper</a>
     </nav>
+
+    <a class="btn btn-solid header-cta" data-form="submission" href="https://cmt3.research.microsoft.com/User/Login?ReturnUrl=%2F" target="_blank" rel="noopener">Submit paper</a>
   </div>
 </header>
 
 <main id="main">
 
 <!-- ============ HOME ============ -->
-<section class="page" id="page-home" data-page="home">
+<section class="page" id="home" data-page="home">
 
   <div class="hero">
     <div class="wrap hero-inner">
-      <!-- <p class="eyebrow mono">|ψ⟩ = α|0⟩ + β|1⟩ &nbsp;·&nbsp; <span data-cfg="datesLabel">12–14 March 2027</span> &nbsp;·&nbsp; <span data-cfg="city">New Delhi, India</span></p> -->
       <h1 class="hero-title">
         <span class="kicker" data-cfg="edition">1st International Conference on</span>
         Quantum Computing <em>&amp;</em> Artificial Intelligence
       </h1>
+      <div class="hero-main">
       <p class="hero-lede">Three days of keynotes, paper sessions and posters on where quantum hardware, quantum algorithms and machine learning meet.</p>
       <div class="hero-actions">
         <a class="btn btn-solid" data-form="submission" href="https://cmt3.research.microsoft.com/User/Login?ReturnUrl=%2F" target="_blank" rel="noopener">Submit a paper</a>
         <a class="btn btn-line" data-form="registration" href="#" target="_blank" rel="noopener">Register now</a>
         <a class="btn btn-text" href="#cfp">Read the call for papers →</a>
       </div>
+      </div>
+      <aside class="facts" aria-label="Conference at a glance">
+        <dl>
+          <div><dt>Dates</dt><dd data-cfg="datesLabel">12–14 March 2027</dd></div>
+          <div><dt>Venue</dt><dd>SC&amp;SS, Jawaharlal Nehru University, New Delhi-110067</dd></div>
+          <div><dt>Mode</dt><dd>Hybrid</dd></div>
+          <div><dt>Contact</dt><dd data-cfg="email">inconfqcai@gmail.com</dd></div>
+        </dl>
+      </aside>
     </div>
   </div>
 
-  <div class="notice wrap" id="noticeBar" hidden>
-    <strong>Notice</strong> <span id="noticeText"></span>
+  <div class="wrap notice-wrap" id="noticeBar" hidden>
+    <div class="notice"><strong>Notice</strong> <span id="noticeText"></span></div>
   </div>
 
   <div class="wrap block about">
     <div class="about-text">
       <p class="eyebrow">About the conference</p>
       <h2>A meeting point for two fields that need each other</h2>
-      <p>The conference aims to bring together researchers, academicians, industry experts, and students to explore advancements in quantum computing, quantum machine learning, artificial intelligence, quantum networking, and quantum-safe security. It will cover key concepts, emerging applications, and challenges in quantum algorithms, quantum communication, error correction, and post-quantum cryptography, with a focus on secure, scalable, and interdisciplinary innovations.
-        <br/>
-The three-day programme will feature keynote addresses, expert talks, technical paper presentations, panel discussions, and collaborative sessions, fostering knowledge exchange, research innovation, and academic–industry collaborations in next-generation quantum technologies.</p>
+      <p>The conference aims to bring together researchers, academicians, industry experts, and students to explore advancements in quantum computing, quantum machine learning, artificial intelligence, quantum networking, and quantum-safe security. It will cover key concepts, emerging applications, and challenges in quantum algorithms, quantum communication, error correction, and post-quantum cryptography, with a focus on secure, scalable, and interdisciplinary innovations.</p>
+      <p>The three-day programme will feature keynote addresses, expert talks, technical paper presentations, panel discussions, and collaborative sessions, fostering knowledge exchange, research innovation, and academic–industry collaborations in next-generation quantum technologies.</p>
       <p><span data-cfg="shortName">QCAI 2027</span> brings researchers, engineers and students together in <span data-cfg="city">New Delhi</span> to present recent advances in quantum machine learning, quantum algorithms, quantum communication and measurement, quantum security, and the engineering problems that sit between them. The program includes invited keynotes, oral paper sessions, a poster session and an industry panel.</p>
       <p>All accepted and presented papers will be published in the conference proceedings.</p>
     </div>
-    <aside class="facts" aria-label="Conference at a glance">
-      <dl>
-        <div><dt>Conference Date</dt><dd data-cfg="Conference Date">12th - 14th March, 2027</dd></div>
-        <div><dt>Venue</dt><dd data-cfg="venue">SC&SS, Jawaharlal Nehru University, New Delhi-110067</dd></div>
-        <div><dt>Mode</dt><dd data-cfg="Mode">Hybrid</dd></div>
-        <!-- <div><dt>Language</dt><dd>English</dd></div> -->
-        <div><dt>Contact</dt><dd><span class="mono" data-cfg="email">inconfqcai@gmail.com</span></dd></div>
-      </dl>
-    </aside>
   </div>
 
   <div class="band">
@@ -131,19 +115,10 @@ The three-day programme will feature keynote addresses, expert talks, technical 
     </div>
   </div>
 
-  <div class="wrap block">
-    <div class="block-head">
-      <p class="eyebrow">Conference topics</p>
-      <h2>Tracks</h2>
-      <p class="muted">Topics include, but are not limited to, the following. Full scope on the <a href="#cfp">Call for Papers</a> page.</p>
-    </div>
-    <div class="tracks" id="tracksHome"></div>
-  </div>
-
   <div class="band">
     <div class="wrap block">
       <div class="block-head">
-        <!-- <p class="eyebrow">Partners</p> -->
+        <p class="eyebrow">Partners</p>
         <h2>Sponsors</h2>
       </div>
       <div class="sponsors" id="sponsors"></div>
@@ -152,29 +127,19 @@ The three-day programme will feature keynote addresses, expert talks, technical 
 </section>
 
 <!-- ============ COMMITTEE ============ -->
-<section class="page" id="page-committee" data-page="committee" hidden>
+<section class="page" id="committee" data-page="committee">
   <div class="page-head wrap">
-    <p class="eyebrow mono">⟨committee|</p>
+    <p class="eyebrow">People</p>
     <h1>Committee</h1>
     <p class="muted">The people responsible for the program, peer review and organisation of <span data-cfg="shortName">QCAI 2027</span>.</p>
   </div>
   <div class="wrap block" id="committeeList"></div>
 </section>
 
-<!-- ============ SPEAKERS ============ -->
-<section class="page" id="page-speakers" data-page="speakers" hidden>
-  <div class="page-head wrap">
-    <p class="eyebrow mono">Speakers</p>
-    <h1>Keynote speakers</h1>
-    <!-- <p class="muted">More speakers will be announced as they confirm.</p> -->
-  </div>
-  <div class="wrap block speakers" id="speakersList"></div>
-</section>
-
 <!-- ============ CALL FOR PAPERS ============ -->
-<section class="page" id="page-cfp" data-page="cfp" hidden>
+<section class="page" id="cfp" data-page="cfp">
   <div class="page-head wrap">
-    <p class="eyebrow mono">⟨call for papers|</p>
+    <p class="eyebrow">For authors</p>
     <h1>Call for Papers</h1>
     <p class="muted">We invite original, unpublished research papers, review papers and short communications in the areas below.</p>
   </div>
@@ -189,32 +154,32 @@ The three-day programme will feature keynote addresses, expert talks, technical 
         <li><strong>Short paper</strong> — 4 to 5 pages, work in progress or a focused result.</li>
         <li><strong>Poster abstract</strong> — 1 to 2 pages, presented in the poster session.</li>
       </ul>
-      <p>Papers must be written in English and follow the conference template from the <a href="#download">Downloads</a> page.</p>
+      <p>Papers must be written in English and follow the conference template from the <a href="#download">Downloads</a> section.</p>
     </div>
     <div class="cta-card">
       <h3>Ready to submit?</h3>
       <p>Submissions are collected through our online form. Have your PDF, author list and abstract ready.</p>
-      <a class="btn btn-solid" data-form="submission" href="#" target="_blank" rel="noopener">Open submission form</a>
+      <a class="btn btn-solid" data-form="submission" href="https://cmt3.research.microsoft.com/User/Login?ReturnUrl=%2F" target="_blank" rel="noopener">Open submission form</a>
       <a class="btn btn-text" href="#submission">Submission guidelines →</a>
     </div>
   </div>
 </section>
 
 <!-- ============ SUBMISSION & PUBLICATION ============ -->
-<section class="page" id="page-submission" data-page="submission" hidden>
+<section class="page" id="submission" data-page="submission" data-nav="cfp">
   <div class="page-head wrap">
-    <p class="eyebrow mono">⟨submission|</p>
+    <p class="eyebrow">For authors</p>
     <h1>Submission &amp; Publication</h1>
   </div>
   <div class="wrap block two-col">
     <div class="prose">
       <h2>How to submit</h2>
       <ol class="steps">
-        <li>Download the paper template (Word or LaTeX) from the <a href="#download">Downloads</a> page.</li>
+        <li>Download the paper template (Word or LaTeX) from the <a href="#download">Downloads</a> section.</li>
         <li>Prepare your manuscript as a PDF. Remove author names and affiliations for double-blind review.</li>
         <li>Open the <a data-form="submission" href="#" target="_blank" rel="noopener">submission form</a> and enter the title, abstract, keywords, track and all author details.</li>
         <li>Upload your PDF in the form. File uploads in Google Forms require signing in with a Google account.</li>
-        <li>You will receive a confirmation email. Contact <span class="mono" data-cfg="email">contact@qcai2027.org</span> if it does not arrive within 48 hours.</li>
+        <li>You will receive a confirmation email. Contact <a data-cfg="email" data-cfg-mailto href="mailto:inconfqcai@gmail.com">inconfqcai@gmail.com</a> if it does not arrive within 48 hours.</li>
       </ol>
 
       <h2>Review process</h2>
@@ -239,9 +204,9 @@ The three-day programme will feature keynote addresses, expert talks, technical 
 </section>
 
 <!-- ============ EDITORIAL POLICY ============ -->
-<section class="page" id="page-editorial-policy" data-page="editorial-policy" hidden>
+<section class="page" id="editorial-policy" data-page="editorial-policy" data-nav="cfp">
   <div class="page-head wrap">
-    <p class="eyebrow mono">⟨editorial policy|</p>
+    <p class="eyebrow">For authors</p>
     <h1>Editorial Policy</h1>
   </div>
   <div class="wrap block prose narrow">
@@ -261,9 +226,9 @@ The three-day programme will feature keynote addresses, expert talks, technical 
 </section>
 
 <!-- ============ AI TOOLS GUIDELINES ============ -->
-<section class="page" id="page-ai-guidelines" data-page="ai-guidelines" hidden>
+<section class="page" id="ai-guidelines" data-page="ai-guidelines" data-nav="cfp">
   <div class="page-head wrap">
-    <p class="eyebrow mono">⟨AI tools|</p>
+    <p class="eyebrow">For authors</p>
     <h1>Guidelines for AI Tools</h1>
     <p class="muted">How authors and reviewers may use generative AI tools such as large language models.</p>
   </div>
@@ -289,9 +254,32 @@ The three-day programme will feature keynote addresses, expert talks, technical 
   </div>
 </section>
 
+<!-- ============ DOWNLOADS ============ -->
+<section class="page" id="download" data-page="download" data-nav="cfp">
+  <div class="page-head wrap">
+    <p class="eyebrow">For authors</p>
+    <h1>Downloads</h1>
+    <p class="muted">Templates and forms for authors and participants.</p>
+  </div>
+  <div class="wrap block">
+    <ul class="downloads" id="downloadList"></ul>
+  </div>
+</section>
+
+<!-- ============ SPEAKERS ============ -->
+<section class="page" id="speakers" data-page="speakers">
+  <div class="page-head wrap">
+    <p class="eyebrow">People</p>
+    <h1>Speakers</h1>
+    <p class="muted">Keynote and invited speakers at <span data-cfg="shortName">QCAI 2027</span>.</p>
+  </div>
+  <div class="wrap block speakers" id="speakersList"></div>
+</section>
+
 <!-- ============ REGISTRATION ============ -->
-<section class="page" id="page-registration" data-page="registration" hidden>
-  <div class="page-head wrap registration-head">
+<section class="page" id="registration" data-page="registration">
+  <div class="page-head wrap">
+    <p class="eyebrow">Attend</p>
     <h1>Registration</h1>
     <p class="muted">Registration guidance for authors, presenters and attendees at QCAI 2027.</p>
   </div>
@@ -387,9 +375,9 @@ The three-day programme will feature keynote addresses, expert talks, technical 
 </section>
 
 <!-- ============ VISA ============ -->
-<section class="page" id="page-visa" data-page="visa" hidden>
+<section class="page" id="visa" data-page="visa" data-nav="registration">
   <div class="page-head wrap">
-    <p class="eyebrow mono">⟨visa|</p>
+    <p class="eyebrow">Attend</p>
     <h1>Visa Application</h1>
   </div>
   <div class="wrap block two-col">
@@ -414,23 +402,10 @@ The three-day programme will feature keynote addresses, expert talks, technical 
   </div>
 </section>
 
-<!-- ============ PROGRAM ============ -->
-<section class="page" id="page-program" data-page="program" hidden>
-  <div class="page-head wrap">
-    <p class="eyebrow mono">⟨program|</p>
-    <h1>Program</h1>
-    <p class="muted">Tentative schedule. All times are IST (UTC+05:30). The detailed session list will be published after paper notification.</p>
-  </div>
-  <div class="wrap block">
-    <div class="tabs" role="tablist" id="dayTabs"></div>
-    <div id="dayPanel" role="tabpanel"></div>
-  </div>
-</section>
-
 <!-- ============ VENUE ============ -->
-<section class="page" id="page-venue" data-page="venue" hidden>
+<section class="page" id="venue" data-page="venue" data-nav="registration">
   <div class="page-head wrap">
-    <p class="eyebrow mono">⟨venue|</p>
+    <p class="eyebrow">Attend</p>
     <h1>Venue</h1>
   </div>
   <div class="wrap block two-col">
@@ -449,42 +424,43 @@ The three-day programme will feature keynote addresses, expert talks, technical 
     </div>
     <aside class="cta-card">
       <h3>Accommodation</h3>
-      <p>A list of nearby hotels with conference rates will be shared with registered participants. Book early; August is a busy travel month.</p>
+      <p>A list of nearby hotels with conference rates will be shared with registered participants. Book early; March is a busy travel month in Delhi.</p>
     </aside>
   </div>
 </section>
 
-<!-- ============ DOWNLOADS ============ -->
-<section class="page" id="page-download" data-page="download" hidden>
+<!-- ============ PROGRAM ============ -->
+<section class="page" id="program" data-page="program">
   <div class="page-head wrap">
-    <p class="eyebrow mono">⟨downloads|</p>
-    <h1>Downloads</h1>
-    <p class="muted">Templates and forms for authors and participants.</p>
+    <p class="eyebrow">Schedule</p>
+    <h1>Conference Schedule</h1>
+    <p class="muted">Tentative schedule. All times are IST (UTC+05:30). The detailed session list will be published after paper notification.</p>
   </div>
   <div class="wrap block">
-    <ul class="downloads" id="downloadList"></ul>
+    <div class="tabs" role="tablist" id="dayTabs"></div>
+    <div id="dayPanel" role="tabpanel"></div>
   </div>
 </section>
 
 <!-- ============ CONTACT ============ -->
-<section class="page" id="page-contact" data-page="contact" hidden>
+<section class="page" id="contact" data-page="contact">
   <div class="page-head wrap">
-    <p class="eyebrow mono">⟨contact|</p>
-    <h1>Contact</h1>
+    <p class="eyebrow">Get in touch</p>
+    <h1>Contacts</h1>
   </div>
   <div class="wrap block contact-grid" id="contactList"></div>
 </section>
 
 <!-- Privacy / terms (simple pages) -->
-<section class="page" id="page-privacy" data-page="privacy" hidden>
+<section class="page legal" id="privacy" data-page="privacy" hidden>
   <div class="page-head wrap"><h1>Privacy Policy</h1></div>
   <div class="wrap block prose narrow">
     <p>This website does not use tracking or advertising cookies. It stores one small value in your browser to remember that you dismissed the notice banner.</p>
     <p>Information you enter in our submission, registration and visa forms is collected through Google Forms and used only to run the conference: reviewing papers, issuing confirmations, certificates and invitation letters, and contacting you about the event. It is not sold or shared with third parties except the proceedings publisher (for accepted papers).</p>
-    <p>To have your data corrected or deleted, email <span class="mono" data-cfg="email">contact@qcai2027.org</span>.</p>
+    <p>To have your data corrected or deleted, email <a data-cfg="email" data-cfg-mailto href="mailto:inconfqcai@gmail.com">inconfqcai@gmail.com</a>.</p>
   </div>
 </section>
-<section class="page" id="page-terms" data-page="terms" hidden>
+<section class="page legal" id="terms" data-page="terms" hidden>
   <div class="page-head wrap"><h1>Terms</h1></div>
   <div class="wrap block prose narrow">
     <p>The organisers may change the program, speakers or venue if necessary. Registered participants will be informed by email of any significant change.</p>
@@ -508,7 +484,8 @@ The three-day programme will feature keynote addresses, expert talks, technical 
         <li><a href="#cfp">Call for Papers</a></li>
         <li><a href="#submission">Submission &amp; Publication</a></li>
         <li><a href="#editorial-policy">Editorial Policy</a></li>
-        <!-- <li><a href="#download">Downloads</a></li> -->
+        <li><a href="#ai-guidelines">Guidelines for AI Tools</a></li>
+        <li><a href="#download">Downloads</a></li>
       </ul>
     </div>
     <div>
@@ -516,17 +493,18 @@ The three-day programme will feature keynote addresses, expert talks, technical 
       <ul class="footer-links">
         <li><a href="#registration">Registration</a></li>
         <li><a href="#visa">Visa Application</a></li>
-        <li><a href="#program">Program</a></li>
+        <li><a href="#program">Conference Schedule</a></li>
         <li><a href="#venue">Venue</a></li>
       </ul>
     </div>
     <div>
       <p class="footer-head">Contact</p>
-      <p class="mono small"><span data-cfg="email">contact@qcai2027.org</span></p>
-      <!-- <button class="btn btn-small" id="copyEmail" type="button">Copy email</button> -->
-       <p>+91-xxxxxxxxxx</p>
-       <p>+91-xxxxxxxxxx</p>
-       <p>+91-xxxxxxxxxx</p>
+      <ul class="footer-links">
+        <li><a data-cfg="email" data-cfg-mailto href="mailto:inconfqcai@gmail.com">inconfqcai@gmail.com</a></li>
+        <li>+91-xxxxxxxxxx</li>
+        <li>+91-xxxxxxxxxx</li>
+        <li>+91-xxxxxxxxxx</li>
+      </ul>
     </div>
   </div>
   <div class="wrap footer-base small muted">
@@ -536,7 +514,6 @@ The three-day programme will feature keynote addresses, expert talks, technical 
 </footer>
 
 <!-- Cookie / storage notice -->
-//new add
 <div class="consent" id="consent" hidden>
   <p>This site uses only essential browser storage to remember your choices. No tracking.</p>
   <div><button class="btn btn-small btn-solid" id="consentOk" type="button">OK</button></div>
