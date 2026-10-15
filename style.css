@@ -1,8 +1,7 @@
 /* ==========================================================================
    QCAI 2027 — stylesheet
-   Layout concept: a quiet, editorial page on a cool paper ground; one dark
-   "laboratory" hero with a live Bloch sphere; ket-notation eyebrows; dates
-   and data set in mono like an instrument readout.
+   Layout concept: a quiet, editorial page on a cool paper ground, with a
+   light "laboratory" hero and live Bloch sphere.
    ========================================================================== */
 .logo{
   border: none;
@@ -13,20 +12,21 @@
 }
 :root {
   /* colour */
-  --bg: #f4f5f1;
+  --bg: #f6f8f7;
   --surface: #ffffff;
-  --band: #e9ece5;
-  --fg: #121b26;
-  --muted: #586470;
-  --line: #d6dbd2;
-  --accent: #0b6b67;        /* deep teal: links, buttons */
+  --band: #edf2ef;
+  --fg: #17242f;
+  --muted: #566673;
+  --line: #d5dfdc;
+  --accent: #08766f;
   --accent-fg: #ffffff;
-  --accent-soft: #dcebe8;
-  --marigold: #c98506;      /* highlight: state vector, small marks */
-  --hero-bg: #0d1722;
-  --hero-fg: #eef2ec;
-  --hero-muted: #9fb0bd;
-  --hero-line: rgba(238, 242, 236, .14);
+  --accent-soft: #dff1ed;
+  --marigold: #925800;
+  --hero-bg: #e9f1f4;
+  --hero-fg: #17242f;
+  --hero-muted: #506573;
+  --hero-line: rgba(23, 36, 47, .16);
+  color-scheme: light;
 
   /* type */
   --f-display: "Unbounded", "Trebuchet MS", system-ui, sans-serif;
@@ -44,23 +44,6 @@
   --wrap: 1180px;
   --gutter: clamp(16px, 4vw, 40px);
   --header-h: 68px;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    --bg: #0b1118; --surface: #121b25; --band: #0f171f; --fg: #e6ebe4;
-    --muted: #93a1ac; --line: #243240; --accent: #52c3b8; --accent-fg: #062220;
-    --accent-soft: #123532; --marigold: #f0b33f; --hero-bg: #070d13;
-    --hero-fg: #eef2ec; --hero-muted: #9fb0bd; --hero-line: rgba(238,242,236,.12);
-    color-scheme: dark;
-  }
-}
-:root[data-theme="dark"] {
-  --bg: #0b1118; --surface: #121b25; --band: #0f171f; --fg: #e6ebe4;
-  --muted: #93a1ac; --line: #243240; --accent: #52c3b8; --accent-fg: #062220;
-  --accent-soft: #123532; --marigold: #f0b33f; --hero-bg: #070d13;
-  --hero-fg: #eef2ec; --hero-muted: #9fb0bd; --hero-line: rgba(238,242,236,.12);
-  color-scheme: dark;
 }
 
 /* ---------- base ---------- */
@@ -94,7 +77,7 @@ p { margin: 0 0 1em; }
 .wrap { width: 100%; max-width: var(--wrap); margin-inline: auto; padding-inline: var(--gutter); }
 .block { padding-block: clamp(48px, 7vw, 88px); }
 .band { background: var(--band); border-block: 1px solid var(--line); }
-.block-head { max-width: 62ch; margin-bottom: 2.25rem; }
+.block-head { max-width: 80vw; margin-bottom: 2.25rem; }
 .block-head h2 { margin-bottom: .35em; }
 
 .eyebrow {
@@ -206,8 +189,8 @@ p { margin: 0 0 1em; }
 .hero-title em { font-style: normal; color: var(--marigold); }
 .hero-lede { max-width: 48ch; font-size: var(--step-1); color: var(--hero-muted); margin-bottom: 2rem; }
 .hero-actions { display: flex; flex-wrap: wrap; gap: .75rem; align-items: center; }
-.hero .btn-solid { background: var(--marigold); color: #1a1205; }
-.hero .btn-solid:hover { background: color-mix(in srgb, var(--marigold) 85%, #fff); }
+.hero .btn-solid { background: var(--accent); color: var(--accent-fg); }
+.hero .btn-solid:hover { background: color-mix(in srgb, var(--accent) 86%, var(--fg)); }
 .hero .btn-line, .hero .btn-text { color: var(--hero-fg); }
 .hero .btn-line:hover { background: var(--hero-line); }
 
@@ -250,8 +233,14 @@ p { margin: 0 0 1em; }
 .tracks { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.25rem; }
 .track { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 1.5rem 1.5rem 1.25rem; min-width: 0; }
 .track-ket { font-family: var(--f-mono); color: var(--marigold); font-size: .95rem; margin-bottom: .35rem; }
-.track h3 { margin-bottom: 1rem; }
+.track h3 { margin: 0; }
+.track-header { display: flex; align-items: center; justify-content: space-between; gap: 1rem; width: 100%; padding: 0; border: 0; background: transparent; color: inherit; text-align: left; font: inherit; cursor: pointer; }
+.track-header:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+.track-chevron { flex: 0 0 .6rem; height: .6rem; border-right: 2px solid currentColor; border-bottom: 2px solid currentColor; transform: rotate(45deg); transition: transform .2s ease; }
+.track.open .track-chevron { transform: rotate(225deg); }
 .track ul { list-style: none; margin: 0; padding: 0; display: grid; gap: .45rem; }
+.track ul[hidden] { display: none; }
+.track .topics-list { margin-top: 1rem; }
 .track li { padding-left: 1.1rem; position: relative; font-size: .9375rem; }
 .track li::before { content: ""; position: absolute; left: 0; top: .7em; width: 5px; height: 5px; background: var(--accent); border-radius: 50%; }
 .tracks-full .track ul { columns: 1; }
@@ -359,7 +348,7 @@ td .note { display: block; color: var(--muted); font-size: .85rem; }
 .site-footer { margin-top: clamp(48px, 7vw, 96px); background: var(--hero-bg); color: var(--hero-fg); padding-block: 3.5rem 1.5rem; }
 .site-footer a { color: var(--hero-fg); }
 .site-footer .muted { color: var(--hero-muted); }
-.site-footer .btn-small { background: transparent; color: var(--hero-fg); border-color: var(--hero-line); margin-top: .5rem; }
+.site-footer .btn-small { background: var(--surface); color: var(--hero-fg); border-color: var(--hero-line); margin-top: .5rem; }
 .footer-grid { display: grid; grid-template-columns: minmax(0, 1.5fr) repeat(3, minmax(0, 1fr)); gap: 2rem; }
 .footer-name { font-family: var(--f-display); font-size: 1.2rem; margin-bottom: .5rem; }
 .footer-head { font-family: var(--f-mono); font-size: .75rem; letter-spacing: .08em; text-transform: uppercase; color: var(--hero-muted); margin-bottom: .75rem; }

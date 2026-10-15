@@ -42,7 +42,7 @@ const CONFIG = {
   // ---- TOPICS / TRACKS ----
   tracks: [
     {
-      ket: "|0⟩", title: "Quantum Computing & Algorithms",
+      ket: "Track 1", title: "Quantum Computing & Algorithms",
       topics: [
         "Quantum algorithms and complexity",
         "Variational quantum algorithms (VQE, QAOA)",
@@ -53,7 +53,7 @@ const CONFIG = {
       ]
     },
     {
-      ket: "|1⟩", title: "Quantum Machine Learning & AI",
+      ket: "Track 2", title: "Quantum Machine Learning & AI",
       topics: [
         "Quantum machine learning",
         "Quantum neural networks and their construction",
@@ -65,7 +65,42 @@ const CONFIG = {
       ]
     },
     {
-      ket: "|+⟩", title: "Quantum Communication, Measurement & Security",
+      ket: "Track 3", title: "Quantum Communication, Measurement & Security",
+      topics: [
+        "Quantum key distribution and quantum networks",
+        "Quantum sensing and metrology",
+        "Quantum measurement and quantum interference",
+        "Quantum nonlinear optics",
+        "Post-quantum cryptography",
+        "Quantum AI security",
+        "Quantum intelligent signal processing"
+      ]
+    },
+    {
+      ket: "Track 4", title: "Quantum Computing & Algorithms",
+      topics: [
+        "Quantum algorithms and complexity",
+        "Variational quantum algorithms (VQE, QAOA)",
+        "Quantum error correction and fault tolerance",
+        "Quantum control and calibration",
+        "Quantum hardware: superconducting, trapped-ion, photonic, neutral-atom",
+        "Quantum simulation of physical and chemical systems"
+      ]
+    },
+    {
+      ket: "Track 5", title: "Quantum Machine Learning & AI",
+      topics: [
+        "Quantum machine learning",
+        "Quantum neural networks and their construction",
+        "Quantum reinforcement learning",
+        "Quantum data clustering and quantum PCA",
+        "Quantum natural language processing",
+        "Quantum–classical hybrid computing",
+        "Machine learning for quantum error decoding and control"
+      ]
+    },
+    {
+      ket: "Track 6", title: "Quantum Communication, Measurement & Security",
       topics: [
         "Quantum key distribution and quantum networks",
         "Quantum sensing and metrology",
@@ -235,8 +270,8 @@ function renderDates() {
     const past = endDay < today;
     let cls, state;
     if (past) { cls = "is-past"; state = d.event ? "Held" : "Closed"; }
-    else if (!nextFound) { cls = "is-next"; state = d.event ? "Coming up" : "Next deadline"; nextFound = true; }
-    else { cls = ""; state = d.event ? "Event" : "Upcoming"; }
+    else if (!nextFound) { cls = "is-next"; state = d.event ? "" : ""; nextFound = true; }
+    else { cls = ""; state = d.event ? "" : ""; }
     if (d.event) cls += " is-event";
     const dateText = d.end
       ? (() => { const a = parseDay(d.date), b = parseDay(d.end); return a.getMonth() === b.getMonth()
@@ -266,10 +301,17 @@ function startCountdown() {
 
 /* ---------- tracks ---------- */
 function renderTracks() {
-  const card = (t, limit) => `<article class="track"><div class="track-ket">${esc(t.ket)}</div><h3>${esc(t.title)}</h3>
-    <ul>${t.topics.slice(0, limit).map((x) => `<li>${esc(x)}</li>`).join("")}</ul></article>`;
-  $("#tracksHome").innerHTML = CONFIG.tracks.map((t) => card(t, 5)).join("");
-  $("#tracksFull").innerHTML = CONFIG.tracks.map((t) => card(t)).join("");
+  const card = (t, index, section, limit) => {
+    const topicsId = `track-${section}-topics-${index}`;
+    const topics = limit == null ? t.topics : t.topics.slice(0, limit);
+    return `<article class="track"><div class="track-ket">${esc(t.ket)}</div>
+      <h3><button class="track-header" type="button" aria-expanded="false" aria-controls="${topicsId}">
+        <span>${esc(t.title)}</span><span class="track-chevron" aria-hidden="true"></span>
+      </button></h3>
+      <ul class="topics-list" id="${topicsId}" hidden>${topics.map((x) => `<li>${esc(x)}</li>`).join("")}</ul></article>`;
+  };
+  $("#tracksHome").innerHTML = CONFIG.tracks.map((t, i) => card(t, i, "home", 5)).join("");
+  $("#tracksFull").innerHTML = CONFIG.tracks.map((t, i) => card(t, i, "full")).join("");
 }
 
 /* ---------- sponsors ---------- */
@@ -383,6 +425,16 @@ function initNav() {
 
 /* ---------- misc UI ---------- */
 function initUI() {
+  ["#tracksHome", "#tracksFull"].forEach((selector) => {
+    $(selector).addEventListener("click", (e) => {
+      const button = e.target.closest(".track-header");
+      if (!button) return;
+      const open = button.getAttribute("aria-expanded") !== "true";
+      button.setAttribute("aria-expanded", String(open));
+      button.closest(".track").querySelector(".topics-list").hidden = !open;
+      button.closest(".track").classList.toggle("open", open);
+    });
+  });
   $(".fee-switch").addEventListener("click", (e) => { const b = e.target.closest(".chip"); if (b) renderFees(b.dataset.cur); });
   $("#dayTabs").addEventListener("click", (e) => { const b = e.target.closest(".tab"); if (b) { renderProgram(+b.dataset.day); $(`#tab-${b.dataset.day}`).focus(); } });
   $("#dayTabs").addEventListener("keydown", (e) => {
@@ -392,7 +444,8 @@ function initUI() {
     renderProgram(n); $(`#tab-${n}`).focus();
   });
   document.addEventListener("click", (e) => { const b = e.target.closest("[data-copy]"); if (b) copyText(b.dataset.copy, b); });
-  $("#copyEmail").addEventListener("click", (e) => copyText(CONFIG.email, e.currentTarget));
+  const copyEmail = $("#copyEmail");
+  if (copyEmail) copyEmail.addEventListener("click", (e) => copyText(CONFIG.email, e.currentTarget));
 
   if (!store.get("qcai-consent")) $("#consent").hidden = false;
   $("#consentOk").addEventListener("click", () => { store.set("qcai-consent", "1"); $("#consent").hidden = true; });
