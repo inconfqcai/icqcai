@@ -115,10 +115,10 @@ const CONFIG = {
 
   // ---- SPONSORS / ORGANISERS (logo: path to an image, or leave "") ----
   sponsors: [
-    { role: "Organised by", name: "IIT (ISM) Dhanbad", logo: "" },
-    { role: "Co-organised by", name: "Jawaharlal Nehru University (JNU), New Delhi", logo: "" },
-    { role: "Venue partner", name: "SC&SS, JNU", logo: "" },
-    { role: "Academic collaboration", name: "Quantum Computing & AI research community", logo: "" }
+    { role: "Organised by", name: "IIT (ISM) Dhanbad", logo: "./assets/anrf.jpg" },
+    { role: "Co-organised by", name: "Jawaharlal Nehru University (JNU), New Delhi", logo: "./assets/anrf.jpg" },
+    { role: "Venue partner", name: "SC&SS, JNU", logo: "./assets/anrf.jpg" },
+    { role: "Academic collaboration", name: "Quantum Computing & AI research community", logo: "./assets/anrf.jpg" }
   ],
 
   // ---- COMMITTEE ----
@@ -316,9 +316,7 @@ function renderTracks() {
 
 /* ---------- sponsors ---------- */
 function renderSponsors() {
-  $("#sponsors").innerHTML = CONFIG.sponsors.map((s) => `<div class="sponsor"><span class="role">${esc(s.role)}</span>
-    <div class="logo">${s.logo ? `<img src="${esc(s.logo)}" alt="${esc(s.name)} logo">` : `<span class="logo-ph">Logo</span>`}</div>
-    <span class="name">${esc(s.name)}</span></div>`).join("");
+  $("#sponsors").innerHTML = CONFIG.sponsors.map((s) => `${s.logo ? `<img src="${esc(s.logo)}" alt="${esc(s.name)} logo">` : `<span class="logo-ph">Logo</span>`}`).join("");
 }
 
 /* ---------- committee ---------- */
@@ -455,82 +453,10 @@ function initUI() {
   toTop.addEventListener("click", () => scrollTo({ top: 0, behavior: "smooth" }));
 }
 
-/* ---------- hero: animated Bloch sphere ---------- */
-function initBloch() {
-  const cv = $("#bloch"); if (!cv) return;
-  const ctx = cv.getContext("2d");
-  const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
-  let w, h, dpr, t = 0.6;
-  const css = (n) => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
-  function size() {
-    dpr = Math.min(devicePixelRatio || 1, 2);
-    w = cv.clientWidth; h = cv.clientHeight;
-    cv.width = w * dpr; cv.height = h * dpr; ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-  }
-  const tilt = 0.38;
-  const proj = (x, y, z, cx, cy, R, rot) => {
-    const xr = x * Math.cos(rot) - y * Math.sin(rot), yr = x * Math.sin(rot) + y * Math.cos(rot);
-    const y2 = yr * Math.cos(tilt) - z * Math.sin(tilt), z2 = yr * Math.sin(tilt) + z * Math.cos(tilt);
-    return [cx + xr * R, cy - z2 * R, y2];
-  };
-  function draw() {
-    const fg = css("--hero-fg") || "#eef2ec", gold = css("--marigold") || "#f0b33f";
-    ctx.clearRect(0, 0, w, h);
-    const narrow = w < 760;
-    const R = narrow ? Math.min(w, h) * 0.42 : Math.min(h * 0.38, w * 0.22);
-    const cx = narrow ? w * 0.78 : w * 0.76, cy = h * 0.5;
-    ctx.globalAlpha = narrow ? 0.35 : 1;
-    const rot = t * 0.15;
-    // lattice dots
-    ctx.fillStyle = fg;
-    for (let gx = 0; gx < w; gx += 28) for (let gy = 0; gy < h; gy += 28) {
-      ctx.globalAlpha = (narrow ? 0.35 : 1) * 0.07; ctx.fillRect(gx, gy, 1.2, 1.2);
-    }
-    ctx.globalAlpha = narrow ? 0.35 : 1;
-    // circles of latitude & longitude
-    ctx.lineWidth = 1;
-    const ring = (fn, alpha) => {
-      ctx.beginPath();
-      for (let i = 0; i <= 96; i++) { const a = (i / 96) * Math.PI * 2; const [px, py] = fn(a); i ? ctx.lineTo(px, py) : ctx.moveTo(px, py); }
-      ctx.strokeStyle = fg; ctx.globalAlpha = (narrow ? 0.35 : 1) * alpha; ctx.stroke();
-    };
-    for (let k = -2; k <= 2; k++) { const z = k / 3, r = Math.sqrt(1 - z * z);
-      ring((a) => proj(r * Math.cos(a), r * Math.sin(a), z, cx, cy, R, rot), k === 0 ? 0.35 : 0.12); }
-    for (let k = 0; k < 6; k++) { const ph = (k / 6) * Math.PI;
-      ring((a) => proj(Math.cos(a) * Math.cos(ph), Math.cos(a) * Math.sin(ph), Math.sin(a), cx, cy, R, rot), 0.12); }
-    // axes
-    ctx.globalAlpha = (narrow ? 0.35 : 1) * 0.4; ctx.strokeStyle = fg;
-    [[0,0,1.18],[0,0,-1.18]].forEach(([x,y,z]) => { const [a,b] = proj(0,0,0,cx,cy,R,rot), [c,d] = proj(x,y,z,cx,cy,R,rot); ctx.beginPath(); ctx.moveTo(a,b); ctx.lineTo(c,d); ctx.stroke(); });
-    ctx.font = "13px 'IBM Plex Mono', monospace"; ctx.fillStyle = fg; ctx.globalAlpha = (narrow ? 0.35 : 1) * 0.7;
-    const [nx, ny] = proj(0, 0, 1.3, cx, cy, R, rot), [sx, sy] = proj(0, 0, -1.34, cx, cy, R, rot);
-    ctx.fillText("|0⟩", nx - 12, ny); ctx.fillText("|1⟩", sx - 12, sy + 8);
-    // state vector precessing
-    const theta = 1.0 + 0.35 * Math.sin(t * 0.5), phi = t * 0.9;
-    const vx = Math.sin(theta) * Math.cos(phi), vy = Math.sin(theta) * Math.sin(phi), vz = Math.cos(theta);
-    const [ox, oy] = proj(0, 0, 0, cx, cy, R, 0), [px, py] = proj(vx, vy, vz, cx, cy, R, 0);
-    // trail
-    ctx.strokeStyle = gold;
-    for (let i = 40; i > 0; i--) {
-      const tt = t - i * 0.05, th = 1.0 + 0.35 * Math.sin(tt * 0.5), ph2 = tt * 0.9;
-      const [ax, ay] = proj(Math.sin(th) * Math.cos(ph2), Math.sin(th) * Math.sin(ph2), Math.cos(th), cx, cy, R, 0);
-      ctx.globalAlpha = (narrow ? 0.35 : 1) * (1 - i / 40) * 0.6;
-      ctx.beginPath(); ctx.arc(ax, ay, 1.4, 0, Math.PI * 2); ctx.fillStyle = gold; ctx.fill();
-    }
-    ctx.globalAlpha = narrow ? 0.4 : 1; ctx.lineWidth = 2.2;
-    ctx.beginPath(); ctx.moveTo(ox, oy); ctx.lineTo(px, py); ctx.stroke();
-    ctx.beginPath(); ctx.arc(px, py, 5, 0, Math.PI * 2); ctx.fillStyle = gold; ctx.fill();
-    ctx.globalAlpha = (narrow ? 0.35 : 1) * 0.9; ctx.fillStyle = gold; ctx.fillText("|ψ⟩", px + 10, py - 8);
-    ctx.globalAlpha = 1;
-  }
-  function loop() { t += 0.012; draw(); if (!reduce) requestAnimationFrame(loop); }
-  size(); addEventListener("resize", () => { size(); draw(); });
-  reduce ? draw() : loop();
-}
-
 /* ---------- boot ---------- */
 document.addEventListener("DOMContentLoaded", () => {
   fillConfig(); renderDates(); startCountdown(); renderTracks(); renderSponsors();
   renderCommittee(); renderSpeakers(); renderFees("inr"); renderProgram(0);
-  renderDownloads(); renderContacts(); initNav(); initUI(); initBloch();
+  renderDownloads(); renderContacts(); initNav(); initUI();
   addEventListener("hashchange", route); route();
 });
