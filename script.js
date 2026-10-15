@@ -8,12 +8,12 @@
 
 const CONFIG = {
   shortName: "QCAI 2027",
-  fullName: "International Conference on Quantum Computing and Artificial Intelligence",
-  edition: "International Conference on",
+  fullName: "1st International Conference on Quantum Computing and Artificial Intelligence",
+  edition: "1st International Conference on",
   city: "New Delhi, India",
-  datesLabel: "21–22 March 2027",
+  datesLabel: "12–14 March 2027",
   format: "In person, with online presentation option",
-  email: "contact@qcai2027.org",
+  email: "inconfqcai@gmail.com",
 
   // Opening session — used by the countdown (IST = +05:30)
   conferenceStart: "2027-03-21T09:00:00+05:30",
@@ -23,19 +23,19 @@ const CONFIG = {
 
   // ---- GOOGLE FORM LINKS (paste your form URLs here) ----
   forms: {
-    submission:   "https://forms.gle/REPLACE-WITH-SUBMISSION-FORM",
-    registration: "https://forms.gle/REPLACE-WITH-REGISTRATION-FORM",
-    visa:         "https://forms.gle/REPLACE-WITH-VISA-LETTER-FORM"
+    submission:   "https://cmt3.research.microsoft.com/User/Login?ReturnUrl=%2F",
+    registration: "https://cmt3.research.microsoft.com/User/Login?ReturnUrl=%2F",
+    visa:         "https://cmt3.research.microsoft.com/User/Login?ReturnUrl=%2F"
   },
 
   // ---- IMPORTANT DATES (YYYY-MM-DD) ----
   importantDates: [
     { label: "Call for papers", date: "2026-11-15" },
-    { label: "Last date for paper submission", date: "2027-01-20" },
+    { label: "Last date for paper submission", date: "2027-01-15" },
     { label: "Notification of acceptance", date: "2027-02-10" },
-    { label: "Early-bird registration deadline", date: "2027-03-01" },
-    { label: "Final registration deadline", date: "2027-03-15" },
-    { label: "Conference", date: "2027-03-21", end: "2027-03-22", event: true }
+    { label: "Camera Ready", date: "2027-02-15" },
+    { label: "Final registration deadline", date: "2027-02-20" },
+    // { label: "Conference", date: "2027-03-21", end: "2027-03-22", event: true }
   ],
   earlyBirdLabel: "15 February 2027",
 
