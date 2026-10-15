@@ -8,12 +8,12 @@
 
 const CONFIG = {
   shortName: "QCAI 2027",
-  fullName: "International Conference on Quantum Computing and Artificial Intelligence",
-  edition: "International Conference on",
+  fullName: "1st International Conference on Quantum Computing and Artificial Intelligence",
+  edition: "1st International Conference on",
   city: "New Delhi, India",
-  datesLabel: "21–22 March 2027",
+  datesLabel: "12–14 March 2027",
   format: "In person, with online presentation option",
-  email: "contact@qcai2027.org",
+  email: "inconfqcai@gmail.com",
 
   // Opening session — used by the countdown (IST = +05:30)
   conferenceStart: "2027-03-21T09:00:00+05:30",
@@ -23,26 +23,25 @@ const CONFIG = {
 
   // ---- GOOGLE FORM LINKS (paste your form URLs here) ----
   forms: {
-    submission:   "https://forms.gle/REPLACE-WITH-SUBMISSION-FORM",
-    registration: "https://forms.gle/REPLACE-WITH-REGISTRATION-FORM",
-    visa:         "https://forms.gle/REPLACE-WITH-VISA-LETTER-FORM"
+    submission:   "https://cmt3.research.microsoft.com/User/Login?ReturnUrl=%2F",
+    registration: "https://cmt3.research.microsoft.com/User/Login?ReturnUrl=%2F",
+    visa:         "https://cmt3.research.microsoft.com/User/Login?ReturnUrl=%2F"
   },
 
   // ---- IMPORTANT DATES (YYYY-MM-DD) ----
   importantDates: [
     { label: "Call for papers", date: "2026-11-15" },
-    { label: "Last date for paper submission", date: "2027-01-20" },
+    { label: "Last date for paper submission", date: "2027-01-15" },
     { label: "Notification of acceptance", date: "2027-02-10" },
-    { label: "Early-bird registration deadline", date: "2027-03-01" },
-    { label: "Final registration deadline", date: "2027-03-15" },
-    { label: "Conference", date: "2027-03-21", end: "2027-03-22", event: true }
+    { label: "Camera Ready", date: "2027-02-15" },
+    { label: "Final registration deadline", date: "2027-02-20" },
+    // { label: "Conference", date: "2027-03-21", end: "2027-03-22", event: true }
   ],
-  earlyBirdLabel: "15 February 2027",
 
   // ---- TOPICS / TRACKS ----
   tracks: [
     {
-      ket: "|0⟩", title: "Quantum Computing & Algorithms",
+      ket: "Track 1", title: "Quantum Computing & Algorithms",
       topics: [
         "Quantum algorithms and complexity",
         "Variational quantum algorithms (VQE, QAOA)",
@@ -53,7 +52,7 @@ const CONFIG = {
       ]
     },
     {
-      ket: "|1⟩", title: "Quantum Machine Learning & AI",
+      ket: "Track 2", title: "Quantum Machine Learning & AI",
       topics: [
         "Quantum machine learning",
         "Quantum neural networks and their construction",
@@ -65,7 +64,42 @@ const CONFIG = {
       ]
     },
     {
-      ket: "|+⟩", title: "Quantum Communication, Measurement & Security",
+      ket: "Track 3", title: "Quantum Communication, Measurement & Security",
+      topics: [
+        "Quantum key distribution and quantum networks",
+        "Quantum sensing and metrology",
+        "Quantum measurement and quantum interference",
+        "Quantum nonlinear optics",
+        "Post-quantum cryptography",
+        "Quantum AI security",
+        "Quantum intelligent signal processing"
+      ]
+    },
+    {
+      ket: "Track 4", title: "Quantum Computing & Algorithms",
+      topics: [
+        "Quantum algorithms and complexity",
+        "Variational quantum algorithms (VQE, QAOA)",
+        "Quantum error correction and fault tolerance",
+        "Quantum control and calibration",
+        "Quantum hardware: superconducting, trapped-ion, photonic, neutral-atom",
+        "Quantum simulation of physical and chemical systems"
+      ]
+    },
+    {
+      ket: "Track 5", title: "Quantum Machine Learning & AI",
+      topics: [
+        "Quantum machine learning",
+        "Quantum neural networks and their construction",
+        "Quantum reinforcement learning",
+        "Quantum data clustering and quantum PCA",
+        "Quantum natural language processing",
+        "Quantum–classical hybrid computing",
+        "Machine learning for quantum error decoding and control"
+      ]
+    },
+    {
+      ket: "Track 6", title: "Quantum Communication, Measurement & Security",
       topics: [
         "Quantum key distribution and quantum networks",
         "Quantum sensing and metrology",
@@ -80,10 +114,10 @@ const CONFIG = {
 
   // ---- SPONSORS / ORGANISERS (logo: path to an image, or leave "") ----
   sponsors: [
-    { role: "Organised by", name: "IIT (ISM) Dhanbad", logo: "" },
-    { role: "Co-organised by", name: "Jawaharlal Nehru University (JNU), New Delhi", logo: "" },
-    { role: "Venue partner", name: "SC&SS, JNU", logo: "" },
-    { role: "Academic collaboration", name: "Quantum Computing & AI research community", logo: "" }
+    { role: "Organised by", name: "IIT (ISM) Dhanbad", logo: "./assets/anrf.jpg" },
+    { role: "Co-organised by", name: "Jawaharlal Nehru University (JNU), New Delhi", logo: "./assets/anrf.jpg" },
+    { role: "Venue partner", name: "SC&SS, JNU", logo: "./assets/anrf.jpg" },
+    { role: "Academic collaboration", name: "Quantum Computing & AI research community", logo: "./assets/anrf.jpg" }
   ],
 
   // ---- COMMITTEE ----
@@ -117,25 +151,6 @@ const CONFIG = {
     { role: "Invited", name: "Shayan Srinivasa Garani", aff: "Professor, IISc Bangalore", talk: "Talk title to be announced", photo: "" },
     { role: "Invited", name: "Navin Kashyap", aff: "Professor, IISc Bangalore", talk: "Talk title to be announced", photo: "" },
     { role: "Invited", name: "Alok Mishra", aff: "Scientist, DRDO Bengaluru", talk: "Talk title to be announced", photo: "" }
-  ],
-
-  // ---- REGISTRATION FEES (sample values — set your own) ----
-  fees: [
-    { cat: "BTech / MTech / MS / MSc / PhD", note: "INR XYZ + GST", inr: ["XYZ", "XYZ"], usd: ["XYZ", "XYZ"] },
-    { cat: "Post Doc", note: "INR XYZ + GST", inr: ["XYZ", "XYZ"], usd: ["XYZ", "XYZ"] },
-    { cat: "Faculty", note: "INR XYZ + GST", inr: ["XYZ", "XYZ"], usd: ["XYZ", "XYZ"] },
-    { cat: "Industry", note: "INR XYZ + GST", inr: ["XYZ", "XYZ"], usd: ["XYZ", "XYZ"] },
-    { cat: "Listener / attendee", note: "No paper presentation", inr: [3000, 4000], usd: [80, 120] },
-    { cat: "Accommodation", note: "Not included", inr: ["—", "—"], usd: ["—", "—"] }
-  ],
-
-  // ---- PAYMENT DETAILS (shown on the registration page) ----
-  bank: [
-    ["Account name", "IIT (ISM) Dhanbad — QCAI 2027"],
-    ["Bank", "State Bank of India, Dhanbad"],
-    ["Account no.", "XXXXXXXXXXXX"],
-    ["IFSC", "XXXX0000000"],
-    ["SWIFT (international)", "XXXXINBBXXX"]
   ],
 
   // ---- PROGRAM ----
@@ -235,8 +250,8 @@ function renderDates() {
     const past = endDay < today;
     let cls, state;
     if (past) { cls = "is-past"; state = d.event ? "Held" : "Closed"; }
-    else if (!nextFound) { cls = "is-next"; state = d.event ? "Coming up" : "Next deadline"; nextFound = true; }
-    else { cls = ""; state = d.event ? "Event" : "Upcoming"; }
+    else if (!nextFound) { cls = "is-next"; state = d.event ? "" : ""; nextFound = true; }
+    else { cls = ""; state = d.event ? "" : ""; }
     if (d.event) cls += " is-event";
     const dateText = d.end
       ? (() => { const a = parseDay(d.date), b = parseDay(d.end); return a.getMonth() === b.getMonth()
@@ -265,18 +280,24 @@ function startCountdown() {
 }
 
 /* ---------- tracks ---------- */
+//trick
 function renderTracks() {
-  const card = (t, limit) => `<article class="track"><div class="track-ket">${esc(t.ket)}</div><h3>${esc(t.title)}</h3>
-    <ul>${t.topics.slice(0, limit).map((x) => `<li>${esc(x)}</li>`).join("")}</ul></article>`;
-  $("#tracksHome").innerHTML = CONFIG.tracks.map((t) => card(t, 5)).join("");
-  $("#tracksFull").innerHTML = CONFIG.tracks.map((t) => card(t)).join("");
+  const card = (t, index, section, limit) => {
+    const topicsId = `track-${section}-topics-${index}`;
+    const topics = limit == null ? t.topics : t.topics.slice(0, limit);
+    return `<article class="track"><div class="track-ket">${esc(t.ket)}</div>
+      <h3><button class="track-header" type="button" aria-expanded="false" aria-controls="${topicsId}">
+        <span>${esc(t.title)}</span><span class="track-chevron" aria-hidden="true"></span>
+      </button></h3>
+      <ul class="topics-list" id="${topicsId}" hidden>${topics.map((x) => `<li>${esc(x)}</li>`).join("")}</ul></article>`;
+  };
+  $("#tracksHome").innerHTML = CONFIG.tracks.map((t, i) => card(t, i, "home", 5)).join("");
+  $("#tracksFull").innerHTML = CONFIG.tracks.map((t, i) => card(t, i, "full")).join("");
 }
 
 /* ---------- sponsors ---------- */
 function renderSponsors() {
-  $("#sponsors").innerHTML = CONFIG.sponsors.map((s) => `<div class="sponsor"><span class="role">${esc(s.role)}</span>
-    <div class="logo">${s.logo ? `<img src="${esc(s.logo)}" alt="${esc(s.name)} logo">` : `<span class="logo-ph">Logo</span>`}</div>
-    <span class="name">${esc(s.name)}</span></div>`).join("");
+  $("#sponsors").innerHTML = CONFIG.sponsors.map((s) => `${s.logo ? `<img src="${esc(s.logo)}" alt="${esc(s.name)} logo">` : `<span class="logo-ph">Logo</span>`}`).join("");
 }
 
 /* ---------- committee ---------- */
@@ -293,20 +314,6 @@ function renderSpeakers() {
     <div class="photo" data-ket="${kets[i % kets.length]}">${s.photo ? `<img src="${esc(s.photo)}" alt="${esc(s.name)}">` : esc(initials(s.name))}</div>
     <div class="body"><span class="s-role">${esc(s.role)} speaker</span><h3 class="s-name">${esc(s.name)}</h3>
     <span class="s-aff">${esc(s.aff)}</span><p class="s-talk"><strong>Talk:</strong> ${esc(s.talk)}</p></div></article>`).join("");
-}
-
-/* ---------- fees ---------- */
-function renderFees(cur = "inr") {
-  const fmt = (n) => {
-    if (typeof n === "string") return n;
-    if (n == null || Number.isNaN(Number(n))) return "—";
-    const val = Number(n);
-    return cur === "inr" ? "₹" + val.toLocaleString("en-IN") : "US$" + val.toLocaleString("en-US");
-  };
-  $("#feeBody").innerHTML = CONFIG.fees.map((f) => `<tr><td><strong>${esc(f.cat)}</strong>${f.note ? `<span class="note">${esc(f.note)}</span>` : ""}</td>
-    <td class="amt">${fmt(f[cur][0])}</td><td class="amt">${fmt(f[cur][1])}</td></tr>`).join("");
-  $$(".fee-switch .chip").forEach((b) => { const on = b.dataset.cur === cur; b.classList.toggle("is-on", on); b.setAttribute("aria-pressed", on); });
-  $("#bankDetails").innerHTML = CONFIG.bank.map(([k, v]) => `<dt>${esc(k)}</dt><dd>${esc(v)}</dd>`).join("");
 }
 
 /* ---------- program ---------- */
@@ -383,7 +390,30 @@ function initNav() {
 
 /* ---------- misc UI ---------- */
 function initUI() {
-  $(".fee-switch").addEventListener("click", (e) => { const b = e.target.closest(".chip"); if (b) renderFees(b.dataset.cur); });
+  ["#tracksHome", "#tracksFull"].forEach((selector) => {
+    $(selector).addEventListener("click", (e) => {
+      const button = e.target.closest(".track-header");
+      if (!button) return;
+      const open = button.getAttribute("aria-expanded") !== "true";
+      button.setAttribute("aria-expanded", String(open));
+      button.closest(".track").querySelector(".topics-list").hidden = !open;
+      button.closest(".track").classList.toggle("open", open);
+    });
+  });
+  const registrationFeeSwitch = $("#registrationFeeSwitch");
+  registrationFeeSwitch.addEventListener("click", (e) => {
+    const button = e.target.closest("[data-currency]");
+    if (!button) return;
+    const currency = button.dataset.currency;
+    $$(".fee-switch [data-currency]", registrationFeeSwitch).forEach((option) => {
+      const active = option === button;
+      option.classList.toggle("is-on", active);
+      option.setAttribute("aria-pressed", String(active));
+    });
+    $$("[data-fee-currency]", registrationFeeSwitch.parentElement).forEach((body) => {
+      body.hidden = body.dataset.feeCurrency !== currency;
+    });
+  });
   $("#dayTabs").addEventListener("click", (e) => { const b = e.target.closest(".tab"); if (b) { renderProgram(+b.dataset.day); $(`#tab-${b.dataset.day}`).focus(); } });
   $("#dayTabs").addEventListener("keydown", (e) => {
     if (!["ArrowLeft", "ArrowRight"].includes(e.key)) return;
@@ -392,7 +422,8 @@ function initUI() {
     renderProgram(n); $(`#tab-${n}`).focus();
   });
   document.addEventListener("click", (e) => { const b = e.target.closest("[data-copy]"); if (b) copyText(b.dataset.copy, b); });
-  $("#copyEmail").addEventListener("click", (e) => copyText(CONFIG.email, e.currentTarget));
+  const copyEmail = $("#copyEmail");
+  if (copyEmail) copyEmail.addEventListener("click", (e) => copyText(CONFIG.email, e.currentTarget));
 
   if (!store.get("qcai-consent")) $("#consent").hidden = false;
   $("#consentOk").addEventListener("click", () => { store.set("qcai-consent", "1"); $("#consent").hidden = true; });
@@ -402,82 +433,10 @@ function initUI() {
   toTop.addEventListener("click", () => scrollTo({ top: 0, behavior: "smooth" }));
 }
 
-/* ---------- hero: animated Bloch sphere ---------- */
-function initBloch() {
-  const cv = $("#bloch"); if (!cv) return;
-  const ctx = cv.getContext("2d");
-  const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
-  let w, h, dpr, t = 0.6;
-  const css = (n) => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
-  function size() {
-    dpr = Math.min(devicePixelRatio || 1, 2);
-    w = cv.clientWidth; h = cv.clientHeight;
-    cv.width = w * dpr; cv.height = h * dpr; ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-  }
-  const tilt = 0.38;
-  const proj = (x, y, z, cx, cy, R, rot) => {
-    const xr = x * Math.cos(rot) - y * Math.sin(rot), yr = x * Math.sin(rot) + y * Math.cos(rot);
-    const y2 = yr * Math.cos(tilt) - z * Math.sin(tilt), z2 = yr * Math.sin(tilt) + z * Math.cos(tilt);
-    return [cx + xr * R, cy - z2 * R, y2];
-  };
-  function draw() {
-    const fg = css("--hero-fg") || "#eef2ec", gold = css("--marigold") || "#f0b33f";
-    ctx.clearRect(0, 0, w, h);
-    const narrow = w < 760;
-    const R = narrow ? Math.min(w, h) * 0.42 : Math.min(h * 0.38, w * 0.22);
-    const cx = narrow ? w * 0.78 : w * 0.76, cy = h * 0.5;
-    ctx.globalAlpha = narrow ? 0.35 : 1;
-    const rot = t * 0.15;
-    // lattice dots
-    ctx.fillStyle = fg;
-    for (let gx = 0; gx < w; gx += 28) for (let gy = 0; gy < h; gy += 28) {
-      ctx.globalAlpha = (narrow ? 0.35 : 1) * 0.07; ctx.fillRect(gx, gy, 1.2, 1.2);
-    }
-    ctx.globalAlpha = narrow ? 0.35 : 1;
-    // circles of latitude & longitude
-    ctx.lineWidth = 1;
-    const ring = (fn, alpha) => {
-      ctx.beginPath();
-      for (let i = 0; i <= 96; i++) { const a = (i / 96) * Math.PI * 2; const [px, py] = fn(a); i ? ctx.lineTo(px, py) : ctx.moveTo(px, py); }
-      ctx.strokeStyle = fg; ctx.globalAlpha = (narrow ? 0.35 : 1) * alpha; ctx.stroke();
-    };
-    for (let k = -2; k <= 2; k++) { const z = k / 3, r = Math.sqrt(1 - z * z);
-      ring((a) => proj(r * Math.cos(a), r * Math.sin(a), z, cx, cy, R, rot), k === 0 ? 0.35 : 0.12); }
-    for (let k = 0; k < 6; k++) { const ph = (k / 6) * Math.PI;
-      ring((a) => proj(Math.cos(a) * Math.cos(ph), Math.cos(a) * Math.sin(ph), Math.sin(a), cx, cy, R, rot), 0.12); }
-    // axes
-    ctx.globalAlpha = (narrow ? 0.35 : 1) * 0.4; ctx.strokeStyle = fg;
-    [[0,0,1.18],[0,0,-1.18]].forEach(([x,y,z]) => { const [a,b] = proj(0,0,0,cx,cy,R,rot), [c,d] = proj(x,y,z,cx,cy,R,rot); ctx.beginPath(); ctx.moveTo(a,b); ctx.lineTo(c,d); ctx.stroke(); });
-    ctx.font = "13px 'IBM Plex Mono', monospace"; ctx.fillStyle = fg; ctx.globalAlpha = (narrow ? 0.35 : 1) * 0.7;
-    const [nx, ny] = proj(0, 0, 1.3, cx, cy, R, rot), [sx, sy] = proj(0, 0, -1.34, cx, cy, R, rot);
-    ctx.fillText("|0⟩", nx - 12, ny); ctx.fillText("|1⟩", sx - 12, sy + 8);
-    // state vector precessing
-    const theta = 1.0 + 0.35 * Math.sin(t * 0.5), phi = t * 0.9;
-    const vx = Math.sin(theta) * Math.cos(phi), vy = Math.sin(theta) * Math.sin(phi), vz = Math.cos(theta);
-    const [ox, oy] = proj(0, 0, 0, cx, cy, R, 0), [px, py] = proj(vx, vy, vz, cx, cy, R, 0);
-    // trail
-    ctx.strokeStyle = gold;
-    for (let i = 40; i > 0; i--) {
-      const tt = t - i * 0.05, th = 1.0 + 0.35 * Math.sin(tt * 0.5), ph2 = tt * 0.9;
-      const [ax, ay] = proj(Math.sin(th) * Math.cos(ph2), Math.sin(th) * Math.sin(ph2), Math.cos(th), cx, cy, R, 0);
-      ctx.globalAlpha = (narrow ? 0.35 : 1) * (1 - i / 40) * 0.6;
-      ctx.beginPath(); ctx.arc(ax, ay, 1.4, 0, Math.PI * 2); ctx.fillStyle = gold; ctx.fill();
-    }
-    ctx.globalAlpha = narrow ? 0.4 : 1; ctx.lineWidth = 2.2;
-    ctx.beginPath(); ctx.moveTo(ox, oy); ctx.lineTo(px, py); ctx.stroke();
-    ctx.beginPath(); ctx.arc(px, py, 5, 0, Math.PI * 2); ctx.fillStyle = gold; ctx.fill();
-    ctx.globalAlpha = (narrow ? 0.35 : 1) * 0.9; ctx.fillStyle = gold; ctx.fillText("|ψ⟩", px + 10, py - 8);
-    ctx.globalAlpha = 1;
-  }
-  function loop() { t += 0.012; draw(); if (!reduce) requestAnimationFrame(loop); }
-  size(); addEventListener("resize", () => { size(); draw(); });
-  reduce ? draw() : loop();
-}
-
 /* ---------- boot ---------- */
 document.addEventListener("DOMContentLoaded", () => {
   fillConfig(); renderDates(); startCountdown(); renderTracks(); renderSponsors();
-  renderCommittee(); renderSpeakers(); renderFees("inr"); renderProgram(0);
-  renderDownloads(); renderContacts(); initNav(); initUI(); initBloch();
+  renderCommittee(); renderSpeakers(); renderProgram(0);
+  renderDownloads(); renderContacts(); initNav(); initUI();
   addEventListener("hashchange", route); route();
 });
