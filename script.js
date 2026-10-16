@@ -30,13 +30,14 @@ const CONFIG = {
 
   // ---- IMPORTANT DATES (YYYY-MM-DD) ----
   importantDates: [
-    { label: "Call for papers", date: "2026-11-15" },
-    { label: "Last date for paper submission", date: "2027-01-15" },
+    { label: "Call for papers", date: "2026-12-10" },
+    { label: "Last date for paper submission", date: "2027-01-10" },
     { label: "Notification of acceptance", date: "2027-02-10" },
     { label: "Camera Ready", date: "2027-02-15" },
     { label: "Final registration deadline", date: "2027-02-20" },
     // { label: "Conference", date: "2027-03-21", end: "2027-03-22", event: true }
   ],
+  earlyBirdLabel: "15 February 2027",
 
   // ---- TOPICS / TRACKS ----
   tracks: [
@@ -125,11 +126,14 @@ const CONFIG = {
     { group: "Conference Convener", people: [
       { name: "Prof. Abhaya Singh", aff: "IIT (ISM) Dhanbad" },
       { name: "Dr. Buddha Singh", aff: "JNU New Delhi" } ] },
+    { group: "Co-convener", people: [
+      { name: "Prof. Anuj Sachan", aff: "JNU New Delhi" },
+      ] },
+    
     { group: "Conference Chairperson", people: [
       { name: "Prof. Satish Chand", aff: "Jawaharlal Nehru University, New Delhi" } ] },
     { group: "Committee Members", people: [
-      { name: "Dr. Pushpendra Singh", aff: "IIT (ISM) Dhanbad" },
-      { name: "Dr. Anuj Sachan", aff: "JNU New Delhi" } ] },
+      { name: "Dr. Pushpendra Singh", aff: "IIT (ISM) Dhanbad" } ] },
     { group: "Invited Speakers", people: [
       { name: "Biswa Nath Datta", aff: "Research Professor, Northern Illinois University" },
       { name: "Bhupendra Singh", aff: "Scientist, DRDO Bengaluru" },
@@ -151,6 +155,25 @@ const CONFIG = {
     { role: "Invited", name: "Shayan Srinivasa Garani", aff: "Professor, IISc Bangalore", talk: "Talk title to be announced", photo: "" },
     { role: "Invited", name: "Navin Kashyap", aff: "Professor, IISc Bangalore", talk: "Talk title to be announced", photo: "" },
     { role: "Invited", name: "Alok Mishra", aff: "Scientist, DRDO Bengaluru", talk: "Talk title to be announced", photo: "" }
+  ],
+
+  // ---- REGISTRATION FEES (sample values — set your own) ----
+  fees: [
+    { cat: "BTech / MTech / MS / MSc / PhD", note: "INR XYZ + GST", inr: ["XYZ", "XYZ"], usd: ["XYZ", "XYZ"] },
+    { cat: "Post Doc", note: "INR XYZ + GST", inr: ["XYZ", "XYZ"], usd: ["XYZ", "XYZ"] },
+    { cat: "Faculty", note: "INR XYZ + GST", inr: ["XYZ", "XYZ"], usd: ["XYZ", "XYZ"] },
+    { cat: "Industry", note: "INR XYZ + GST", inr: ["XYZ", "XYZ"], usd: ["XYZ", "XYZ"] },
+    { cat: "Listener / attendee", note: "No paper presentation", inr: [3000, 4000], usd: [80, 120] },
+    { cat: "Accommodation", note: "Not included", inr: ["—", "—"], usd: ["—", "—"] }
+  ],
+
+  // ---- PAYMENT DETAILS (shown on the registration page) ----
+  bank: [
+    ["Account name", "IIT (ISM) Dhanbad — QCAI 2027"],
+    ["Bank", "State Bank of India, Dhanbad"],
+    ["Account no.", "XXXXXXXXXXXX"],
+    ["IFSC", "XXXX0000000"],
+    ["SWIFT (international)", "XXXXINBBXXX"]
   ],
 
   // ---- PROGRAM ----
@@ -280,7 +303,6 @@ function startCountdown() {
 }
 
 /* ---------- tracks ---------- */
-//trick
 function renderTracks() {
   const card = (t, index, section, limit) => {
     const topicsId = `track-${section}-topics-${index}`;
@@ -314,6 +336,20 @@ function renderSpeakers() {
     <div class="photo" data-ket="${kets[i % kets.length]}">${s.photo ? `<img src="${esc(s.photo)}" alt="${esc(s.name)}">` : esc(initials(s.name))}</div>
     <div class="body"><span class="s-role">${esc(s.role)} speaker</span><h3 class="s-name">${esc(s.name)}</h3>
     <span class="s-aff">${esc(s.aff)}</span><p class="s-talk"><strong>Talk:</strong> ${esc(s.talk)}</p></div></article>`).join("");
+}
+
+/* ---------- fees ---------- */
+function renderFees(cur = "inr") {
+  const fmt = (n) => {
+    if (typeof n === "string") return n;
+    if (n == null || Number.isNaN(Number(n))) return "—";
+    const val = Number(n);
+    return cur === "inr" ? "₹" + val.toLocaleString("en-IN") : "US$" + val.toLocaleString("en-US");
+  };
+  $("#feeBody").innerHTML = CONFIG.fees.map((f) => `<tr><td><strong>${esc(f.cat)}</strong>${f.note ? `<span class="note">${esc(f.note)}</span>` : ""}</td>
+    <td class="amt">${fmt(f[cur][0])}</td><td class="amt">${fmt(f[cur][1])}</td></tr>`).join("");
+  $$(".fee-switch .chip").forEach((b) => { const on = b.dataset.cur === cur; b.classList.toggle("is-on", on); b.setAttribute("aria-pressed", on); });
+  $("#bankDetails").innerHTML = CONFIG.bank.map(([k, v]) => `<dt>${esc(k)}</dt><dd>${esc(v)}</dd>`).join("");
 }
 
 /* ---------- program ---------- */
@@ -398,20 +434,6 @@ function initUI() {
       button.setAttribute("aria-expanded", String(open));
       button.closest(".track").querySelector(".topics-list").hidden = !open;
       button.closest(".track").classList.toggle("open", open);
-    });
-  });
-  const registrationFeeSwitch = $("#registrationFeeSwitch");
-  registrationFeeSwitch.addEventListener("click", (e) => {
-    const button = e.target.closest("[data-currency]");
-    if (!button) return;
-    const currency = button.dataset.currency;
-    $$(".fee-switch [data-currency]", registrationFeeSwitch).forEach((option) => {
-      const active = option === button;
-      option.classList.toggle("is-on", active);
-      option.setAttribute("aria-pressed", String(active));
-    });
-    $$("[data-fee-currency]", registrationFeeSwitch.parentElement).forEach((body) => {
-      body.hidden = body.dataset.feeCurrency !== currency;
     });
   });
   $("#dayTabs").addEventListener("click", (e) => { const b = e.target.closest(".tab"); if (b) { renderProgram(+b.dataset.day); $(`#tab-${b.dataset.day}`).focus(); } });
