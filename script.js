@@ -30,8 +30,8 @@ const CONFIG = {
 
   // ---- IMPORTANT DATES (YYYY-MM-DD) ----
   importantDates: [
-    { label: "Call for papers", date: "2026-11-15" },
-    { label: "Last date for paper submission", date: "2027-01-15" },
+    { label: "Call for papers", date: "2026-12-10" },
+    { label: "Last date for paper submission", date: "2027-01-10" },
     { label: "Notification of acceptance", date: "2027-02-10" },
     { label: "Camera Ready", date: "2027-02-15" },
     { label: "Final registration deadline", date: "2027-02-20" },
@@ -126,11 +126,14 @@ const CONFIG = {
     { group: "Conference Convener", people: [
       { name: "Prof. Abhaya Singh", aff: "IIT (ISM) Dhanbad" },
       { name: "Dr. Buddha Singh", aff: "JNU New Delhi" } ] },
+    { group: "Co-convener", people: [
+      { name: "Prof. Anuj Sachan", aff: "JNU New Delhi" },
+      ] },
+    
     { group: "Conference Chairperson", people: [
       { name: "Prof. Satish Chand", aff: "Jawaharlal Nehru University, New Delhi" } ] },
     { group: "Committee Members", people: [
-      { name: "Dr. Pushpendra Singh", aff: "IIT (ISM) Dhanbad" },
-      { name: "Dr. Anuj Sachan", aff: "JNU New Delhi" } ] },
+      { name: "Dr. Pushpendra Singh", aff: "IIT (ISM) Dhanbad" } ] },
     { group: "Invited Speakers", people: [
       { name: "Biswa Nath Datta", aff: "Research Professor, Northern Illinois University" },
       { name: "Bhupendra Singh", aff: "Scientist, DRDO Bengaluru" },
@@ -433,7 +436,6 @@ function initUI() {
       button.closest(".track").classList.toggle("open", open);
     });
   });
-  $(".fee-switch").addEventListener("click", (e) => { const b = e.target.closest(".chip"); if (b) renderFees(b.dataset.cur); });
   $("#dayTabs").addEventListener("click", (e) => { const b = e.target.closest(".tab"); if (b) { renderProgram(+b.dataset.day); $(`#tab-${b.dataset.day}`).focus(); } });
   $("#dayTabs").addEventListener("keydown", (e) => {
     if (!["ArrowLeft", "ArrowRight"].includes(e.key)) return;
@@ -456,7 +458,7 @@ function initUI() {
 /* ---------- boot ---------- */
 document.addEventListener("DOMContentLoaded", () => {
   fillConfig(); renderDates(); startCountdown(); renderTracks(); renderSponsors();
-  renderCommittee(); renderSpeakers(); renderFees("inr"); renderProgram(0);
+  renderCommittee(); renderSpeakers(); renderProgram(0);
   renderDownloads(); renderContacts(); initNav(); initUI();
   addEventListener("hashchange", route); route();
 });
