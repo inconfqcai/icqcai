@@ -164,11 +164,6 @@ const CONFIG = {
     {name: "Prof. Ashutosh Kumar Singh", aff: "Director, IIIT Bhopal", photo: "./assets/Ashutosh.jpeg" },
     {name: "Prof. N. P. Padhy", aff: "Director, IIIT Kota",  photo: "./assets/NP.jpeg" },
     {name: "Prof. Rajeev Srivastava", aff: "Director, IIIT Rachi",  photo: "./assets/Rajeev.jpeg" },
-        {name: "Prof. Manjul Bhargava", aff: "Professor, Princeton University",  photo: "./assets/Manjul.jpeg" },
-    {name: "Prof. Bhartendu K. Singh", aff: "Director, IIIT Jabalpur", photo: "./assets/Bhartendu.jpeg" },
-    {name: "Prof. Ashutosh Kumar Singh", aff: "Director, IIIT Bhopal", photo: "./assets/Ashutosh.jpeg" },
-    {name: "Prof. N. P. Padhy", aff: "Director, IIIT Kota",  photo: "./assets/NP.jpeg" },
-    {name: "Prof. Rajeev Srivastava", aff: "Director, IIIT Rachi",  photo: "./assets/Rajeev.jpeg" },
   ],
   experts: [
         {name: "Prof. Manjul Bhargava", aff: "Professor, Princeton University",  photo: "./assets/Manjul.jpeg" },
