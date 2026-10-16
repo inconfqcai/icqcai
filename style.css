@@ -3,6 +3,103 @@
    Layout concept: a quiet, editorial page on a cool paper ground, with a
    light "laboratory" hero and live Bloch sphere.
    ========================================================================== */
+
+.expert{
+  min-height: 30vh;
+  background-color: #EDF2EF;
+  padding-top: 8vh;
+}
+.expert h2{
+  margin-left: 10vw;
+}
+#speakersList {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, maxmin(200px, 3fr));
+  gap: 42px 28px;
+  padding: 30px 0;
+}
+
+.speaker {
+  text-align: center;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  padding: 0 12px;
+  /* width: 20vw; */
+}
+
+.speaker .photo {
+  width: 145px;
+  height: 145px;
+  margin: 0 auto 18px;
+  border-radius: 50%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #e8f7f6;
+  color: #079b90;
+  font-size: 34px;
+  font-weight: 600;
+
+  border: 3px solid #07a698;
+  transition: transform 0.3s ease;
+    margin-top: 4vh;
+}
+
+.speaker:hover .photo {
+  transform: scale(1.05);
+}
+
+.speaker .photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  display: block;
+}
+
+.speaker .body {
+  background: transparent;
+}
+
+.speaker .s-name {
+  margin: 0 0 8px;
+  color: inherit;
+  font-size: 18px;
+  line-height: 1.4;
+  font-weight: 650;
+}
+
+.speaker .s-aff {
+  display: block;
+  color: #07a698;
+  font-size: 14px;
+  line-height: 1.6;
+  font-weight: 400;
+}
+
+@media (max-width: 600px) {
+  #speakersList {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 32px 12px;
+  }
+
+  .speaker .photo {
+    width: 115px;
+    height: 115px;
+  }
+
+  .speaker .s-name {
+    font-size: 16px;
+  }
+
+  .speaker .s-aff {
+    font-size: 12px;
+  }
+}
+
 .logo{
   border: none;
   border-radius: 100%;
@@ -15,8 +112,9 @@
   width: 8vw;
 }
 .note{
-  color: crimson;
+  color: rgb(58, 57, 57);
   margin-bottom: 4vh;
+  font-weight: 800;
 }
 :root {
   /* colour */
@@ -297,8 +395,8 @@ p { margin: 0 0 1em; }
 .speakers { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 1.5rem; }
 .speaker { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; display: flex; flex-direction: column; min-width: 0; }
 .speaker .photo { aspect-ratio: 4 / 3; max-width: 100%; background: var(--hero-bg); color: var(--hero-fg); display: grid; place-items: center; font-family: var(--f-display); font-size: 2.5rem; position: relative; }
-.speaker .photo img { width: 100%; height: 100%; object-fit: cover; }
-.speaker .photo::after { content: attr(data-ket); position: absolute; left: .9rem; bottom: .7rem; font-family: var(--f-mono); font-size: .75rem; color: var(--marigold); }
+.speaker .photo img { width: 100%; height: 100%; object-fit: cover; border-radius: 100%; }
+/* .speaker .photo::after { content: attr(data-ket); position: absolute; left: .9rem; bottom: .7rem; font-family: var(--f-mono); font-size: .75rem; color: var(--marigold); } */
 .speaker .body { padding: 1.1rem 1.25rem 1.35rem; display: grid; gap: .25rem; }
 .speaker .s-role { font-family: var(--f-mono); font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; color: var(--accent); }
 .speaker .s-name { font-family: var(--f-display); font-size: 1.1rem; margin: 0; }

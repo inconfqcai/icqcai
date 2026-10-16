@@ -127,34 +127,54 @@ const CONFIG = {
       { name: "Prof. Abhaya Singh", aff: "IIT (ISM) Dhanbad" },
       { name: "Dr. Buddha Singh", aff: "JNU New Delhi" } ] },
     { group: "Co-convener", people: [
-      { name: "Prof. Anuj Sachan", aff: "JNU New Delhi" },
+      { name: "Dr. Anuj Sachan", aff: "JNU New Delhi" },
       ] },
     
     { group: "Conference Chairperson", people: [
       { name: "Prof. Satish Chand", aff: "Jawaharlal Nehru University, New Delhi" } ] },
     { group: "Committee Members", people: [
       { name: "Dr. Pushpendra Singh", aff: "IIT (ISM) Dhanbad" } ] },
-    { group: "Invited Speakers", people: [
-      { name: "Biswa Nath Datta", aff: "Research Professor, Northern Illinois University" },
-      { name: "Bhupendra Singh", aff: "Scientist, DRDO Bengaluru" },
-      { name: "Vaanathi Sundaresan", aff: "Assistant Professor, IISc Bangalore" },
-      { name: "M. Tanveer", aff: "Professor, IIT Indore" },
-      { name: "Apoorva D Patel", aff: "Emeritus Professor, IISc Bangalore" },
-      { name: "Alok Mishra", aff: "Scientist, DRDO Bengaluru" },
-      { name: "Shayan Srinivasa Garani", aff: "Professor, IISc Bangalore" },
-      { name: "Navin Kashyap", aff: "Professor, IISc Bangalore" } ] }
+    // { group: "Invited Speakers", people: [
+    //   { name: "Biswa Nath Datta", aff: "Research Professor, Northern Illinois University" },
+    //   { name: "Bhupendra Singh", aff: "Scientist, DRDO Bengaluru" },
+    //   { name: "Vaanathi Sundaresan", aff: "Assistant Professor, IISc Bangalore" },
+    //   { name: "M. Tanveer", aff: "Professor, IIT Indore" },
+    //   { name: "Apoorva D Patel", aff: "Emeritus Professor, IISc Bangalore" },
+    //   { name: "Alok Mishra", aff: "Scientist, DRDO Bengaluru" },
+    //   { name: "Shayan Srinivasa Garani", aff: "Professor, IISc Bangalore" },
+    //   { name: "Navin Kashyap", aff: "Professor, IISc Bangalore" } ] }
   ],
+
+  // InvitedSpeakers : [
+  //    { group: "Invited Speakers", people: [
+  //     { name: "Biswa Nath Datta", aff: "Research Professor, Northern Illinois University" },
+  //     { name: "Bhupendra Singh", aff: "Scientist, DRDO Bengaluru" },
+  //     { name: "Vaanathi Sundaresan", aff: "Assistant Professor, IISc Bangalore" },
+  //     { name: "M. Tanveer", aff: "Professor, IIT Indore" },
+  //     { name: "Apoorva D Patel", aff: "Emeritus Professor, IISc Bangalore" },
+  //     { name: "Alok Mishra", aff: "Scientist, DRDO Bengaluru" },
+  //     { name: "Shayan Srinivasa Garani", aff: "Professor, IISc Bangalore" },
+  //     { name: "Navin Kashyap", aff: "Professor, IISc Bangalore" } ] }
+  // ],
 
   // ---- SPEAKERS (photo: path to an image, or leave "" for initials) ----
   speakers: [
-    { role: "Keynote", name: "Biswa Nath Datta", aff: "Research Professor, Northern Illinois University", talk: "Talk title to be announced", photo: "" },
-    { role: "Keynote", name: "Bhupendra Singh", aff: "Scientist, DRDO Bengaluru", talk: "Talk title to be announced", photo: "" },
-    { role: "Keynote", name: "Vaanathi Sundaresan", aff: "Assistant Professor, IISc Bangalore", talk: "Talk title to be announced", photo: "" },
-    { role: "Invited", name: "M. Tanveer", aff: "Professor, IIT Indore", talk: "Talk title to be announced", photo: "" },
-    { role: "Invited", name: "Apoorva D Patel", aff: "Emeritus Professor, IISc Bangalore", talk: "Talk title to be announced", photo: "" },
-    { role: "Invited", name: "Shayan Srinivasa Garani", aff: "Professor, IISc Bangalore", talk: "Talk title to be announced", photo: "" },
-    { role: "Invited", name: "Navin Kashyap", aff: "Professor, IISc Bangalore", talk: "Talk title to be announced", photo: "" },
-    { role: "Invited", name: "Alok Mishra", aff: "Scientist, DRDO Bengaluru", talk: "Talk title to be announced", photo: "" }
+        {name: "Prof. Manjul Bhargava", aff: "Professor, Princeton University",  photo: "./assets/Manjul.jpeg" },
+    {name: "Prof. Bhartendu K. Singh", aff: "Director, IIIT Jabalpur", photo: "./assets/Bhartendu.jpeg" },
+    {name: "Prof. Ashutosh Kumar Singh", aff: "Director, IIIT Bhopal", photo: "./assets/Ashutosh.jpeg" },
+    {name: "Prof. N. P. Padhy", aff: "Director, IIIT Kota",  photo: "./assets/NP.jpeg" },
+    {name: "Prof. Rajeev Srivastava", aff: "Director, IIIT Rachi",  photo: "./assets/Rajeev.jpeg" },
+        {name: "Prof. Manjul Bhargava", aff: "Professor, Princeton University",  photo: "./assets/Manjul.jpeg" },
+    {name: "Prof. Bhartendu K. Singh", aff: "Director, IIIT Jabalpur", photo: "./assets/Bhartendu.jpeg" },
+    {name: "Prof. Ashutosh Kumar Singh", aff: "Director, IIIT Bhopal", photo: "./assets/Ashutosh.jpeg" },
+    {name: "Prof. N. P. Padhy", aff: "Director, IIIT Kota",  photo: "./assets/NP.jpeg" },
+    {name: "Prof. Rajeev Srivastava", aff: "Director, IIIT Rachi",  photo: "./assets/Rajeev.jpeg" },
+  ],
+  experts: [
+        {name: "Prof. Manjul Bhargava", aff: "Professor, Princeton University",  photo: "./assets/Manjul.jpeg" },
+    {name: "Prof. Bhartendu K. Singh", aff: "Director, IIIT Jabalpur", photo: "./assets/Bhartendu.jpeg" },
+    {name: "Prof. Ashutosh Kumar Singh", aff: "Director, IIIT Bhopal", photo: "./assets/Ashutosh.jpeg" },
+    {name: "Prof. N. P. Padhy", aff: "Director, IIIT Kota",  photo: "./assets/NP.jpeg" },
   ],
 
   // ---- REGISTRATION FEES (sample values — set your own) ----
@@ -329,14 +349,79 @@ function renderCommittee() {
 }
 
 /* ---------- speakers ---------- */
+
+
 function renderSpeakers() {
-  const kets = ["|0⟩", "|1⟩", "|+⟩", "|−⟩", "|i⟩", "|ψ⟩"];
-  const initials = (n) => n.replace(/^(Prof\.|Dr\.|Mr\.|Ms\.|Mrs\.)\s*/i, "").split(/\s+/).map((w) => w[0]).slice(0, 2).join("").toUpperCase();
-  $("#speakersList").innerHTML = CONFIG.speakers.map((s, i) => `<article class="speaker">
-    <div class="photo" data-ket="${kets[i % kets.length]}">${s.photo ? `<img src="${esc(s.photo)}" alt="${esc(s.name)}">` : esc(initials(s.name))}</div>
-    <div class="body"><span class="s-role">${esc(s.role)} speaker</span><h3 class="s-name">${esc(s.name)}</h3>
-    <span class="s-aff">${esc(s.aff)}</span><p class="s-talk"><strong>Talk:</strong> ${esc(s.talk)}</p></div></article>`).join("");
+  const initials = (name) =>
+    name
+      .replace(/^(Prof\.|Dr\.|Mr\.|Ms\.|Mrs\.)\s*/i, "")
+      .trim()
+      .split(/\s+/)
+      .map((w) => w[0])
+      .slice(0, 2)
+      .join("")
+      .toUpperCase();
+
+  $("#speakersList").innerHTML = CONFIG.speakers
+    .map(
+      (s) => `
+        <article class="speaker">
+          <div class="photo">
+            ${
+              s.photo
+                ? `<img src="${esc(s.photo)}"
+                    alt="${esc(s.name)}"
+                    loading="lazy">`
+                : esc(initials(s.name))
+            }
+          </div>
+          <div class="body">
+            <h3 class="s-name">${esc(s.name)}</h3>
+            <span class="s-aff">${esc(s.aff)}</span>
+          </div>
+        </article>
+      `
+    )
+    .join("");
 }
+// function renderInviteSpeakers() {
+//   $("#invitedSpeaker").innerHTML = CONFIG.InvitedSpeakers.map((g) => `<div class="committee-group"><h2>${esc(g.group)}</h2>
+//     <ul class="people">${g.people.map((p) => `<li><div class="p-name">${esc(p.name)}</div><div class="p-aff">${esc(p.aff)}</div></li>`).join("")}</ul></div>`).join("");
+// }
+function renderExpertsSpeakers() {
+  const initials = (name) =>
+    name
+      .replace(/^(Prof\.|Dr\.|Mr\.|Ms\.|Mrs\.)\s*/i, "")
+      .trim()
+      .split(/\s+/)
+      .map((w) => w[0])
+      .slice(0, 2)
+      .join("")
+      .toUpperCase();
+
+  $("#ExpertList").innerHTML = CONFIG.experts
+    .map(
+      (s) => `
+        <article class="speaker">
+          <div class="photo">
+            ${
+              s.photo
+                ? `<img src="${esc(s.photo)}"
+                    alt="${esc(s.name)}"
+                    loading="lazy">`
+                : esc(initials(s.name))
+            }
+          </div>
+          <div class="body">
+            <h3 class="s-name">${esc(s.name)}</h3>
+            <span class="s-aff">${esc(s.aff)}</span>
+          </div>
+        </article>
+      `
+    )
+    .join("");
+}
+
 
 /* ---------- fees ---------- */
 function renderFees(cur = "inr") {
@@ -457,7 +542,7 @@ function initUI() {
 
 /* ---------- boot ---------- */
 document.addEventListener("DOMContentLoaded", () => {
-  fillConfig(); renderDates(); startCountdown(); renderTracks(); renderSponsors();
+  fillConfig(); renderDates(); startCountdown(); renderTracks(); renderSponsors(); renderExpertsSpeakers();
   renderCommittee(); renderSpeakers(); renderProgram(0);
   renderDownloads(); renderContacts(); initNav(); initUI();
   addEventListener("hashchange", route); route();
