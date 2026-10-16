@@ -4,14 +4,6 @@
    light "laboratory" hero and live Bloch sphere.
    ========================================================================== */
 
-.expert{
-  min-height: 30vh;
-  background-color: #EDF2EF;
-  padding-top: 8vh;
-}
-.expert h2{
-  margin-left: 10vw;
-}
 #speakersList {
   display: grid;
   grid-template-columns: repeat(auto-fit, maxmin(200px, 3fr));
