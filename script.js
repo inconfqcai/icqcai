@@ -15,9 +15,6 @@ const CONFIG = {
   format: "In person, with online presentation option",
   email: "inconfqcai@gmail.com",
 
-  // Opening session — used by the countdown (IST = +05:30)
-  conferenceStart: "2027-03-12T09:30:00+05:30",
-
   // Optional banner under the hero. Leave "" to hide.
   notice: "Jointly organized by IIT (ISM) Dhanbad and JNU New Delhi",
 
@@ -292,24 +289,6 @@ function renderDates() {
   }).join("");
 }
 
-/* ---------- countdown ---------- */
-function startCountdown() {
-  const target = new Date(CONFIG.conferenceStart).getTime();
-  const pad = (n, l = 2) => String(n).padStart(l, "0");
-  const tick = () => {
-    let diff = Math.max(0, target - Date.now());
-    const d = Math.floor(diff / 864e5); diff -= d * 864e5;
-    const h = Math.floor(diff / 36e5);  diff -= h * 36e5;
-    const m = Math.floor(diff / 6e4);   diff -= m * 6e4;
-    const s = Math.floor(diff / 1e3);
-    $("#cd-days").textContent = pad(d, 3);
-    $("#cd-hours").textContent = pad(h);
-    $("#cd-mins").textContent = pad(m);
-    $("#cd-secs").textContent = pad(s);
-  };
-  tick(); setInterval(tick, 1000);
-}
-
 /* ---------- tracks ---------- */
 function renderTracks() {
   const card = (t, index, section, limit) => {
@@ -512,7 +491,7 @@ function initUI() {
 
 /* ---------- boot ---------- */
 document.addEventListener("DOMContentLoaded", () => {
-  fillConfig(); renderDates(); startCountdown(); renderTracks(); renderSponsors();
+  fillConfig(); renderDates();renderTracks(); renderSponsors();
   renderCommittee(); renderSpeakers(); renderProgram(0);
   renderDownloads(); renderContacts(); initNav(); initUI(); initScrollSpy();
   addEventListener("hashchange", route); route();

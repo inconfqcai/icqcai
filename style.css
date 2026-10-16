@@ -8,7 +8,7 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, maxmin(200px, 3fr));
   gap: 42px 28px;
-  padding: 30px 0;
+  padding-block: 30px;
 }
 
 .speaker {
@@ -296,14 +296,6 @@ p { margin: 0 0 1em; }
 .timeline li.is-next .t-state { background: var(--accent); color: var(--accent-fg); }
 .timeline li.is-event .t-date { color: var(--accent); }
 
-/* ---------- countdown ---------- */
-.countdown-block { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: end; gap: 2rem; }
-.countdown-block h2 { margin: 0; }
-.countdown { display: flex; gap: clamp(.5rem, 2vw, 1.25rem); }
-.countdown > div { display: flex; flex-direction: column; align-items: center; min-width: clamp(64px, 14vw, 104px); padding: .9rem 1rem .7rem; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); }
-.countdown span { font-size: clamp(1.75rem, 1rem + 3vw, 3rem); font-weight: 500; line-height: 1; }
-.countdown small { margin-top: .5rem; font-size: .7rem; text-transform: uppercase; letter-spacing: .1em; color: var(--muted); }
-
 /* ---------- tracks ---------- */
 .tracks { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.25rem; align-items: start; }
 .track { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 1.5rem 1.5rem 1.25rem; min-width: 0; }
@@ -493,8 +485,6 @@ td .note { display: block; color: var(--muted); font-size: .85rem; }
 }
 @media (max-width: 640px) {
   .sponsors { grid-template-columns: minmax(0, 1fr); }
-  .countdown { width: 100%; justify-content: space-between; }
-  .countdown > div { min-width: 0; flex: 1; }
   .schedule li { grid-template-columns: minmax(0, 1fr) auto; }
   .schedule .time { grid-column: 1 / -1; }
   .downloads { grid-template-columns: minmax(0, 1fr); }
