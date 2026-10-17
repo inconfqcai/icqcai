@@ -198,32 +198,31 @@ const CONFIG = {
   // ---- PROGRAM ----
   program: [
     { day: "Day 1", date: "Fri, 12 Mar", items: [
-      ["08:30 – 09:30", "Registration and welcome kit", "School of Computer and Systems Science", ""],
-      ["09:30 – 10:15", "Inauguration and opening remarks", "Main auditorium", ""],
-      ["10:15 – 11:00", "Keynote 1", "Main auditorium", "keynote"],
-      ["11:00 – 11:20", "Tea break", "", "break"],
-      ["11:20 – 13:00", "Technical paper session 1A · 1B", "Halls A & B", "session"],
-      ["13:00 – 14:00", "Lunch", "", "break"],
-      ["14:00 – 14:45", "Keynote 2", "Main auditorium", "keynote"],
-      ["14:45 – 16:30", "Technical paper session 2A · 2B", "Halls A & B", "session"],
-      ["16:30 – 17:30", "Poster session and networking tea", "Exhibition area", ""]
+      ["09:30 – 10:00", "Welcome and Opening Remarks", "Inauguration"],
+      ["10:00 – 11:00", "Invited Expert Talk", "keynote I"],
+      ["11:15 – 12:15", "Invited Expert Talk", "Keynote II"],
+      ["12:15 – 14:00", "Lunch", "break"],
+      ["14:00 – 15:30", "Research Paper Presentations", "Technical Session"],
+      ["15:45 – 16:45", "Quantum Computing Fundamentals and Applications", "Expert Talk"],
+      ["16:45 – 17:30", "Future of Quantum Computing", "Panel Discussion"]
     ]},
     { day: "Day 2", date: "Sat, 13 Mar", items: [
-      ["09:30 – 10:15", "Keynote 3", "Main auditorium", "keynote"],
-      ["10:15 – 11:00", "Invited technical talk", "Main auditorium", "keynote"],
-      ["11:00 – 11:20", "Tea break", "", "break"],
-      ["11:20 – 13:00", "Quantum communication & security session", "Halls A & B", "session"],
-      ["13:00 – 14:00", "Lunch", "", "break"],
-      ["14:00 – 15:30", "Industry panel: Building useful quantum-AI systems", "Main auditorium", ""],
-      ["15:30 – 17:00", "Online paper sessions", "Virtual rooms", "session"],
-      ["19:00 – 21:00", "Conference dinner", "To be announced", ""]
+      ["09:30 – 10:00", "Welcome and Recap of Day 1", "Welcome"],
+      ["10:00 – 11:00", "Invited Expert Talk on Quantum Machine Learning", "keynote I"],
+      ["11:15 – 12:15", "Invited Expert Talk on Quantum AI", "Keynote II"],
+      ["12:15 – 14:00", "Lunch", "break"],
+      ["14:00 – 15:30", "Research Paper Presentations", "Technical Session"],
+      ["15:45 – 16:45", "Quantum ML Algorithm and Applications", "Expert Talk"],
+      ["16:45 – 17:30", "Quantum AI: Opportunitics and Challenges", "Panel Discussion"]
     ]},
     { day: "Day 3", date: "Sun, 14 Mar", items: [
-      ["09:30 – 11:00", "Paper session 3A · 3B", "Halls A & B", "session"],
-      ["11:00 – 11:20", "Tea break", "", "break"],
-      ["11:20 – 12:30", "Tutorial: Quantum computing fundamentals and applications", "Lab block", ""],
-      ["12:30 – 13:15", "Best paper awards and valedictory", "Main auditorium", ""],
-      ["13:15 – 14:15", "Lunch", "", "break"]
+      ["09:30 – 10:00", "Welcome and Recap of Day 2", "Welcome"],
+      ["10:00 – 11:00", "Invited Expert Talk on Quantum Networking", "keynote I"],
+      ["11:15 – 12:15", "Invited Expert Talk on Quantum-Safe Security", "Keynote II"],
+      ["12:15 – 14:00", "Lunch", "break"],
+      ["14:00 – 15:30", "Research Paper Presentations", "Technical Session"],
+      ["15:45 – 16:45", "Quantum Networks, 6G and Future Technologies", "Expert Talk"],
+      ["16:45 – 17:30","Valedictory Session and Certificate Distribution", "Valedictory"]
     ]}
   ],
 
