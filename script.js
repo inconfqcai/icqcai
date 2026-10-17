@@ -134,10 +134,10 @@ const CONFIG = {
     {
       group: "Student Coordinator", people: [
         {
-          name: "Pranjuli Saxena", aff: "JNU New Delhi"
+          name: "Raj Aryan", aff: "JNU New Delhi"
         },
         {
-          name: "Raj Aryan", aff: "JNU New Delhi"
+          name: "Pranjuli Saxena", aff: "JNU New Delhi"
         },
         {
           name: "Birendra Behera", aff: "JNU New Delhi"
