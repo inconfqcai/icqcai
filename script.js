@@ -21,7 +21,7 @@ const CONFIG = {
   // ---- GOOGLE FORM LINKS (paste your form URLs here) ----
   forms: {
     submission:   "https://cmt3.research.microsoft.com/User/Login?ReturnUrl=%2F",
-    registration: "https://cmt3.research.microsoft.com/User/Login?ReturnUrl=%2F",
+    // registration: "https://cmt3.research.microsoft.com/User/Login?ReturnUrl=%2F",
     visa:         "https://cmt3.research.microsoft.com/User/Login?ReturnUrl=%2F"
   },
 
@@ -131,6 +131,19 @@ const CONFIG = {
       { name: "Prof. Satish Chand", aff: "Jawaharlal Nehru University, New Delhi" } ] },
     { group: "Committee Members", people: [
       { name: "Dr. Pushpendra Singh", aff: "IIT (ISM) Dhanbad" } ] },
+    {
+      group: "Student Coordinator", people: [
+        {
+          name: "Pranjuli Saxena", aff: "JNU New Delhi"
+        },
+        {
+          name: "Raj Aryan", aff: "JNU New Delhi"
+        },
+        {
+          name: "Birendra Behera", aff: "JNU New Delhi"
+        }
+      ]
+    }
     // { group: "Invited Speakers", people: [
     //   { name: "Biswa Nath Datta", aff: "Research Professor, Northern Illinois University" },
     //   { name: "Bhupendra Singh", aff: "Scientist, DRDO Bengaluru" },
@@ -160,7 +173,7 @@ const CONFIG = {
     {name: "Prof. Bhartendu K. Singh", aff: "Director, IIIT Jabalpur", photo: "./assets/Bhartendu.jpeg" },
     {name: "Prof. Ashutosh Kumar Singh", aff: "Director, IIIT Bhopal", photo: "./assets/Ashutosh.jpeg" },
     {name: "Prof. N. P. Padhy", aff: "Director, IIIT Kota",  photo: "./assets/NP.jpeg" },
-    {name: "Prof. Rajeev Srivastava", aff: "Director, IIIT Rachi",  photo: "./assets/Rajeev.jpeg" },
+    {name: "Prof. Rajeev Srivastava", aff: "Director, IIIT Ranchi",  photo: "./assets/Rajeev.jpeg" },
   ],
 
   // ---- REGISTRATION FEES (sample values — set your own) ----
@@ -185,7 +198,7 @@ const CONFIG = {
   // ---- PROGRAM ----
   program: [
     { day: "Day 1", date: "Fri, 12 Mar", items: [
-      ["08:30 – 09:30", "Registration and welcome kit", "SC&SS lobby", ""],
+      ["08:30 – 09:30", "Registration and welcome kit", "School of Computer and Systems Science", ""],
       ["09:30 – 10:15", "Inauguration and opening remarks", "Main auditorium", ""],
       ["10:15 – 11:00", "Keynote 1", "Main auditorium", "keynote"],
       ["11:00 – 11:20", "Tea break", "", "break"],
@@ -221,12 +234,12 @@ const CONFIG = {
 
   // ---- DOWNLOADS (put files in a /downloads folder next to index.html) ----
   downloads: [
-    { ext: "docx", name: "Paper template (Word)", desc: "Two-column conference format", href: "downloads/QCAI2027-template.docx" },
-    { ext: "zip", name: "Paper template (LaTeX)", desc: "Class file and example .tex", href: "downloads/QCAI2027-latex.zip" },
-    { ext: "pdf", name: "Copyright transfer form", desc: "Sign and upload with camera-ready paper", href: "downloads/QCAI2027-copyright.pdf" },
-    { ext: "pptx", name: "Presentation template", desc: "16:9 slides for oral sessions", href: "downloads/QCAI2027-slides.pptx" },
-    { ext: "pdf", name: "Poster guidelines", desc: "A0 portrait, layout tips", href: "downloads/QCAI2027-poster.pdf" },
-    { ext: "pdf", name: "Conference brochure", desc: "Overview to share", href: "downloads/QCAI2027-brochure.pdf" }
+    { ext: "doc", name: "Paper template (Word)", desc: "Two-column conference format", href: "assets/qcai_format.doc" },
+    { ext: "zip", name: "Paper template (LaTeX)", desc: "Class file and example .tex", href: "assets/qcai-latex.zip" },
+    // { ext: "pdf", name: "Copyright transfer form", desc: "Sign and upload with camera-ready paper", href: "downloads/QCAI2027-copyright.pdf" },
+    // { ext: "pptx", name: "Presentation template", desc: "16:9 slides for oral sessions", href: "downloads/QCAI2027-slides.pptx" },
+    // { ext: "pdf", name: "Poster guidelines", desc: "A0 portrait, layout tips", href: "downloads/QCAI2027-poster.pdf" },
+    // { ext: "pdf", name: "Conference brochure", desc: "Overview to share", href: "downloads/QCAI2027-brochure.pdf" }
   ],
 
   // ---- CONTACTS ----
@@ -278,7 +291,7 @@ function renderDates() {
     const past = endDay < today;
     let cls, state;
     if (past) { cls = "is-past"; state = d.event ? "Held" : "Closed"; }
-    else if (!nextFound) { cls = "is-next"; state = d.event ? "Upcoming" : "Next deadline"; nextFound = true; }
+    else if (!nextFound) { cls = "is-next"; state = d.event ? "Upcoming" : ""; nextFound = true; }
     else { cls = ""; state = ""; }
     if (d.event) cls += " is-event";
     const dateText = d.end
