@@ -113,7 +113,7 @@ const CONFIG = {
   // ---- SPONSORS / ORGANISERS (logo: path to an image, or leave "") ----
   sponsors: [
     { role: "Organised by", name: "IIT (ISM) Dhanbad", logo: "./assets/anrf.jpg" },
-    { role: "Co-organised by", name: "Jawaharlal Nehru University (JNU), New Delhi", logo: "./assets/anrf.jpg" },
+    { role: "Co-organised by", name: "JNU, New Delhi", logo: "./assets/anrf.jpg" },
     { role: "Venue partner", name: "SC&SS, JNU", logo: "./assets/anrf.jpg" },
     { role: "Academic collaboration", name: "Quantum Computing & AI research community", logo: "./assets/anrf.jpg" }
   ],
@@ -123,14 +123,14 @@ const CONFIG = {
     { group: "Conference Convener", people: [
       { name: "Prof. Abhaya Singh", aff: "IIT (ISM) Dhanbad" },
       { name: "Dr. Buddha Singh", aff: "JNU New Delhi" } ] },
-    { group: "Co-convener", people: [
+    { group: "Co-Convener", people: [
       { name: "Dr. Anuj Sachan", aff: "JNU New Delhi" },
       ] },
     
     { group: "Conference Chairperson", people: [
-      { name: "Prof. Satish Chand", aff: "Jawaharlal Nehru University, New Delhi" } ] },
+      { name: "Prof. Satish Chand", aff: "JNU, New Delhi" } ] },
     { group: "Committee Members", people: [
-      { name: "Dr. Pushpendra Singh", aff: "IIT (ISM) Dhanbad" } ] },
+      { name: "Dr. Pushpendra Singh", aff: "JNU, New Delhi" } ] },
     {
       group: "Student Coordinator", people: [
         {
