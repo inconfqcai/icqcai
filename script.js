@@ -141,7 +141,10 @@ const CONFIG = {
         },
         {
           name: "Birendra Behera", aff: "JNU New Delhi"
-        }
+        },
+        {
+          name: "Urvashi Yadav", aff: "JNU New Delhi"
+        },
       ]
     }
     // { group: "Invited Speakers", people: [
@@ -236,7 +239,7 @@ const CONFIG = {
     { ext: "doc", name: "Paper template (Word)", desc: "Two-column conference format", href: "assets/qcai_format.doc" },
     { ext: "zip", name: "Paper template (LaTeX)", desc: "Class file and example .tex", href: "assets/qcai-latex.zip" },
     // { ext: "pdf", name: "Copyright transfer form", desc: "Sign and upload with camera-ready paper", href: "downloads/QCAI2027-copyright.pdf" },
-    // { ext: "pptx", name: "Presentation template", desc: "16:9 slides for oral sessions", href: "downloads/QCAI2027-slides.pptx" },
+    { ext: "pptx", name: "Presentation template", desc: "16:9 slides for oral sessions", href: "assets/QCAI_Banner5.pptx" },
     // { ext: "pdf", name: "Poster guidelines", desc: "A0 portrait, layout tips", href: "downloads/QCAI2027-poster.pdf" },
     // { ext: "pdf", name: "Conference brochure", desc: "Overview to share", href: "downloads/QCAI2027-brochure.pdf" }
   ],
@@ -317,9 +320,7 @@ function renderTracks() {
 
 /* ---------- sponsors ---------- */
 function renderSponsors() {
-  $("#sponsors").innerHTML = CONFIG.sponsors.map((s) => `<div class="sponsor"><span class="role">${esc(s.role)}</span>
-    <div class="logo">${s.logo ? `<img src="${esc(s.logo)}" alt="${esc(s.name)} logo">` : `<span class="logo-ph">Logo</span>`}</div>
-    <span class="name">${esc(s.name)}</span></div>`).join("");
+  $("#sponsors").innerHTML = CONFIG.sponsors.map((s) => `${s.logo ? `<img src="${esc(s.logo)}" alt="${esc(s.name)} logo">` : `<span class="logo-ph">Logo</span>`}`).join("");
 }
 
 /* ---------- committee ---------- */

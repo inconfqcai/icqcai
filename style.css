@@ -4,6 +4,156 @@
    light "laboratory" hero and live Bloch sphere.
    ========================================================================== */
 
+
+/* Travel section */
+.travel-flow {
+  padding: 50px 8%;
+  background: #fff;
+  font-family: Arial, sans-serif;
+  color: #173653;
+}
+
+.travel-flow h2 {
+  font-size: 30px;
+  margin-bottom: 10px;
+  color: #0A3D62;
+}
+
+.section-desc {
+  color: #64748b;
+  margin-bottom: 25px;
+  line-height: 1.7;
+}
+
+/* Google Map */
+.venue-map {
+  width: 100%;
+  height: 350px;
+  overflow: hidden;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  margin-bottom: 12px;
+}
+
+.venue-map iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.map-link {
+  display: inline-block;
+  margin-bottom: 30px;
+  color: #087f8c;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.map-link:hover {
+  text-decoration: underline;
+}
+
+/* Travel routes */
+.route {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 22px;
+  margin-bottom: 16px;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  background: #fafcff;
+  transition: transform 0.25s, box-shadow 0.25s;
+}
+
+.route:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.06);
+}
+
+.route-icon {
+  width: 55px;
+  height: 55px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: #e6f4f7;
+  font-size: 25px;
+}
+
+.route-content {
+  min-width: 0;
+}
+
+.route-content h3 {
+  margin: 0 0 12px;
+  color: #0A3D62;
+  font-size: 19px;
+}
+
+.path {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  color: #475569;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.arrow {
+  color: #079eaa;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.destination {
+  color: #087f8c;
+  font-weight: 700;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .travel-flow {
+    padding: 35px 5%;
+  }
+
+  .travel-flow h2 {
+    font-size: 26px;
+  }
+
+  .venue-map {
+    height: 270px;
+  }
+
+  .route {
+    align-items: flex-start;
+    gap: 14px;
+    padding: 18px;
+  }
+
+  .route-icon {
+    width: 43px;
+    height: 43px;
+    font-size: 21px;
+  }
+
+  .path {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+  }
+
+  .arrow {
+    line-height: 1;
+    margin-left: 5px;
+    transform: rotate(90deg);
+  }
+}
+
 #speakersList {
   display: grid;
   grid-template-columns: repeat(auto-fit, maxmin(200px, 3fr));

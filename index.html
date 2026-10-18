@@ -390,30 +390,78 @@
 </section> -->
 
 <!-- ============ VENUE ============ -->
-<section class="page" id="venue" data-page="venue" data-nav="registration">
-  <div class="page-head wrap">
-    <p class="eyebrow">Attend</p>
-    <h1>Venue</h1>
+
+
+<section class="travel-flow" id="travel">
+
+  <h2>Venue</h2>
+  <p class="section-desc">
+    Find the venue location and explore convenient routes to SC&SS, JNU.
+  </p>
+
+  <!-- Google Map -->
+  <div class="venue-map">
+    <iframe
+      src="https://maps.google.com/maps?q=School%20of%20Computer%20and%20Systems%20Sciences%2C%20JNU%2C%20New%20Delhi&z=14&output=embed"
+      title="SC&SS JNU location map"
+      loading="lazy"
+      allowfullscreen>
+    </iframe>
   </div>
-  <div class="wrap block two-col">
-    <div class="prose">
-      <h2 data-cfg="venueName">Conference Hall, Institute Campus</h2>
-      <p class="mono" data-cfg="venueAddress">School of Computer and Systems Sciences, JNU, New Delhi, India</p>
-      <p><a class="btn btn-line" data-cfg-href="mapUrl" href="#" target="_blank" rel="noopener">Open in Google Maps</a></p>
-      <h2>Getting there</h2>
-      <ul class="clean">
-        <li><strong>By air</strong> — Indira Gandhi International Airport (DEL) is the main gateway and is well connected to major Indian and international cities.</li>
-        <li><strong>By rail</strong> — New Delhi Railway Station and Nizamuddin are key rail hubs with connections across India.</li>
-        <li><strong>In the city</strong> — Delhi Metro and app-based taxis are convenient options for travelling to JNU and the surrounding areas.</li>
-      </ul>
-      <h2>Weather</h2>
-      <p>March in New Delhi is usually mild and pleasant, typically 14–25 °C, with clear skies and comfortable daytime conditions for academic exchange and travel.</p>
+
+  <a
+    class="map-link"
+    href="https://www.google.com/maps/search/?api=1&query=School+of+Computer+and+Systems+Sciences+JNU+New+Delhi"
+    target="_blank"
+    rel="noopener noreferrer">
+    Open in Google Maps ↗
+  </a>
+
+  <!-- By Air -->
+  <div class="route">
+    <div class="route-icon">✈️</div>
+    <div class="route-content">
+      <h3>By Air</h3>
+      <div class="path">
+        <span>Indira Gandhi International Airport (DEL)</span>
+        <span class="arrow">→</span>
+        <span>Taxi / Metro</span>
+        <span class="arrow">→</span>
+        <span class="destination">SC&SS, JNU</span>
+      </div>
     </div>
-    <aside class="cta-card">
-      <h3>Accommodation</h3>
-      <p>A list of nearby hotels with conference rates will be shared with registered participants. Book early; March is a busy travel month in Delhi.</p>
-    </aside>
   </div>
+
+  <!-- By Train -->
+  <div class="route">
+    <div class="route-icon">🚆</div>
+    <div class="route-content">
+      <h3>By Train</h3>
+      <div class="path">
+        <span>Hazrat Nizamuddin Railway Station</span>
+        <span class="arrow">→</span>
+        <span>Taxi / Metro</span>
+        <span class="arrow">→</span>
+        <span class="destination">SC&SS, JNU</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- In the City -->
+  <div class="route">
+    <div class="route-icon">🚇</div>
+    <div class="route-content">
+      <h3>In the City</h3>
+      <div class="path">
+        <span>Delhi Metro / App-based Taxi</span>
+        <span class="arrow">→</span>
+        <span>JNU Main Gate</span>
+        <span class="arrow">→</span>
+        <span class="destination">SC&SS, JNU</span>
+      </div>
+    </div>
+  </div>
+
 </section>
 
 <!-- ============ PROGRAM ============ -->
@@ -430,13 +478,13 @@
 </section>
 
 <!-- ============ CONTACT ============ -->
-<section class="page" id="contact" data-page="contact">
+<!-- <section class="page" id="contact" data-page="contact">
   <div class="page-head wrap">
     <p class="eyebrow">Get in touch</p>
     <h1>Contacts</h1>
   </div>
   <div class="wrap block contact-grid" id="contactList"></div>
-</section>
+</section> -->
 
 <!-- Privacy / terms (simple pages) -->
 <section class="page legal" id="privacy" data-page="privacy" hidden>
@@ -458,7 +506,7 @@
 </main>
 
 <!-- ============ FOOTER ============ -->
-<footer class="site-footer">
+<footer class="site-footer" id="contact" data-page="contact">
   <div class="wrap footer-grid">
     <div>
       <p class="footer-name"><strong data-cfg="shortName">QCAI 2027</strong></p>
