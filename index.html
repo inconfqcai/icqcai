@@ -68,6 +68,51 @@
           <a class="btn btn-text" href="#cfp">Read the call for papers →</a>
         </div>
       </div>
+      <aside class="hero-globe" aria-hidden="true">
+        <div class="quantum-visual">
+          <span class="quantum-label">QUBIT STATE <span>/ |ψ⟩</span></span>
+          <svg class="bloch-sphere" viewBox="0 0 500 420" focusable="false">
+            <defs>
+              <radialGradient id="sphereFill" cx="34%" cy="28%" r="75%">
+                <stop offset="0" stop-color="#d9ffff" stop-opacity=".92"/>
+                <stop offset=".34" stop-color="#60d9e7" stop-opacity=".7"/>
+                <stop offset=".76" stop-color="#305cea" stop-opacity=".7"/>
+                <stop offset="1" stop-color="#18377f" stop-opacity=".92"/>
+              </radialGradient>
+              <radialGradient id="sphereGlow">
+                <stop offset="0" stop-color="#69e6ed" stop-opacity=".25"/>
+                <stop offset="1" stop-color="#69e6ed" stop-opacity="0"/>
+              </radialGradient>
+              <filter id="softGlow" x="-100%" y="-100%" width="300%" height="300%">
+                <feGaussianBlur stdDeviation="8"/>
+              </filter>
+            </defs>
+            <circle class="sphere-halo" cx="250" cy="210" r="178" fill="url(#sphereGlow)"/>
+            <g class="globe-orbit orbit-one">
+              <ellipse cx="250" cy="210" rx="202" ry="72" transform="rotate(-24 250 210)"/>
+              <circle cx="445" cy="127" r="5"/>
+            </g>
+            <g class="globe-orbit orbit-two">
+              <ellipse cx="250" cy="210" rx="196" ry="67" transform="rotate(34 250 210)"/>
+              <circle cx="70" cy="118" r="4"/>
+            </g>
+            <circle cx="250" cy="210" r="120" class="sphere-shadow" filter="url(#softGlow)"/>
+            <circle cx="250" cy="210" r="112" fill="url(#sphereFill)" class="sphere"/>
+            <g class="globe-meridians">
+              <ellipse cx="250" cy="210" rx="43" ry="112"/>
+              <ellipse cx="250" cy="210" rx="78" ry="112"/>
+              <path d="M142 174c62 23 154 23 216 0M142 246c62-23 154-23 216 0"/>
+            </g>
+            <path class="sphere-equator" d="M138 210c57-34 167-34 224 0-57 34-167 34-224 0Z"/>
+            <path class="state-vector" d="M250 210 305 112"/>
+            <circle class="vector-glow" cx="305" cy="112" r="12" filter="url(#softGlow)"/>
+            <circle class="vector-point" cx="305" cy="112" r="6"/>
+            <circle class="sphere-core" cx="250" cy="210" r="4"/>
+          </svg>
+          <span class="qubit-readout"><i></i> STATE VECTOR <strong>|ψ⟩</strong></span>
+          <span class="quantum-caption">SUPERPOSITION <b>·</b> ENTANGLEMENT <b>·</b> POSSIBILITY</span>
+        </div>
+      </aside>
     </div>
   </div>
 
