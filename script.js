@@ -329,41 +329,40 @@ function renderCommittee() {
     <ul class="people">${g.people.map((p) => `<li><div class="p-name">${esc(p.name)}</div><div class="p-aff">${esc(p.aff)}</div></li>`).join("")}</ul></div>`).join("");
 }
 
-/* ---------- speakers ---------- */
+/* ---------- speakers slider ---------- */
 
+const speakersData = CONFIG.speakers;
 
 function renderSpeakers() {
-  const initials = (name) =>
-    name
-      .replace(/^(Prof\.|Dr\.|Mr\.|Ms\.|Mrs\.)\s*/i, "")
-      .trim()
-      .split(/\s+/)
-      .map((w) => w[0])
-      .slice(0, 2)
-      .join("")
-      .toUpperCase();
+  const track = document.getElementById("speakersTrack");
+  if (!track) return;
 
-  $("#speakersList").innerHTML = CONFIG.speakers
-    .map(
-      (s) => `
-        <article class="speaker">
-          <div class="photo">
-            ${
-              s.photo
-                ? `<img src="${esc(s.photo)}"
-                    alt="${esc(s.name)}"
-                    loading="lazy">`
-                : esc(initials(s.name))
-            }
-          </div>
-          <div class="body">
-            <h3 class="s-name">${esc(s.name)}</h3>
-            <span class="s-aff">${esc(s.aff)}</span>
-          </div>
-        </article>
-      `
-    )
-    .join("");
+  const data = (typeof speakersData !== "undefined" && speakersData.length)
+    ? speakersData
+    : (CONFIG.speakers || []);
+
+  const makeCard = (item) => `
+    <article class="speaker-card">
+      <div class="photo">
+        ${
+          item.photo
+            ? `<img src="${esc(item.photo)}" alt="${esc(item.name)}" loading="lazy">`
+            : esc(item.name.slice(0, 2).toUpperCase())
+        }
+      </div>
+      <h3 class="s-name">${esc(item.name)}</h3>
+      <span class="s-aff">${esc(item.aff)}</span>
+    </article>
+  `;
+
+  const singleSet = data.map(makeCard).join("");
+
+  // Duplicate 4 times so translating -50% creates an infinite loop with zero jump
+  track.innerHTML = singleSet + singleSet + singleSet + singleSet;
+}
+
+function renderSlider() {
+  renderSpeakers();
 }
 // function renderInviteSpeakers() {
 //   $("#invitedSpeaker").innerHTML = CONFIG.InvitedSpeakers.map((g) => `<div class="committee-group"><h2>${esc(g.group)}</h2>

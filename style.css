@@ -154,47 +154,154 @@
   }
 }
 
-#speakersList {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, maxmin(200px, 3fr));
-  gap: 42px 28px;
-  padding-block: 30px;
+/* ========================================================
+   INFINITE SLIDING CAROUSEL WITH ENTRY/EXIT BLUR
+   ======================================================== */
+
+/* Centered Outer Wrapper with soft edge gradient mask */
+.speakers-slider-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 980px;
+  margin: 10px auto 40px;
+  overflow: hidden;
+  padding: 24px 0 36px;
+  
+  /* Keeps the middle 14% to 86% (~700px) crystal-clear so at least 2 full blocks are sharp */
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 14%,
+    black 86%,
+    transparent 100%
+  );
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 14%,
+    black 86%,
+    transparent 100%
+  );
 }
 
-.speaker {
+/* Exit Blur Effect (Left Edge) */
+.speakers-slider-wrapper::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: clamp(80px, 15vw, 140px);
+  z-index: 10;
+  pointer-events: none;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  background: linear-gradient(
+    to right,
+    var(--bg, #f6f8f7) 20%,
+    rgba(246, 248, 247, 0.6) 65%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(to right, black 25%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, black 25%, transparent 100%);
+}
+
+/* Entry Blur Effect (Right Edge) */
+.speakers-slider-wrapper::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: clamp(80px, 15vw, 140px);
+  z-index: 10;
+  pointer-events: none;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  background: linear-gradient(
+    to left,
+    var(--bg, #f6f8f7) 20%,
+    rgba(246, 248, 247, 0.6) 65%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(to left, black 25%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to left, black 25%, transparent 100%);
+}
+
+/* Moving Track with Continuous Linear Slide */
+.speakers-track {
+  display: flex;
+  width: max-content;
+  will-change: transform;
+  animation: slideSpeakersTrack 32s linear infinite;
+  align-items: stretch;
+}
+
+/* Pause slide animation on hover */
+.speakers-slider-wrapper:hover .speakers-track {
+  animation-play-state: paused;
+}
+
+/* Mathematically seamless infinite loop keyframe (-50% translation of 4 sets) */
+@keyframes slideSpeakersTrack {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Card Styling */
+.speaker-card {
+  flex: 0 0 280px;
+  width: 280px;
+  margin-right: 24px;
+  background: var(--surface, #ffffff);
+  border: 1px solid var(--line, #d5dfdc);
+  border-radius: 18px;
+  padding: 30px 20px 26px;
   text-align: center;
-  background: transparent;
-  border: none;
-  box-shadow: none;
-  padding: 0 12px;
-  /* width: 20vw; */
+  box-shadow: 0 4px 18px -4px rgba(23, 36, 47, 0.07);
+  transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1),
+              box-shadow 0.35s ease,
+              border-color 0.35s ease;
+  user-select: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.speaker .photo {
-  width: 145px;
-  height: 145px;
+.speaker-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  border-color: #07a698;
+  box-shadow: 0 16px 36px -8px rgba(7, 166, 152, 0.25);
+}
+
+.speaker-card .photo {
+  width: 135px;
+  height: 135px;
   margin: 0 auto 18px;
   border-radius: 50%;
   overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
-
   background: #e8f7f6;
   color: #079b90;
-  font-size: 34px;
+  font-size: 28px;
   font-weight: 600;
-
   border: 3px solid #07a698;
-  transition: transform 0.3s ease;
-    margin-top: 4vh;
+  box-shadow: 0 4px 14px -2px rgba(7, 166, 152, 0.25);
+  transition: transform 0.35s ease;
+  flex-shrink: 0;
 }
 
-.speaker:hover .photo {
-  transform: scale(1.05);
+.speaker-card:hover .photo {
+  transform: scale(1.06);
 }
 
-.speaker .photo img {
+.speaker-card .photo img {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -202,43 +309,67 @@
   display: block;
 }
 
-.speaker .body {
-  background: transparent;
-}
-
-.speaker .s-name {
+.speaker-card .s-name {
   margin: 0 0 8px;
-  color: inherit;
-  font-size: 18px;
-  line-height: 1.4;
-  font-weight: 650;
+  color: var(--fg, #17242f);
+  font-family: var(--f-display, system-ui);
+  font-size: 1.12rem;
+  font-weight: 700;
+  line-height: 1.35;
 }
 
-.speaker .s-aff {
+.speaker-card .s-aff {
   display: block;
-  color: #07a698;
-  font-size: 14px;
-  line-height: 1.6;
-  font-weight: 400;
+  color: var(--muted, #566673);
+  font-family: var(--f-body, system-ui);
+  font-size: 0.9rem;
+  line-height: 1.5;
+  font-weight: 450;
 }
 
-@media (max-width: 600px) {
-  #speakersList {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 32px 12px;
+/* Accessibility: User prefers reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .speakers-track {
+    animation: none;
+    overflow-x: auto;
+    width: 100%;
+    justify-content: flex-start;
   }
+  .speakers-slider-wrapper {
+    mask-image: none;
+    -webkit-mask-image: none;
+  }
+  .speakers-slider-wrapper::before,
+  .speakers-slider-wrapper::after {
+    display: none;
+  }
+}
 
-  .speaker .photo {
+/* Mobile Screens */
+@media (max-width: 600px) {
+  .speakers-slider-wrapper {
+    padding: 16px 0 28px;
+  }
+  .speaker-card {
+    flex: 0 0 240px;
+    width: 240px;
+    margin-right: 18px;
+    padding: 24px 16px 20px;
+  }
+  .speaker-card .photo {
     width: 115px;
     height: 115px;
+    margin-bottom: 14px;
   }
-
-  .speaker .s-name {
-    font-size: 16px;
+  .speaker-card .s-name {
+    font-size: 1rem;
   }
-
-  .speaker .s-aff {
-    font-size: 12px;
+  .speaker-card .s-aff {
+    font-size: 0.82rem;
+  }
+  .speakers-slider-wrapper::before,
+  .speakers-slider-wrapper::after {
+    width: 70px;
   }
 }
 
