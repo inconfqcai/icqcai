@@ -54,68 +54,348 @@
   text-decoration: underline;
 }
 
-/* Travel routes */
-.route {
+/* ========================================================
+   HOW TO REACH / TRAVEL SECTION (MATCHING IMAGE SPEC)
+   ======================================================== */
+
+.reach-card {
+  background: #ffffff;
+  border: 1px solid #d5dfdc;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px -4px rgba(23, 36, 47, 0.06);
+  margin-top: 10px;
+}
+
+/* Tabs */
+.reach-tabs {
+  display: flex;
+  flex-direction: column;
+  border-bottom: 1px solid #e2f0ed;
+}
+
+.reach-tab {
   display: flex;
   align-items: center;
-  gap: 20px;
-  padding: 22px;
-  margin-bottom: 16px;
-  border: 1px solid #e2e8f0;
-  border-radius: 12px;
-  background: #fafcff;
-  transition: transform 0.25s, box-shadow 0.25s;
+  gap: 14px;
+  padding: 15px 22px;
+  width: 100%;
+  border: none;
+  background: #f0faf8;
+  color: #17242f;
+  font-family: inherit;
+  font-size: 15.5px;
+  font-weight: 600;
+  cursor: pointer;
+  text-align: left;
+  position: relative;
+  transition: background 0.2s ease, color 0.2s ease;
+  border-bottom: 1px solid #e2f0ed;
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
 }
 
-.route:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.06);
+.reach-tab * {
+  pointer-events: none;
 }
 
-.route-icon {
-  width: 55px;
-  height: 55px;
-  flex-shrink: 0;
+.reach-tab:last-child {
+  border-bottom: none;
+}
+
+.reach-tab.is-active {
+  background: #ffffff;
+  color: #0f172a;
+}
+
+.reach-tab.is-active::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: #07a698;
+}
+
+.reach-tab:hover:not(.is-active) {
+  background: #e5f6f3;
+}
+
+.reach-tab-icon {
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 50%;
-  background: #e6f4f7;
-  font-size: 25px;
+  width: 24px;
+  height: 24px;
+  color: #079b90;
+  flex-shrink: 0;
 }
 
-.route-content {
-  min-width: 0;
+.reach-tab.is-active .reach-tab-icon {
+  color: #0a3d62;
 }
 
-.route-content h3 {
-  margin: 0 0 12px;
-  color: #0A3D62;
-  font-size: 19px;
+.reach-tab-title {
+  font-weight: 650;
+  font-size: 15.5px;
 }
 
-.path {
+/* Active Panel */
+.reach-panel {
+  display: block;
+  padding: 26px 28px 28px;
+  animation: reachFadeIn 0.25s ease;
+}
+
+.reach-panel[hidden],
+.reach-panel.is-hidden {
+  display: none !important;
+}
+
+@keyframes reachFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.reach-panel-header {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   flex-wrap: wrap;
-  gap: 10px;
-  color: #475569;
-  font-size: 14px;
-  line-height: 1.6;
+  gap: 16px;
+  margin-bottom: 22px;
 }
 
-.arrow {
-  color: #079eaa;
+.reach-header-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.reach-icon-box {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  background: #e6f7f5;
+  color: #07a698;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.reach-header-text h3 {
+  margin: 0 0 4px;
   font-size: 20px;
-  font-weight: bold;
-}
-
-.destination {
-  color: #087f8c;
   font-weight: 700;
+  color: #17242f;
+  line-height: 1.25;
 }
 
-/* Mobile responsive */
+.reach-header-text p {
+  margin: 0;
+  font-size: 13.5px;
+  color: #64748b;
+  font-weight: 500;
+}
+
+.reach-header-badges {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.reach-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1;
+}
+
+.reach-badge-time {
+  background: #e6f7f5;
+  color: #079b90;
+  border: 1px solid rgba(7, 166, 152, 0.28);
+}
+
+.reach-badge-route {
+  background: #eef2ff;
+  color: #4338ca;
+  border: 1px solid rgba(67, 56, 202, 0.2);
+}
+
+.reach-divider {
+  height: 1px;
+  background: #edf2f7;
+  margin: 0 0 28px;
+  border: none;
+}
+
+/* Steps Timeline Flow */
+.reach-timeline {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 10px 0 24px;
+  position: relative;
+}
+
+.reach-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  flex: 1;
+  max-width: 210px;
+}
+
+.reach-step-icon {
+  width: 26px;
+  height: 26px;
+  border: 2.5px solid #17242f;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #ffffff;
+  margin-bottom: 12px;
+  box-sizing: border-box;
+}
+
+.reach-step-icon .dot {
+  width: 7px;
+  height: 7px;
+  background: #17242f;
+  border-radius: 50%;
+}
+
+.reach-step-landmark .reach-step-icon {
+  border-color: #07a698;
+}
+
+.reach-step-landmark .reach-step-icon .dot {
+  background: #07a698;
+}
+
+/* Destination Venue Step with concentric circle highlight */
+.reach-step-venue .reach-step-icon-wrap {
+  width: 42px;
+  height: 42px;
+  background: #cbf0ec;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 4px;
+}
+
+.reach-step-venue .reach-step-icon {
+  width: 22px;
+  height: 22px;
+  border-color: #07a698;
+  margin-bottom: 0;
+}
+
+.reach-step-venue .reach-step-icon .dot {
+  background: #07a698;
+}
+
+.reach-step-name {
+  font-size: 14.5px;
+  font-weight: 700;
+  color: #17242f;
+  margin: 0 0 4px;
+  line-height: 1.35;
+}
+
+.reach-step-tag {
+  display: block;
+  font-size: 11px;
+  font-weight: 700;
+  color: #64748b;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.reach-step-venue .reach-step-tag {
+  color: #07a698;
+  font-weight: 800;
+}
+
+/* Connectors */
+.reach-connector {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 0.8;
+  padding: 0 10px;
+  margin-top: -24px;
+}
+
+.reach-distance {
+  font-size: 12px;
+  font-weight: 600;
+  color: #475569;
+  margin-bottom: 4px;
+}
+
+.reach-arrow-line {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: 90px;
+}
+
+.reach-arrow-line svg {
+  width: 100%;
+  height: 12px;
+}
+
+/* Bottom TIP Banner */
+.reach-tip {
+  background: #eef9f8;
+  border-radius: 12px;
+  padding: 13px 18px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 26px;
+}
+
+.reach-tip-badge {
+  background: #07a698;
+  color: #ffffff;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  padding: 3px 8px;
+  border-radius: 5px;
+  flex-shrink: 0;
+}
+
+.reach-tip-text {
+  margin: 0;
+  font-size: 13.5px;
+  color: #334155;
+  font-weight: 500;
+  line-height: 1.45;
+}
+
+/* Responsive adjustments */
 @media (max-width: 768px) {
   .travel-flow {
     padding: 35px 5%;
@@ -129,28 +409,58 @@
     height: 270px;
   }
 
-  .route {
-    align-items: flex-start;
-    gap: 14px;
-    padding: 18px;
+  .reach-panel {
+    padding: 20px 16px 22px;
   }
 
-  .route-icon {
-    width: 43px;
-    height: 43px;
-    font-size: 21px;
-  }
-
-  .path {
+  .reach-panel-header {
     flex-direction: column;
     align-items: flex-start;
-    gap: 5px;
+    gap: 14px;
   }
 
-  .arrow {
-    line-height: 1;
-    margin-left: 5px;
+  .reach-timeline {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    margin: 16px 0;
+    padding-left: 8px;
+  }
+
+  .reach-step {
+    flex-direction: row;
+    align-items: center;
+    text-align: left;
+    max-width: 100%;
+    gap: 14px;
+  }
+
+  .reach-step-icon {
+    margin-bottom: 0;
+    flex-shrink: 0;
+  }
+
+  .reach-step-venue .reach-step-icon-wrap {
+    margin-bottom: 0;
+    flex-shrink: 0;
+  }
+
+  .reach-connector {
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    padding-left: 8px;
+    margin-top: 0;
+    gap: 10px;
+  }
+
+  .reach-arrow-line {
+    width: 24px;
     transform: rotate(90deg);
+  }
+
+  .reach-distance {
+    margin-bottom: 0;
   }
 }
 

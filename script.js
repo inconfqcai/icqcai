@@ -493,6 +493,38 @@ function initUI() {
   const copyEmail = $("#copyEmail");
   if (copyEmail) copyEmail.addEventListener("click", (e) => copyText(CONFIG.email, e.currentTarget));
 
+  // Reach tabs interactive switcher
+  window.selectReachTab = function(targetId) {
+    const card = $(".reach-card");
+    if (!card) return;
+    $$(".reach-tab", card).forEach((t) => {
+      const active = t.dataset.reachTab === targetId;
+      t.classList.toggle("is-active", active);
+      t.setAttribute("aria-selected", String(active));
+    });
+    $$(".reach-panel", card).forEach((panel) => {
+      const match = panel.id === `panel-${targetId}`;
+      if (match) {
+        panel.removeAttribute("hidden");
+        panel.classList.remove("is-hidden");
+        panel.style.display = "block";
+      } else {
+        panel.setAttribute("hidden", "");
+        panel.classList.add("is-hidden");
+        panel.style.display = "none";
+      }
+    });
+  };
+
+  const reachCard = $(".reach-card");
+  if (reachCard) {
+    reachCard.addEventListener("click", (e) => {
+      const tab = e.target.closest(".reach-tab");
+      if (!tab) return;
+      window.selectReachTab(tab.dataset.reachTab);
+    });
+  }
+
   if (!store.get("qcai-consent")) $("#consent").hidden = false;
   $("#consentOk").addEventListener("click", () => { store.set("qcai-consent", "1"); $("#consent").hidden = true; });
 

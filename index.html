@@ -466,50 +466,354 @@
     Open in Google Maps ↗
   </a>
 
-  <!-- By Air -->
-  <div class="route">
-    <div class="route-icon">✈️</div>
-    <div class="route-content">
-      <h3>By Air</h3>
-      <div class="path">
-        <span>Indira Gandhi International Airport (DEL)</span>
-        <span class="arrow">→</span>
-        <span>Taxi / Metro</span>
-        <span class="arrow">→</span>
-        <span class="destination">SC&SS, JNU</span>
+  <!-- How to Reach Component -->
+  <div class="reach-card">
+    <!-- Route Selection Tabs -->
+    <div class="reach-tabs" role="tablist" aria-label="How to reach routes">
+      <button class="reach-tab is-active" type="button" role="tab" id="tab-airport" aria-selected="true" aria-controls="panel-airport" data-reach-tab="airport" onclick="selectReachTab('airport')">
+        <span class="reach-tab-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.3c.4-.2.6-.6.5-1.1z"/>
+          </svg>
+        </span>
+        <span class="reach-tab-title">From IGI Airport</span>
+      </button>
+
+      <button class="reach-tab" type="button" role="tab" id="tab-railway" aria-selected="false" aria-controls="panel-railway" data-reach-tab="railway" onclick="selectReachTab('railway')">
+        <span class="reach-tab-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect width="16" height="16" x="4" y="3" rx="2"/>
+            <path d="M4 11h16"/>
+            <path d="M12 3v8"/>
+            <path d="m8 19-2 3"/>
+            <path d="m16 19 2 3"/>
+            <circle cx="8" cy="15" r="1"/>
+            <circle cx="16" cy="15" r="1"/>
+          </svg>
+        </span>
+        <span class="reach-tab-title">From Railway Station</span>
+      </button>
+
+      <button class="reach-tab" type="button" role="tab" id="tab-metro" aria-selected="false" aria-controls="panel-metro" data-reach-tab="metro" onclick="selectReachTab('metro')">
+        <span class="reach-tab-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect width="16" height="16" x="4" y="3" rx="2"/>
+            <path d="M4 11h16"/>
+            <circle cx="8" cy="15" r="1"/>
+            <circle cx="16" cy="15" r="1"/>
+            <path d="M9 19l-3 3"/>
+            <path d="M15 19l3 3"/>
+          </svg>
+        </span>
+        <span class="reach-tab-title">By Delhi Metro</span>
+      </button>
+    </div>
+
+    <!-- Active Details: Panel 1 - From IGI Airport -->
+    <div class="reach-panel" id="panel-airport" role="tabpanel" aria-labelledby="tab-airport">
+      <div class="reach-panel-header">
+        <div class="reach-header-left">
+          <div class="reach-icon-box" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.3c.4-.2.6-.6.5-1.1z"/>
+            </svg>
+          </div>
+          <div class="reach-header-text">
+            <h3>From IGI Airport</h3>
+            <p>Terminal 1, 2 &amp; 3 • via Outer Ring Road</p>
+          </div>
+        </div>
+        <div class="reach-header-badges">
+          <span class="reach-badge reach-badge-time">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+            </svg>
+            ~25-35 min
+          </span>
+          <span class="reach-badge reach-badge-route">Airport → JNU</span>
+        </div>
+      </div>
+
+      <div class="reach-divider"></div>
+
+      <!-- Steps Timeline Flow -->
+      <div class="reach-timeline">
+        <!-- Step 1: Origin -->
+        <div class="reach-step reach-step-start">
+          <div class="reach-step-icon" aria-hidden="true">
+            <span class="dot"></span>
+          </div>
+          <div class="reach-step-info">
+            <h4 class="reach-step-name">Indira Gandhi Int'l Airport</h4>
+            <span class="reach-step-tag">STARTING POINT</span>
+          </div>
+        </div>
+
+        <!-- Connector 1 -->
+        <div class="reach-connector" aria-hidden="true">
+          <span class="reach-distance">~8-10 km</span>
+          <div class="reach-arrow-line">
+            <svg viewBox="0 0 80 12" preserveAspectRatio="none">
+              <line x1="0" y1="6" x2="70" y2="6" stroke="#94a3b8" stroke-width="1.8"/>
+              <polygon points="68,2 78,6 68,10" fill="#94a3b8"/>
+            </svg>
+          </div>
+        </div>
+
+        <!-- Step 2: Landmark -->
+        <div class="reach-step reach-step-landmark">
+          <div class="reach-step-icon" aria-hidden="true">
+            <span class="dot"></span>
+          </div>
+          <div class="reach-step-info">
+            <h4 class="reach-step-name">Vasant Vihar</h4>
+            <span class="reach-step-tag">MAJOR LANDMARK</span>
+          </div>
+        </div>
+
+        <!-- Connector 2 -->
+        <div class="reach-connector" aria-hidden="true">
+          <span class="reach-distance">~4-5 km</span>
+          <div class="reach-arrow-line">
+            <svg viewBox="0 0 80 12" preserveAspectRatio="none">
+              <line x1="0" y1="6" x2="70" y2="6" stroke="#94a3b8" stroke-width="1.8"/>
+              <polygon points="68,2 78,6 68,10" fill="#94a3b8"/>
+            </svg>
+          </div>
+        </div>
+
+        <!-- Step 3: Venue -->
+        <div class="reach-step reach-step-venue">
+          <div class="reach-step-icon-wrap" aria-hidden="true">
+            <div class="reach-step-icon">
+              <span class="dot"></span>
+            </div>
+          </div>
+          <div class="reach-step-info">
+            <h4 class="reach-step-name">JNU Convention Centre</h4>
+            <span class="reach-step-tag">CONFERENCE VENUE</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- TIP Banner -->
+      <div class="reach-tip">
+        <span class="reach-tip-badge">TIP</span>
+        <p class="reach-tip-text">Prepaid taxi counters operate 24/7 directly outside all arrival terminals.</p>
+      </div>
+    </div>
+
+    <!-- Panel 2: Railway Station -->
+    <div class="reach-panel" id="panel-railway" role="tabpanel" aria-labelledby="tab-railway" hidden>
+      <div class="reach-panel-header">
+        <div class="reach-header-left">
+          <div class="reach-icon-box" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect width="16" height="16" x="4" y="3" rx="2"/>
+              <path d="M4 11h16"/>
+              <path d="M12 3v8"/>
+              <path d="m8 19-2 3"/>
+              <path d="m16 19 2 3"/>
+              <circle cx="8" cy="15" r="1"/>
+              <circle cx="16" cy="15" r="1"/>
+            </svg>
+          </div>
+          <div class="reach-header-text">
+            <h3>From Railway Station</h3>
+            <p>New Delhi (NDLS) &amp; Hazrat Nizamuddin (NZM) • via Ring Road</p>
+          </div>
+        </div>
+        <div class="reach-header-badges">
+          <span class="reach-badge reach-badge-time">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+            </svg>
+            ~40-50 min
+          </span>
+          <span class="reach-badge reach-badge-route">Station → JNU</span>
+        </div>
+      </div>
+
+      <div class="reach-divider"></div>
+
+      <div class="reach-timeline">
+        <div class="reach-step reach-step-start">
+          <div class="reach-step-icon" aria-hidden="true">
+            <span class="dot"></span>
+          </div>
+          <div class="reach-step-info">
+            <h4 class="reach-step-name">New Delhi / Nizamuddin Rly Stn</h4>
+            <span class="reach-step-tag">STARTING POINT</span>
+          </div>
+        </div>
+
+        <div class="reach-connector" aria-hidden="true">
+          <span class="reach-distance">~12-14 km</span>
+          <div class="reach-arrow-line">
+            <svg viewBox="0 0 80 12" preserveAspectRatio="none">
+              <line x1="0" y1="6" x2="70" y2="6" stroke="#94a3b8" stroke-width="1.8"/>
+              <polygon points="68,2 78,6 68,10" fill="#94a3b8"/>
+            </svg>
+          </div>
+        </div>
+
+        <div class="reach-step reach-step-landmark">
+          <div class="reach-step-icon" aria-hidden="true">
+            <span class="dot"></span>
+          </div>
+          <div class="reach-step-info">
+            <h4 class="reach-step-name">AIIMS / Dhaula Kuan</h4>
+            <span class="reach-step-tag">MAJOR INTERSECTION</span>
+          </div>
+        </div>
+
+        <div class="reach-connector" aria-hidden="true">
+          <span class="reach-distance">~5-6 km</span>
+          <div class="reach-arrow-line">
+            <svg viewBox="0 0 80 12" preserveAspectRatio="none">
+              <line x1="0" y1="6" x2="70" y2="6" stroke="#94a3b8" stroke-width="1.8"/>
+              <polygon points="68,2 78,6 68,10" fill="#94a3b8"/>
+            </svg>
+          </div>
+        </div>
+
+        <div class="reach-step reach-step-venue">
+          <div class="reach-step-icon-wrap" aria-hidden="true">
+            <div class="reach-step-icon">
+              <span class="dot"></span>
+            </div>
+          </div>
+          <div class="reach-step-info">
+            <h4 class="reach-step-name">JNU Convention Centre</h4>
+            <span class="reach-step-tag">CONFERENCE VENUE</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="reach-tip">
+        <span class="reach-tip-badge">TIP</span>
+        <p class="reach-tip-text">Prepaid auto and taxi booths are available near the station exits. App-based cabs (Uber/Ola) operate seamlessly.</p>
+      </div>
+    </div>
+
+    <!-- Panel 3: Delhi Metro -->
+    <div class="reach-panel" id="panel-metro" role="tabpanel" aria-labelledby="tab-metro" hidden>
+      <div class="reach-panel-header">
+        <div class="reach-header-left">
+          <div class="reach-icon-box" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect width="16" height="16" x="4" y="3" rx="2"/>
+              <path d="M4 11h16"/>
+              <circle cx="8" cy="15" r="1"/>
+              <circle cx="16" cy="15" r="1"/>
+              <path d="M9 19l-3 3"/>
+              <path d="M15 19l3 3"/>
+            </svg>
+          </div>
+          <div class="reach-header-text">
+            <h3>By Delhi Metro</h3>
+            <p>Magenta Line &amp; Yellow Line • Nearest Station: Munirka / Hauz Khas</p>
+          </div>
+        </div>
+        <div class="reach-header-badges">
+          <span class="reach-badge reach-badge-time">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+            </svg>
+            ~15-20 min
+          </span>
+          <span class="reach-badge reach-badge-route">Metro → JNU</span>
+        </div>
+      </div>
+
+      <div class="reach-divider"></div>
+
+      <div class="reach-timeline">
+        <div class="reach-step reach-step-start">
+          <div class="reach-step-icon" aria-hidden="true">
+            <span class="dot"></span>
+          </div>
+          <div class="reach-step-info">
+            <h4 class="reach-step-name">Munirka Metro Station</h4>
+            <span class="reach-step-tag">MAGENTA LINE (NEAREST)</span>
+          </div>
+        </div>
+
+        <div class="reach-connector" aria-hidden="true">
+          <span class="reach-distance">~2.5 km</span>
+          <div class="reach-arrow-line">
+            <svg viewBox="0 0 80 12" preserveAspectRatio="none">
+              <line x1="0" y1="6" x2="70" y2="6" stroke="#94a3b8" stroke-width="1.8"/>
+              <polygon points="68,2 78,6 68,10" fill="#94a3b8"/>
+            </svg>
+          </div>
+        </div>
+
+        <div class="reach-step reach-step-landmark">
+          <div class="reach-step-icon" aria-hidden="true">
+            <span class="dot"></span>
+          </div>
+          <div class="reach-step-info">
+            <h4 class="reach-step-name">JNU North Gate</h4>
+            <span class="reach-step-tag">CAMPUS ENTRY</span>
+          </div>
+        </div>
+
+        <div class="reach-connector" aria-hidden="true">
+          <span class="reach-distance">~1 km</span>
+          <div class="reach-arrow-line">
+            <svg viewBox="0 0 80 12" preserveAspectRatio="none">
+              <line x1="0" y1="6" x2="70" y2="6" stroke="#94a3b8" stroke-width="1.8"/>
+              <polygon points="68,2 78,6 68,10" fill="#94a3b8"/>
+            </svg>
+          </div>
+        </div>
+
+        <div class="reach-step reach-step-venue">
+          <div class="reach-step-icon-wrap" aria-hidden="true">
+            <div class="reach-step-icon">
+              <span class="dot"></span>
+            </div>
+          </div>
+          <div class="reach-step-info">
+            <h4 class="reach-step-name">JNU Convention Centre</h4>
+            <span class="reach-step-tag">CONFERENCE VENUE</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="reach-tip">
+        <span class="reach-tip-badge">TIP</span>
+        <p class="reach-tip-text">From Munirka or Hauz Khas Metro Station, frequent auto-rickshaws, e-rickshaws, and campus shuttle services are readily available.</p>
       </div>
     </div>
   </div>
 
-  <!-- By Train -->
-  <div class="route">
-    <div class="route-icon">🚆</div>
-    <div class="route-content">
-      <h3>By Train</h3>
-      <div class="path">
-        <span>Hazrat Nizamuddin Railway Station</span>
-        <span class="arrow">→</span>
-        <span>Taxi / Metro</span>
-        <span class="arrow">→</span>
-        <span class="destination">SC&SS, JNU</span>
-      </div>
-    </div>
-  </div>
-
-  <!-- In the City -->
-  <div class="route">
-    <div class="route-icon">🚇</div>
-    <div class="route-content">
-      <h3>In the City</h3>
-      <div class="path">
-        <span>Delhi Metro / App-based Taxi</span>
-        <span class="arrow">→</span>
-        <span>JNU Main Gate</span>
-        <span class="arrow">→</span>
-        <span class="destination">SC&SS, JNU</span>
-      </div>
-    </div>
-  </div>
+  <script>
+    function selectReachTab(targetId) {
+      const card = document.querySelector('.reach-card');
+      if (!card) return;
+      const tabs = card.querySelectorAll('.reach-tab');
+      const panels = card.querySelectorAll('.reach-panel');
+      tabs.forEach(function(t) {
+        const active = t.dataset.reachTab === targetId;
+        t.classList.toggle('is-active', active);
+        t.setAttribute('aria-selected', String(active));
+      });
+      panels.forEach(function(p) {
+        const match = p.id === 'panel-' + targetId;
+        if (match) {
+          p.removeAttribute('hidden');
+          p.classList.remove('is-hidden');
+          p.style.display = 'block';
+        } else {
+          p.setAttribute('hidden', '');
+          p.classList.add('is-hidden');
+          p.style.display = 'none';
+        }
+      });
+    }
+  </script>
 
 </section>
 
