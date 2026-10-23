@@ -402,7 +402,9 @@ function renderDownloads() {
     <span class="arrow" aria-hidden="true">↓</span></a></li>`).join("");
 }
 function renderContacts() {
-  $("#contactList").innerHTML = CONFIG.contacts.map((c, i) => `<div class="contact-card"><span class="c-role">${esc(c.role)}</span>
+  const contactList = $("#contactList");
+  if (!contactList) return;
+  contactList.innerHTML = CONFIG.contacts.map((c, i) => `<div class="contact-card"><span class="c-role">${esc(c.role)}</span>
     <strong>${esc(c.name)}</strong><span class="c-val" id="contact-${i}">${esc(c.value)}</span>
     <button class="btn btn-small" type="button" data-copy="${esc(c.value)}">Copy</button></div>`).join("");
 }
