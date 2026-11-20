@@ -1,5 +1,5 @@
 /* ==========================================================================
-   QCAI 2027 — site script
+   QCAI 2028 — site script
    --------------------------------------------------------------------------
    EDIT THIS CONFIG BLOCK to update the site. Everything below it (dates,
    fees, committee, speakers, program, downloads, Google Form links) is
@@ -7,11 +7,11 @@
    ========================================================================== */
 
 const CONFIG = {
-  shortName: "QCAI 2027",
+  shortName: "QCAI 2028",
   fullName: "1st International Conference on Quantum Computing and Artificial Intelligence",
   edition: "1st International Conference on",
   city: "New Delhi, India",
-  datesLabel: "12–14 March 2027",
+  datesLabel: "10–12 March 2028",
   format: "In person, with online presentation option",
   email: "inconfqcai@gmail.com",
 
@@ -27,14 +27,14 @@ const CONFIG = {
 
   // ---- IMPORTANT DATES (YYYY-MM-DD) ----
   importantDates: [
-    { label: "Call for papers", date: "2026-12-10" },
-    { label: "Last date for paper submission", date: "2027-01-10" },
-    { label: "Notification of acceptance", date: "2027-02-10" },
-    { label: "Camera Ready", date: "2027-02-15" },
-    { label: "Final registration deadline", date: "2027-02-20" },
-    // { label: "Conference", date: "2027-03-21", end: "2027-03-22", event: true }
+    { label: "Call for papers", date: "2027-12-10" },
+    { label: "Last date for paper submission", date: "2028-01-10" },
+    { label: "Notification of acceptance", date: "2028-02-10" },
+    { label: "Camera Ready", date: "2028-02-15" },
+    { label: "Final registration deadline", date: "2028-02-20" },
+    // { label: "Conference", date: "2028-03-21", end: "2028-03-22", event: true }
   ],
-  earlyBirdLabel: "15 February 2027",
+  earlyBirdLabel: "15 February 2028",
 
   // ---- TOPICS / TRACKS ----
   tracks: [
@@ -191,7 +191,7 @@ const CONFIG = {
 
   // ---- PAYMENT DETAILS (shown on the registration page) ----
   bank: [
-    ["Account name", "IIT (ISM) Dhanbad — QCAI 2027"],
+    ["Account name", "IIT (ISM) Dhanbad — QCAI 2028"],
     ["Bank", "State Bank of India, Dhanbad"],
     ["Account no.", "XXXXXXXXXXXX"],
     ["IFSC", "XXXX0000000"],
@@ -200,7 +200,7 @@ const CONFIG = {
 
   // ---- PROGRAM ----
   program: [
-    { day: "Day 1", date: "Fri, 12 Mar", items: [
+    { day: "Day 1", date: "Fri, 10 Mar", items: [
       ["09:30 – 10:00", "Welcome and Opening Remarks", "Inauguration"],
       ["10:00 – 11:00", "Invited Expert Talk", "keynote I"],
       ["11:15 – 12:15", "Invited Expert Talk", "Keynote II"],
@@ -209,7 +209,7 @@ const CONFIG = {
       ["15:45 – 16:45", "Quantum Computing Fundamentals and Applications", "Expert Talk"],
       ["16:45 – 17:30", "Future of Quantum Computing", "Panel Discussion"]
     ]},
-    { day: "Day 2", date: "Sat, 13 Mar", items: [
+    { day: "Day 2", date: "Sat, 11 Mar", items: [
       ["09:30 – 10:00", "Welcome and Recap of Day 1", "Welcome"],
       ["10:00 – 11:00", "Invited Expert Talk on Quantum Machine Learning", "keynote I"],
       ["11:15 – 12:15", "Invited Expert Talk on Quantum AI", "Keynote II"],
@@ -218,7 +218,7 @@ const CONFIG = {
       ["15:45 – 16:45", "Quantum ML Algorithm and Applications", "Expert Talk"],
       ["16:45 – 17:30", "Quantum AI: Opportunitics and Challenges", "Panel Discussion"]
     ]},
-    { day: "Day 3", date: "Sun, 14 Mar", items: [
+    { day: "Day 3", date: "Sun, 12 Mar", items: [
       ["09:30 – 10:00", "Welcome and Recap of Day 2", "Welcome"],
       ["10:00 – 11:00", "Invited Expert Talk on Quantum Networking", "keynote I"],
       ["11:15 – 12:15", "Invited Expert Talk on Quantum-Safe Security", "Keynote II"],
@@ -238,10 +238,10 @@ const CONFIG = {
   downloads: [
     { ext: "doc", name: "Paper template (Word)", desc: "Two-column conference format", href: "assets/qcai_format.doc" },
     { ext: "zip", name: "Paper template (LaTeX)", desc: "Class file and example .tex", href: "assets/qcai-latex.zip" },
-    // { ext: "pdf", name: "Copyright transfer form", desc: "Sign and upload with camera-ready paper", href: "downloads/QCAI2027-copyright.pdf" },
+    // { ext: "pdf", name: "Copyright transfer form", desc: "Sign and upload with camera-ready paper", href: "downloads/QCAI2028-copyright.pdf" },
     { ext: "pptx", name: "Presentation template", desc: "16:9 slides for oral sessions", href: "assets/QCAI_Banner5.pptx" },
-    // { ext: "pdf", name: "Poster guidelines", desc: "A0 portrait, layout tips", href: "downloads/QCAI2027-poster.pdf" },
-    // { ext: "pdf", name: "Conference brochure", desc: "Overview to share", href: "downloads/QCAI2027-brochure.pdf" }
+    // { ext: "pdf", name: "Poster guidelines", desc: "A0 portrait, layout tips", href: "downloads/QCAI2028-poster.pdf" },
+    // { ext: "pdf", name: "Conference brochure", desc: "Overview to share", href: "downloads/QCAI2028-brochure.pdf" }
   ],
 
   // ---- CONTACTS ----
